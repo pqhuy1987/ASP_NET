@@ -13,6 +13,7 @@ namespace ShopOnline.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.WelcomeString = "Chào mừng bạn đến ViewBag";
             return View();
         }
 
