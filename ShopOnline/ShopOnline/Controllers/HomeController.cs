@@ -13,8 +13,9 @@ namespace ShopOnline.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.WelcomeString = "Chào mừng bạn đến ViewBag";
-            return View();
+            var message = new ShopOnline.Models.MesssageModel();
+            message.Welcome = "Chào mừng đến với Models";
+            return View(message);
         }
 
     }
