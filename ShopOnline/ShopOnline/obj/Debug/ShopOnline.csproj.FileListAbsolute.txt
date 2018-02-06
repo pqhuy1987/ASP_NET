@@ -23,6 +23,5 @@ D:\Project\OnlineShop\ShopOnline\ShopOnline\bin\System.Web.Razor.xml
 D:\Project\OnlineShop\ShopOnline\ShopOnline\bin\System.Web.WebPages.xml
 D:\Project\OnlineShop\ShopOnline\ShopOnline\bin\System.Web.WebPages.Deployment.xml
 D:\Project\OnlineShop\ShopOnline\ShopOnline\bin\System.Web.WebPages.Razor.xml
-D:\Project\OnlineShop\ShopOnline\ShopOnline\obj\Debug\ShopOnline.csprojResolveAssemblyReference.cache
 D:\Project\OnlineShop\ShopOnline\ShopOnline\obj\Debug\ShopOnline.dll
 D:\Project\OnlineShop\ShopOnline\ShopOnline\obj\Debug\ShopOnline.pdb
