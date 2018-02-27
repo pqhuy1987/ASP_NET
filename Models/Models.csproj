@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountModels.cs" />
     <Compile Include="Framework\dbo_Account.cs" />
     <Compile Include="Framework\OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

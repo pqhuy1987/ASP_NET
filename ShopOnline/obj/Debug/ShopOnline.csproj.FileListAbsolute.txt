@@ -29,8 +29,11 @@ D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\ShopOnline\obj\Debug\ShopOnline.pdb
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\ShopOnline.dll.config
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\ShopOnline.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\ShopOnline.pdb
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\EntityFramework.dll
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\EntityFramework.SqlServer.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\Microsoft.Web.Infrastructure.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\Models.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\Newtonsoft.Json.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Net.Http.Formatting.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.Helpers.dll
@@ -41,6 +44,9 @@ D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.Razor.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.WebPages.Deployment.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.WebPages.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.WebPages.Razor.dll
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\Models.pdb
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\EntityFramework.xml
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\EntityFramework.SqlServer.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\Newtonsoft.Json.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Net.Http.Formatting.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.Helpers.xml
@@ -51,6 +57,6 @@ D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.Razor.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.WebPages.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.WebPages.Deployment.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\bin\System.Web.WebPages.Razor.xml
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\obj\Debug\ShopOnline.csprojResolveAssemblyReference.cache
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\obj\Debug\ShopOnline.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\obj\Debug\ShopOnline.pdb
-D:\Google Drive\3_PRJ\OnlineShop\ShopOnline\obj\Debug\ShopOnline.csprojResolveAssemblyReference.cache

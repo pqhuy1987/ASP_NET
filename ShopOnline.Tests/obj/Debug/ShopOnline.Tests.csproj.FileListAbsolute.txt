@@ -14,6 +14,8 @@ D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.Razor.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\Models.dll
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\EntityFramework.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.pdb
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\Newtonsoft.Json.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Net.Http.Formatting.xml
@@ -25,6 +27,8 @@ D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.Razor.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\Models.pdb
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\EntityFramework.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.csprojResolveAssemblyReference.cache
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.pdb
