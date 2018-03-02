@@ -116,8 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Code\CustomMemberShipProvider.cs" />
     <Compile Include="Areas\Admin\Code\SessionHelper.cs" />
     <Compile Include="Areas\Admin\Code\UserSession.cs" />
+    <Compile Include="Areas\Admin\Controllers\CateloryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
@@ -229,7 +231,9 @@
     <Content Include="Assets\admin\vendor\raphael\raphael.js" />
     <Content Include="Assets\admin\vendor\raphael\raphael.min.js" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -318,6 +322,9 @@
       <Project>{9a65afbb-777c-4b6b-98cf-68855d8dad7a}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Catelory\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -6,8 +6,8 @@ namespace Models.Framework
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("[dbo.Account]")]
-    public partial class dbo_Account
+    [Table("Account")]
+    public partial class Account
     {
         [Key]
         [StringLength(20)]
