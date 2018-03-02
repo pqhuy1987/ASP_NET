@@ -1,4 +1,3 @@
-D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\EntityFramework.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.dll.config
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.pdb
@@ -29,6 +28,7 @@ D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\Models.pdb
+D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\EntityFramework.xml
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.csprojResolveAssemblyReference.cache
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.pdb
