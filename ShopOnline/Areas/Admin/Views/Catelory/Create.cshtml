@@ -1,0 +1,73 @@
+﻿@model Models.Framework.Category
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Category</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Alias)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Alias)
+            @Html.ValidationMessageFor(model => model.Alias)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ParentID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ParentID)
+            @Html.ValidationMessageFor(model => model.ParentID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateData)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreateData)
+            @Html.ValidationMessageFor(model => model.CreateData)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Order)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Order)
+            @Html.ValidationMessageFor(model => model.Order)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

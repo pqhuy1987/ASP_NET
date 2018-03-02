@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Models;
+using Models.Framework;
 
 namespace ShopOnline.Areas.Admin.Controllers
 {
@@ -39,13 +40,17 @@ namespace ShopOnline.Areas.Admin.Controllers
         // POST: /Admin/Catelory/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Category collection)
         {
             try
             {
                 // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");
+                return View(collection);
             }
             catch
             {
