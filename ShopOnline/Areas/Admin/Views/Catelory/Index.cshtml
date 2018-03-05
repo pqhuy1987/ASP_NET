@@ -21,6 +21,8 @@
                             <th>Create date</th>
                             <th>Order</th>
                             <th>Status</th>
+                            <th>Status</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +34,8 @@
                             <td>@(item.CreateData.HasValue? @item.CreateData.Value.ToString("dd/MM/yyyy") : "")</td>
                             <td class="center">@item.Order.GetValueOrDefault(0)</td>
                             <td class="center">@(item.Status.GetValueOrDefault(false)?"Active":"Blocked")</td>
+                            <td class="center">@(item.Status.GetValueOrDefault(false) ? "Active" : "Blocked")</td>
+                            <td class="center">@(item.Status.GetValueOrDefault(false) ? "Active" : "Blocked")</td>
                         </tr>
                         }
                     </tbody>
@@ -44,6 +48,7 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
-<!-- /.row -->
+
+
 
 

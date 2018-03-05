@@ -14,25 +14,25 @@
         public int ID { get; set; }
 
         [StringLength(10,ErrorMessage="Số ký tự tối đa là 10")]
-        [DisplayName("Tên danh mục")]
+        [DisplayName("TÊN ĐỘI THI CÔNG")]
         [Required(ErrorMessage="Bạn chưa nhập tên danh mục")]
         public string Name { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Tiêu đề SEO")]
+        [DisplayName("THUỘC CÔNG TRƯỜNG")]
         public string Alias { get; set; }
 
-        [DisplayName("Danh mục cha")]
+        [DisplayName("LOẠI ĐỘI")]
         public int? ParentID { get; set; }
 
-        [DisplayName("Ngày tạo")]
+        [DisplayName("NGƯỜI ĐẠI DIỆN")]
         public DateTime? CreateData { get; set; }
 
-        [DisplayName("Thứ tự")]
+        [DisplayName("ĐIỆN THOẠI")]
         [Range(0,Int32.MaxValue,ErrorMessage="Bạn phải nhập số")]
         public int? Order { get; set; }
 
-        [DisplayName("Trạng thái")]
+        [DisplayName("QUÂN SỐ")]
         public bool? Status { get; set; }
     }
 }
