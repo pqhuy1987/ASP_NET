@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Models;
-using Models.Framework;
 
 namespace ShopOnline.Areas.Admin.Controllers
 {
-    public class CateloryController : Controller
+    public class ProjectController : Controller
     {
         //
-        // GET: /Admin/Catelory/
+        // GET: /Admin/Project/
 
         public ActionResult Index()
         {
-            var iplCate =  new CategoryModel();
-            var model = iplCate.ListAll();
-            return View(model);
+            return View();
         }
 
         //
-        // GET: /Admin/Catelory/Details/5
+        // GET: /Admin/Project/Details/5
 
         public ActionResult Details(int id)
         {
@@ -29,7 +25,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/Catelory/Create
+        // GET: /Admin/Project/Create
 
         public ActionResult Create()
         {
@@ -37,29 +33,16 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
 
         //
-        // POST: /Admin/Catelory/Create
+        // POST: /Admin/Project/Create
 
         [HttpPost]
-        public ActionResult Create(string cat, Category collection)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-                if (ModelState.IsValid)
-                {
-                    var model = new CategoryModel();
-                    int res = model.Create(collection.Name, collection.Alias, collection.ParentID, collection.Order, collection.Status);
-                    if (res > 0){
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("","Thêm mới không thành công.");
-                    }
 
-                }
-
-                return View(collection);
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -68,7 +51,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/Catelory/Edit/5
+        // GET: /Admin/Project/Edit/5
 
         public ActionResult Edit(int id)
         {
@@ -76,7 +59,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
 
         //
-        // POST: /Admin/Catelory/Edit/5
+        // POST: /Admin/Project/Edit/5
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
@@ -94,7 +77,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/Catelory/Delete/5
+        // GET: /Admin/Project/Delete/5
 
         public ActionResult Delete(int id)
         {
@@ -102,7 +85,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         }
 
         //
-        // POST: /Admin/Catelory/Delete/5
+        // POST: /Admin/Project/Delete/5
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)

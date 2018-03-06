@@ -15,6 +15,7 @@ namespace Models.Framework
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,6 +30,10 @@ namespace Models.Framework
             modelBuilder.Entity<Product>()
                 .Property(e => e.Price)
                 .HasPrecision(18, 0);
+
+            modelBuilder.Entity<Project>()
+                .Property(e => e.Project_Name)
+                .IsUnicode(false);
         }
     }
 }

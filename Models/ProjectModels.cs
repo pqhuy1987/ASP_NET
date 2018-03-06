@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Models.Framework;
+using System.Data.SqlClient;
+
+namespace Models
+{
+    public class ProjectModels
+    {
+        private OnlineShopDbContext context = null;
+
+        public ProjectModels()
+        {
+            context = new OnlineShopDbContext();
+        }
+
+        public List<Project> ListAll()
+        {
+            var list = context.Database.SqlQuery<Project>("Sp_Project_ListAll").ToList();
+            return list;
+        }
+
+        public int Create(string ProjectName)
+        {
+            object[] parameters =
+            {
+                new SqlParameter ("@ProjectName",ProjectName),
+
+            };
+            int res = context.Database.ExecuteSqlCommand("Sp_Project_Insert @ProjectName", parameters);
+            return res;
+        }
+
+
+    }
+}
