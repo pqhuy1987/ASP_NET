@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Models;
+using Models.Framework;
 
 namespace ShopOnline.Areas.Admin.Controllers
 {
     public class ProjectController : Controller
     {
         //
-        // GET: /Admin/Project/
+        // GET: /Admin/Project
 
         public ActionResult Index()
         {
-            return View();
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                ProjectViewModel model = new ProjectViewModel();
+                model.Project = db.Projects.OrderBy(
+                        m => m.ID).Take(100).ToList();
+                model.SelectedProject = null;
+                return View(model);
+            }
         }
 
         //
@@ -36,17 +45,34 @@ namespace ShopOnline.Areas.Admin.Controllers
         // POST: /Admin/Project/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ProjectViewModel collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                    using (OnlineShopDbContext db = new OnlineShopDbContext())
+                    {
+                        Project obj = new Project();
+                        obj.Project_Name = collection.SelectedProject.Project_Name;
+                        db.Projects.Add(obj);
+                        db.SaveChanges();
 
-                return RedirectToAction("Index");
+                        ProjectViewModel model1 = new ProjectViewModel();
+                        model1.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                        model1.SelectedProject = null;
+                        return View("Index", model1);
+
+                    }
             }
             catch
             {
-                return View();
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    ProjectViewModel model1 = new ProjectViewModel();
+                    model1.Project = db.Projects.OrderBy(
+                            m => m.ID).Take(100).ToList();
+                    model1.SelectedProject = null;
+                    return View("Index", model1);
+                }
             }
         }
 
@@ -66,13 +92,63 @@ namespace ShopOnline.Areas.Admin.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
 
-                return RedirectToAction("Index");
+                    ProjectViewModel model1 = new ProjectViewModel();
+                    model1.Project = db.Projects.OrderBy(
+                            m => m.ID).Take(100).ToList();
+                    model1.SelectedProject = db.Projects.Find(id);
+                    model1.DisplayMode = "Edit";
+                    return View("Index", model1);
+                }
             }
             catch
             {
-                return View();
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    ProjectViewModel model1 = new ProjectViewModel();
+                    model1.Project = db.Projects.OrderBy(
+                            m => m.ID).Take(100).ToList();
+                    model1.SelectedProject = null;
+                    return View("Index", model1);
+                }
+            }
+        }
+
+        //
+        // POST: /Admin/Project/Save/5
+
+        [HttpPost]
+        public ActionResult Save(int id, ProjectViewModel collection)
+        {
+            try
+            {
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+
+                    Project exsiting = db.Projects.Find(id);
+                    exsiting.Project_Name = collection.SelectedProject.Project_Name;
+                    db.SaveChanges();
+
+                    ProjectViewModel model1 = new ProjectViewModel();
+                    model1.Project = db.Projects.OrderBy(
+                            m => m.ID).Take(100).ToList();
+                    model1.DisplayMode = "Add";
+                    model1.SelectedProject = null;
+                    return View("Index", model1);
+                }
+            }
+            catch
+            {
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    ProjectViewModel model1 = new ProjectViewModel();
+                    model1.Project = db.Projects.OrderBy(
+                            m => m.ID).Take(100).ToList();
+                    model1.SelectedProject = null;
+                    return View("Index", model1);
+                }
             }
         }
 
@@ -92,13 +168,29 @@ namespace ShopOnline.Areas.Admin.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    Project existing = db.Projects.Find(id);
+                    db.Projects.Remove(existing);
+                    db.SaveChanges();
 
-                return RedirectToAction("Index");
+                    ProjectViewModel model1 = new ProjectViewModel();
+                    model1.Project = db.Projects.OrderBy(
+                            m => m.ID).Take(100).ToList();
+                    model1.SelectedProject = null;
+                    return View("Index", model1);
+                }
             }
             catch
             {
-                return View();
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    ProjectViewModel model1 = new ProjectViewModel();
+                    model1.Project = db.Projects.OrderBy(
+                            m => m.ID).Take(100).ToList();
+                    model1.SelectedProject = null;
+                    return View("Index", model1);
+                }
             }
         }
     }

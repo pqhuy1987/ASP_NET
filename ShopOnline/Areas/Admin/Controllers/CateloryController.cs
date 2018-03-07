@@ -40,7 +40,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         // POST: /Admin/Catelory/Create
 
         [HttpPost]
-        public ActionResult Create(string cat, Category collection)
+        public ActionResult Create(Category collection)
         {
             try
             {
