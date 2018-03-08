@@ -1,8 +1,9 @@
-﻿@model List<Models.Framework.Category>
+﻿@model Models.CateloryViewModel
 
 @{
+    int counter = 1;
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_2.cshtml";
 }
             <!-- /.row -->
 <div class="row">
@@ -14,25 +15,44 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Create date</th>
-                            <th>Order</th>
-                            <th>Status</th>
-                            <th>Status</th>
-                            <th>Status</th>
+                            <th>Công Trường</th>
+                            <th>Tên Đội</th>
+                            <th>Người Đại Diện</th>
+                            <th>Điện Thoại</th>
+                            <th>Quân Số</th>
+                            <th>Ngày Tạo</th>
+                            <th>Tình Trạng</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var item in Model)
+                        @foreach(var item in Model.Catelory)
                         { 
                         <tr class="odd gradeX">
                             <td>@item.ID</td>
-                            <td>@item.Name</td>
-                            <td>@(item.CreateData.HasValue? @item.CreateData.Value.ToString("dd/MM/yyyy") : "")</td>
-                            <td class="center">@item.Order.GetValueOrDefault(0)</td>
-                            <td class="center">@(item.Status.GetValueOrDefault(false)?"Active":"Blocked")</td>
-                            <td class="center">@(item.Status.GetValueOrDefault(false) ? "Active" : "Blocked")</td>
-                            <td class="center">@(item.Status.GetValueOrDefault(false) ? "Active" : "Blocked")</td>
+                            @{
+                                foreach (var item1 in Model.Project)
+                                {   
+                                    if (item.Prj_Name == item1.Project_Name ) {
+                                        counter = 1;
+                                    } else {
+                                        counter = 2;
+                                    }  
+                                }
+                                if (counter == 1)
+                                {
+                                    <td>@item.Prj_Name</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Prj_Name (Không tồn tại)</td>
+                                }
+                            }
+                            <td>@item.Unit_Name</td>
+                            <td>@item.Owner_Name</td>
+                            <td>@item.Phone_Number</td>
+                            <td>@item.Person_Number</td>
+                            <td>@(item.Create_Date.HasValue ? @item.Create_Date.Value.ToString("dd/MM/yyyy") : "")</td>
+                            <td class="center">@(item.Status.GetValueOrDefault(false)?"Hoạt Động":"Đã Ngưng")</td>
                         </tr>
                         }
                     </tbody>
@@ -45,6 +65,75 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        @using (Html.BeginForm("Create", "Catelory", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <div class="form-group">
+                                <label>CÔNG TRƯỜNG</label>
+                                <select class="form-control">
+                                    @foreach (var item1 in Model.Project)
+                                    {
+                                        <option value="@item1.ID">@item1.Project_Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>TÊN ĐỘI</label>
+                                @Html.TextBoxFor(model => model.SelectedCatelory.Unit_Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SelectedCatelory.Unit_Name, null, new { @class = "danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label> NGƯỜI ĐẠI DIỆN </label>
+                                @Html.TextBoxFor(model => model.SelectedCatelory.Owner_Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SelectedCatelory.Owner_Name, null, new { @class = "danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label> ĐIỆN THOẠI </label>
+                                @Html.TextBoxFor(model => model.SelectedCatelory.Phone_Number, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SelectedCatelory.Phone_Number, null, new { @class = "danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label> QUÂN SỐ </label>
+                                @Html.TextBoxFor(model => model.SelectedCatelory.Person_Number, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SelectedCatelory.Person_Number, null, new { @class = "danger" })
+                            </div>
+
+                            <div class="form-group">
+                                <label> TÌNH TRẠNG </label>
+                                @Html.TextBoxFor(model => model.SelectedCatelory.Status, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SelectedCatelory.Status, null, new { @class = "danger" })
+                            </div>
+
+                            <p>
+                                <input type="submit" value="Edit" />
+                            </p>
+                        }
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
 
 
 

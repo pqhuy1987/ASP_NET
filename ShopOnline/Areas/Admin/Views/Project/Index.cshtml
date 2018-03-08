@@ -1,8 +1,8 @@
-﻿@model Models.Framework.ProjectViewModel
+﻿@model Models.ProjectViewModel
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_2.cshtml";
 }
 
 <div class="row">
@@ -61,10 +61,10 @@
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true)
                             
-                                    <label> @Html.LabelFor(model => model.SelectedProject.Project_Name) </label>
+                                    <label> @Html.LabelFor(model => Model.SelectedProject.Project_Name) </label>
                                     <div class="form-group">
-                                            @Html.TextBoxFor(model => model.SelectedProject.Project_Name, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.SelectedProject.Project_Name, null, new { @class = "danger"})
+                                            @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
                                    </div>
                                     <p>
                                         <input type="submit" value="Lưu" />
@@ -78,10 +78,10 @@
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true)
                             
-                                    <label> @Html.LabelFor(model => model.SelectedProject.Project_Name) </label>
+                                    <label> NHẬP TÊN DỰ ÁN: </label>
                                     <div class="form-group">
-                                            @Html.TextBoxFor(model => model.SelectedProject.Project_Name, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.SelectedProject.Project_Name, null, new { @class = "danger"})
+                                            @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
                                    </div>
                                     <p>
                                         <input type="submit" value="Thêm" />

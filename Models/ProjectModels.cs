@@ -8,6 +8,13 @@ using System.Data.SqlClient;
 
 namespace Models
 {
+    public class ProjectViewModel
+    {
+        public List<Project> Project { get; set; }
+        public Project SelectedProject { get; set; }
+        public string DisplayMode { get; set; }
+    }
+
     public class ProjectModels
     {
         private OnlineShopDbContext context = null;
@@ -33,7 +40,5 @@ namespace Models
             int res = context.Database.ExecuteSqlCommand("Sp_Project_Insert @ProjectName", parameters);
             return res;
         }
-
-
     }
 }

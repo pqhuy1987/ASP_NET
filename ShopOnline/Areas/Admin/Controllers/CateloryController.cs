@@ -15,9 +15,15 @@ namespace ShopOnline.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var iplCate =  new CategoryModel();
-            var model = iplCate.ListAll();
-            return View(model);
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                CateloryViewModel model = new CateloryViewModel();
+                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                model.SelectedCatelory = null;
+                model.DisplayMode = null;
+                return View(model);
+            }
         }
 
         //
@@ -40,30 +46,31 @@ namespace ShopOnline.Areas.Admin.Controllers
         // POST: /Admin/Catelory/Create
 
         [HttpPost]
-        public ActionResult Create(Category collection)
+        public ActionResult Create(CateloryViewModel collection)
         {
             try
             {
-                // TODO: Add insert logic here
-                if (ModelState.IsValid)
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
-                    var model = new CategoryModel();
-                    int res = model.Create(collection.Name, collection.Alias, collection.ParentID, collection.Order, collection.Status);
-                    if (res > 0){
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("","Thêm mới không thành công.");
-                    }
-
+                    CateloryViewModel model = new CateloryViewModel();
+                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                    model.SelectedCatelory = null;
+                    model.DisplayMode = null;
+                    return View("Index",model);
                 }
-
-                return View(collection);
             }
             catch
             {
-                return View();
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    CateloryViewModel model = new CateloryViewModel();
+                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                    model.SelectedCatelory = null;
+                    model.DisplayMode = null;
+                    return View("Index", model);
+                }
             }
         }
 
