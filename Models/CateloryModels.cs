@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.Framework;
 using System.Data.SqlClient;
+using System.Web.Mvc;
 
 namespace Models
 {
@@ -12,6 +14,8 @@ namespace Models
     {
         public List<Catelory> Catelory  { get; set; }
         public List<Project>  Project   { get; set; }
+
+        public List<SelectListItem> ProjectAll { get; set; }
 
         public Catelory SelectedCatelory { get; set; }
         public string DisplayMode { get; set; }

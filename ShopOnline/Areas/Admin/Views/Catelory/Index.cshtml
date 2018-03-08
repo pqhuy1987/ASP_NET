@@ -1,7 +1,7 @@
 ﻿@model Models.CateloryViewModel
 
 @{
-    int counter = 1;
+    int counter = 3;
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_2.cshtml";
 }
@@ -33,19 +33,22 @@
                                 foreach (var item1 in Model.Project)
                                 {   
                                     if (item.Prj_Name == item1.Project_Name ) {
-                                        counter = 1;
-                                    } else {
                                         counter = 2;
+                                        break;
+                                    } else {
+                                        counter = 1;
                                     }  
                                 }
-                                if (counter == 1)
+                                if (counter == 2)
                                 {
                                     <td>@item.Prj_Name</td>
                                 }
-                                else
+                                else if (counter == 1)
                                 {
-                                    <td>@item.Prj_Name (Không tồn tại)</td>
+                                    <td style="color: red">@item.Prj_Name (Không tồn tại)</td>
+                                    
                                 }
+
                             }
                             <td>@item.Unit_Name</td>
                             <td>@item.Owner_Name</td>
@@ -80,12 +83,7 @@
 
                             <div class="form-group">
                                 <label>CÔNG TRƯỜNG</label>
-                                <select class="form-control">
-                                    @foreach (var item1 in Model.Project)
-                                    {
-                                        <option value="@item1.ID">@item1.Project_Name</option>
-                                    }
-                                </select>
+                            @Html.DropDownListFor(model => model.SelectedCatelory.Prj_Name, Model.ProjectAll, new { @class = "form-control" })
                             </div>
 
                             <div class="form-group">
@@ -114,12 +112,15 @@
 
                             <div class="form-group">
                                 <label> TÌNH TRẠNG </label>
-                                @Html.TextBoxFor(model => model.SelectedCatelory.Status, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.SelectedCatelory.Status, null, new { @class = "danger" })
+                                @Html.DropDownListFor(model => model.SelectedCatelory.Status, new List<SelectListItem>()
+                               {
+                                    new SelectListItem(){Selected = true, Text = "Hoạt Động", Value = "1"},
+                                    new SelectListItem(){Selected = false, Text = "Đã Ngưng", Value = "0"}
+                               }, new { @class = "form-control" })
                             </div>
 
                             <p>
-                                <input type="submit" value="Edit" />
+                                <input type="submit" value="Thêm" />
                             </p>
                         }
                     </div>

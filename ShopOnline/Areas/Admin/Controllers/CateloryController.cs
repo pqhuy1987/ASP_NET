@@ -20,8 +20,25 @@ namespace ShopOnline.Areas.Admin.Controllers
                 CateloryViewModel model = new CateloryViewModel();
                 model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
                 model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+
+                model.ProjectAll    = new List<SelectListItem>(); 
+                var items           = new List<SelectListItem>();
+
+                foreach (var project in model.Project)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = project.Project_Name,
+                        Text = project.Project_Name,
+                    });
+                }
+
+                model.ProjectAll = items;
+
+
                 model.SelectedCatelory = null;
                 model.DisplayMode = null;
+
                 return View(model);
             }
         }
@@ -52,11 +69,42 @@ namespace ShopOnline.Areas.Admin.Controllers
             {
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
+
+                    Catelory obj            = new Catelory();
+
+                    obj.Prj_Name            = collection.SelectedCatelory.Prj_Name;
+                    obj.Unit_Name           = collection.SelectedCatelory.Unit_Name;
+                    obj.Owner_Name          = collection.SelectedCatelory.Owner_Name;
+                    obj.Phone_Number        = collection.SelectedCatelory.Phone_Number;
+                    obj.Person_Number       = collection.SelectedCatelory.Person_Number;
+                    obj.Create_Date         = DateTime.Now;
+                    obj.Status              = collection.SelectedCatelory.Status;
+
+                    db.Catelories.Add(obj);
+                    db.SaveChanges();
+
                     CateloryViewModel model = new CateloryViewModel();
                     model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
                     model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+
+                    model.ProjectAll = new List<SelectListItem>();
+
+                    var items = new List<SelectListItem>();
+
+                    foreach (var project in model.Project)
+                    {
+                        items.Add(new SelectListItem()
+                        {
+                            Value = project.Project_Name,
+                            Text = project.Project_Name,
+                        });
+                    }
+
+                    model.ProjectAll = items;
+
                     model.SelectedCatelory = null;
                     model.DisplayMode = null;
+
                     return View("Index",model);
                 }
             }
