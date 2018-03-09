@@ -32,6 +32,7 @@
                                     </form>
                                 </td>
                                  <td>
+
                                     <form action="@Url.Action("Delete", "Project", new { id = @item.ID })" method="post">
                                         <input type="submit" value="Delete" />
                                     </form>
@@ -54,6 +55,10 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
+                        @using (Html.BeginForm("Index", "Project", FormMethod.Post))
+                        {
+                            <button type="submit" style="margin-left:0px;margin-bottom:10px" class="btn btn-primary">THÊM MỚI DỰ ÁN</button>
+                        }
                         @{
                             if (Model.DisplayMode == "Edit" ) { 
                                 using (Html.BeginForm("Save", "Project",  new { id = Model.SelectedProject.ID }, FormMethod.Post))
@@ -61,7 +66,7 @@
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true)
                             
-                                    <label> @Html.LabelFor(model => Model.SelectedProject.Project_Name) </label>
+                                    <label> NHẬP TÊN DỰ ÁN MUỐN CHỈNH SỬA: </label>
                                     <div class="form-group">
                                             @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
@@ -78,7 +83,7 @@
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true)
                             
-                                    <label> NHẬP TÊN DỰ ÁN: </label>
+                                    <label> NHẬP MỚI TÊN DỰ ÁN: </label>
                                     <div class="form-group">
                                             @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })

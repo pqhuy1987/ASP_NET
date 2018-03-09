@@ -18,8 +18,8 @@ namespace ShopOnline.Areas.Admin.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CateloryViewModel model = new CateloryViewModel();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
+                model.Catelory = db.Catelories.OrderByDescending(m => m.ID).Take(100).ToList();
 
                 model.ProjectAll    = new List<SelectListItem>(); 
                 var items           = new List<SelectListItem>();
@@ -84,8 +84,8 @@ namespace ShopOnline.Areas.Admin.Controllers
                     db.SaveChanges();
 
                     CateloryViewModel model = new CateloryViewModel();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
+                    model.Catelory = db.Catelories.OrderByDescending(m => m.ID).Take(100).ToList();
 
                     model.ProjectAll = new List<SelectListItem>();
 
@@ -105,7 +105,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                     model.SelectedCatelory = null;
                     model.DisplayMode = null;
 
-                    return View("Index",model);
+                    return RedirectToAction("Index", model);
                 }
             }
             catch
@@ -134,17 +134,97 @@ namespace ShopOnline.Areas.Admin.Controllers
         // POST: /Admin/Catelory/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, CateloryViewModel collection)
         {
             try
             {
-                // TODO: Add update logic here
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    CateloryViewModel model = new CateloryViewModel();
+                    model.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
+                    model.Catelory = db.Catelories.OrderByDescending(m => m.ID).Take(100).ToList();
 
-                return RedirectToAction("Index");
+                    model.ProjectAll = new List<SelectListItem>();
+                    var items = new List<SelectListItem>();
+
+                    foreach (var project in model.Project)
+                    {
+                        items.Add(new SelectListItem()
+                        {
+                            Value = project.Project_Name,
+                            Text = project.Project_Name,
+                        });
+                    }
+
+                    model.ProjectAll = items;
+
+                    model.SelectedCatelory = db.Catelories.Find(id);
+                    model.DisplayMode = "Edit";
+
+                    return View("Index", model);
+                }
             }
             catch
             {
                 return View();
+            }
+        }
+
+        //
+        // POST: /Admin/Project/Save/5
+
+        [HttpPost]
+        public ActionResult Save(int id, CateloryViewModel collection)
+        {
+            try
+            {
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+
+                    Catelory exsiting = db.Catelories.Find(id);
+                    exsiting.Prj_Name       = collection.SelectedCatelory.Prj_Name;
+                    exsiting.Unit_Name      = collection.SelectedCatelory.Unit_Name;
+                    exsiting.Owner_Name     = collection.SelectedCatelory.Owner_Name;
+                    exsiting.Phone_Number   = collection.SelectedCatelory.Phone_Number;
+                    exsiting.Person_Number  = collection.SelectedCatelory.Person_Number;
+                    //exsiting.Create_Date  = DateTime.Now;
+                    exsiting.Status         = collection.SelectedCatelory.Status;
+                    db.SaveChanges();
+
+                    CateloryViewModel model = new CateloryViewModel();
+                    model.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
+                    model.Catelory = db.Catelories.OrderByDescending(m => m.ID).Take(100).ToList();
+
+                    model.ProjectAll    = new List<SelectListItem>();
+                    var items           = new List<SelectListItem>();
+
+                    foreach (var project in model.Project)
+                    {
+                        items.Add(new SelectListItem()
+                        {
+                            Value = project.Project_Name,
+                            Text = project.Project_Name,
+                        });
+                    }
+
+                    model.ProjectAll = items;
+
+                    model.SelectedCatelory = db.Catelories.Find(id);
+                    model.DisplayMode = null;
+
+                    return RedirectToAction("Index", model);
+                }
+            }
+            catch
+            {
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    ProjectViewModel model1 = new ProjectViewModel();
+                    model1.Project = db.Projects.OrderBy(
+                            m => m.ID).Take(100).ToList();
+                    model1.SelectedProject = null;
+                    return View("Index", model1);
+                }
             }
         }
 
@@ -160,13 +240,40 @@ namespace ShopOnline.Areas.Admin.Controllers
         // POST: /Admin/Catelory/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, CateloryViewModel collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
 
-                return RedirectToAction("Index");
+                    Catelory exsiting = db.Catelories.Find(id);
+                    db.Catelories.Remove(exsiting);
+                    db.SaveChanges();
+
+                    CateloryViewModel model = new CateloryViewModel();
+                    model.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
+                    model.Catelory = db.Catelories.OrderByDescending(m => m.ID).Take(100).ToList();
+
+                    model.ProjectAll = new List<SelectListItem>();
+                    var items = new List<SelectListItem>();
+
+                    foreach (var project in model.Project)
+                    {
+                        items.Add(new SelectListItem()
+                        {
+                            Value = project.Project_Name,
+                            Text = project.Project_Name,
+                        });
+                    }
+
+                    model.ProjectAll = items;
+
+                    model.SelectedCatelory = db.Catelories.Find(id);
+                    model.DisplayMode = null;
+
+                    return RedirectToAction("Index", model);
+                }
             }
             catch
             {

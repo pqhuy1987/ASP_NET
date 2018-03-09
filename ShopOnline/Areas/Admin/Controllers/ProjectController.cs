@@ -18,7 +18,7 @@ namespace ShopOnline.Areas.Admin.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 ProjectViewModel model = new ProjectViewModel();
-                model.Project = db.Projects.OrderBy(
+                model.Project = db.Projects.OrderByDescending(
                         m => m.ID).Take(100).ToList();
                 model.SelectedProject = null;
                 return View(model);
@@ -57,9 +57,9 @@ namespace ShopOnline.Areas.Admin.Controllers
                         db.SaveChanges();
 
                         ProjectViewModel model1 = new ProjectViewModel();
-                        model1.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                        model1.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
                         model1.SelectedProject = null;
-                        return View("Index", model1);
+                        return RedirectToAction("Index", model1);
 
                     }
             }
@@ -96,7 +96,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                 {
 
                     ProjectViewModel model1 = new ProjectViewModel();
-                    model1.Project = db.Projects.OrderBy(
+                    model1.Project = db.Projects.OrderByDescending(
                             m => m.ID).Take(100).ToList();
                     model1.SelectedProject = db.Projects.Find(id);
                     model1.DisplayMode = "Edit";
@@ -132,11 +132,10 @@ namespace ShopOnline.Areas.Admin.Controllers
                     db.SaveChanges();
 
                     ProjectViewModel model1 = new ProjectViewModel();
-                    model1.Project = db.Projects.OrderBy(
-                            m => m.ID).Take(100).ToList();
+                    model1.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
                     model1.DisplayMode = "Add";
                     model1.SelectedProject = null;
-                    return View("Index", model1);
+                    return RedirectToAction("Index", model1);
                 }
             }
             catch
@@ -175,7 +174,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                     db.SaveChanges();
 
                     ProjectViewModel model1 = new ProjectViewModel();
-                    model1.Project = db.Projects.OrderBy(
+                    model1.Project = db.Projects.OrderByDescending(
                             m => m.ID).Take(100).ToList();
                     model1.SelectedProject = null;
                     return View("Index", model1);
