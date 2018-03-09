@@ -4,6 +4,19 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_2.cshtml";
 }
+<script>
+    $(document).ready(function () {
+        $(".hidediv").click(function () {
+            $(".divdemo").hide("slow");
+        });
+
+        $(".showdiv").click(function () {
+            $(".divdemo").show(2000);
+        });
+
+    });
+
+</script>
 
 <div class="row">
     <div class="col-lg-12">
@@ -15,6 +28,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Tên Dự Án</th>
+                            <th>Chi Tiết</th>
                             <th>Chọn</th>
                             <th>Xóa</th>
                         </tr>
@@ -26,7 +40,11 @@
                                 <td>@item.ID</td>
                                 <td>@item.Project_Name</td>
                                 <td>
-
+                                    <form action="" method="post">
+                                        <input type="button" class="showdiv" value="Select" />
+                                    </form>
+                                </td>
+                                <td>
                                     <form action="@Url.Action("Edit", "Project",  new { id = @item.ID })" method="post">
                                         <input type="submit" value="Select" />
                                     </form>
