@@ -18,7 +18,7 @@ namespace ShopOnline.Areas.Admin.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 ProjectViewModel model = new ProjectViewModel();
-                model.Project = db.Projects.OrderByDescending(
+                model.Project = db.Projects.OrderBy(
                         m => m.ID).Take(100).ToList();
                 model.SelectedProject = null;
                 return View(model);
@@ -96,7 +96,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                 {
 
                     ProjectViewModel model1 = new ProjectViewModel();
-                    model1.Project = db.Projects.OrderByDescending(
+                    model1.Project = db.Projects.OrderBy(
                             m => m.ID).Take(100).ToList();
                     model1.SelectedProject = db.Projects.Find(id);
                     model1.DisplayMode = "Edit";
@@ -126,13 +126,12 @@ namespace ShopOnline.Areas.Admin.Controllers
             {
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
-
                     Project exsiting = db.Projects.Find(id);
                     exsiting.Project_Name = collection.SelectedProject.Project_Name;
                     db.SaveChanges();
 
                     ProjectViewModel model1 = new ProjectViewModel();
-                    model1.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
+                    model1.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
                     model1.DisplayMode = "Add";
                     model1.SelectedProject = null;
                     return RedirectToAction("Index", model1);
@@ -174,7 +173,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                     db.SaveChanges();
 
                     ProjectViewModel model1 = new ProjectViewModel();
-                    model1.Project = db.Projects.OrderByDescending(
+                    model1.Project = db.Projects.OrderBy(
                             m => m.ID).Take(100).ToList();
                     model1.SelectedProject = null;
                     return View("Index", model1);
