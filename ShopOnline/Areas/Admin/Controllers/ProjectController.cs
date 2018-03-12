@@ -17,9 +17,9 @@ namespace ShopOnline.Areas.Admin.Controllers
         {
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
-                ProjectViewModel model = new ProjectViewModel();
-                model.Project = db.Projects.OrderBy(
-                        m => m.ID).Take(100).ToList();
+                ProjectViewModel model      = new ProjectViewModel();
+                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+
                 model.SelectedProject = null;
                 return View(model);
             }
@@ -94,11 +94,11 @@ namespace ShopOnline.Areas.Admin.Controllers
             {
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
-
                     ProjectViewModel model1 = new ProjectViewModel();
-                    model1.Project = db.Projects.OrderBy(
-                            m => m.ID).Take(100).ToList();
                     model1.SelectedProject = db.Projects.Find(id);
+                    model1.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+
+                    model1.Catelory = db.Catelories.Where(i=>i.Prj_Name == model1.SelectedProject.Project_Name).ToList();
                     model1.DisplayMode = "Edit";
                     return View("Index", model1);
                 }
@@ -127,6 +127,12 @@ namespace ShopOnline.Areas.Admin.Controllers
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
                     Project exsiting = db.Projects.Find(id);
+                    List<Catelory> exsiting_2;
+                    exsiting_2 = db.Catelories.Where(i => i.Prj_Name == exsiting.Project_Name).ToList();
+                    foreach (var item1 in exsiting_2)
+                    {
+                        item1.Prj_Name = collection.SelectedProject.Project_Name;
+                    }
                     exsiting.Project_Name = collection.SelectedProject.Project_Name;
                     db.SaveChanges();
 

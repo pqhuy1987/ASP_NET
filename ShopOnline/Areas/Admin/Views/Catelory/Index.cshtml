@@ -21,6 +21,7 @@
                             <th>Điện Thoại</th>
                             <th>Email</th>
                             <th>Quân Số</th>
+                            <th>Công Việc</th>
                             <th>Ngày Tạo</th>
                             <th>Tình Trạng</th>
                             <th>Khu Vực</th>
@@ -61,6 +62,7 @@
                             <td>@item.Unit_Name</td>
                             <td>@item.Owner_Name</td>
                             <td>@item.Phone_Number</td>
+                            <td>@item.Person_Number</td>
                             <td>@item.Person_Number</td>
                             <td>@(item.Create_Date.HasValue ? @item.Create_Date.Value.ToString("dd/MM/yyyy") : "")</td>
                             <td class="center">@(item.Status.GetValueOrDefault(false)?"Hoạt Động":"Đã Ngưng")</td>
@@ -108,36 +110,37 @@
                                     @Html.ValidationSummary(true)
 
                                     <div class="form-group">
-                                        <label>NHẬP TÊN CÔNG TRƯỜNG CHỈNH SỬA:</label>
+                                        <label>TÊN CÔNG TRƯỜNG:</label>
                                     @Html.DropDownListFor(model => model.SelectedCatelory.Prj_Name, Model.ProjectAll, "-- Chọn Công Trường --", new { @class = "form-control" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP TÊN ĐỘI CHỈNH SỬA:</label>
+                                        <label>TÊN ĐỘI:</label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Unit_Name, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Unit_Name, null, new { @class = "danger" })
+
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP TÊN NGƯỜI ĐẠI DIỆN CHỈNH SỬA:</label>
+                                        <label>TÊN NGƯỜI ĐẠI DIỆN:</label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Owner_Name, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Owner_Name, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP SỐ ĐIỆN THOẠI CHỈNH SỬA:</label>
+                                        <label>SỐ ĐIỆN THOẠI:</label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Phone_Number, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Phone_Number, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP SỐ QUÂN SỐ CHỈNH SỬA: </label>
+                                        <label>QUÂN SỐ:</label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Person_Number, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Person_Number, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP LẠI TÌNH TRẠNG </label>
+                                        <label>TÌNH TRẠNG: </label>
                                         @Html.DropDownListFor(model => model.SelectedCatelory.Status, new List<SelectListItem>()
                                        {
                                             new SelectListItem(){Selected = true, Text = "Hoạt Động", Value = "1"},
@@ -158,40 +161,40 @@
                                     @Html.ValidationSummary(true)
 
                                     <div class="form-group">
-                                        <label>NHẬP MỚI CÔNG TRƯỜNG:</label>
+                                        <label>TÊN CÔNG TRƯỜNG:</label>
                                     @Html.DropDownListFor(model => model.SelectedCatelory.Prj_Name, Model.ProjectAll, "-- Chọn Công Trường --", new { @class = "form-control" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP MỚI TÊN ĐỘI:</label>
+                                        <label>TÊN ĐỘI:</label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Unit_Name, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Unit_Name, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP MỚI NGƯỜI ĐẠI DIỆN:</label>
+                                        <label>NGƯỜI ĐẠI DIỆN:</label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Owner_Name, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Owner_Name, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP MỚI ĐIỆN THOẠI: </label>
+                                        <label>ĐIỆN THOẠI: </label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Phone_Number, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Phone_Number, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP MỚI QUÂN SỐ: </label>
+                                        <label>QUÂN SỐ: </label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Person_Number, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Person_Number, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NHẬP MỚI TÌNH TRẠNG: </label>
+                                        <label>TÌNH TRẠNG: </label>
                                         @Html.DropDownListFor(model => model.SelectedCatelory.Status, new List<SelectListItem>()
                                        {
-                                            new SelectListItem(){Selected = true, Text = "Hoạt Động", Value = "1"},
-                                            new SelectListItem(){Selected = false, Text = "Đã Ngưng", Value = "0"}
+                                            new SelectListItem(){Text = "Hoạt Động", Value = "Hoạt Động"},
+                                            new SelectListItem(){Text = "Đã Ngưng", Value = "Đã Ngưng"}
                                        }, new { @class = "form-control" })
                                     </div>
 
@@ -204,6 +207,112 @@
                         }
 
                     </div>
+                    <div class="col-lg-6">
+
+                        @{
+                            if (Model.DisplayMode == "Edit")
+                            {
+                                using (Html.BeginForm("Save", "Catelory", new { id = Model.SelectedCatelory.ID }, FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+
+                                    <div class="form-group">
+                                        <label>EMAIL:</label>
+                                        @Html.TextBoxFor(model => model.SelectedCatelory.Unit_Name, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SelectedCatelory.Unit_Name, null, new { @class = "danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>KHU VỰC:</label>
+                                        @Html.DropDownListFor(model => model.SelectedCatelory.Status, new List<SelectListItem>()
+                                       {
+                                            new SelectListItem(){Selected = true, Text = "Miền Nam", Value = "Miền Nam"},
+                                            new SelectListItem(){Selected = true, Text = "Miền Trung", Value = "Miền Trung"},
+                                            new SelectListItem(){Selected = false, Text = "Miền Bắc", Value = "Miền Bắc"}
+                                       }, new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>ĐÁNH GIÁ:</label>
+                                        @Html.DropDownListFor(model => model.SelectedCatelory.Status, new List<SelectListItem>()
+                                       {
+                                            new SelectListItem(){Selected = true,   Text = "Loại Tốt", Value = "Loại Tốt"},
+                                            new SelectListItem(){Selected = true,   Text = "Loại Khá", Value = "Loại Khá"},
+                                            new SelectListItem(){Selected = false,  Text = "Trung Bình", Value = "Trung Bình"},
+                                            new SelectListItem(){Selected = false,  Text = "Loại Yếu", Value = "Loại Yếu"},
+                                            new SelectListItem(){Selected = false,  Text = "Loại Kém", Value = "Loại Kém"}
+                                       }, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>LOẠI CÔNG VIỆC:</label>
+                                        @Html.DropDownListFor(model => model.SelectedCatelory.Status, new List<SelectListItem>()
+                                       {
+                                            new SelectListItem(){Selected = true,   Text = "Kết Cấu", Value = "Kết Cấu"},
+                                            new SelectListItem(){Selected = true,   Text = "Hoàn Thiện", Value = "Hoàn Thiện"},
+                                            new SelectListItem(){Selected = false,  Text = "Trắc Đạt", Value = "Trắc Đạt"},
+                                            new SelectListItem(){Selected = false,  Text = "Xây Tô", Value = "Xây Tô"},
+                                            new SelectListItem(){Selected = false,  Text = "Đội Chuyên Biệt", Value = "Đội Chuyên Biệt"}
+                                       }, new { @class = "form-control" })
+                                    </div>
+                                    <p>
+                                        <button type="submit" class="btn btn-primary" value="Lưu">LƯU</button>
+                                    </p>
+                                }
+                            }
+                            else
+                            {
+                                using (Html.BeginForm("Create", "Catelory", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true)
+
+                                    <div class="form-group">
+                                        <label>EMAIL:</label>
+                                        @Html.TextBoxFor(model => model.SelectedCatelory.Unit_Name, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SelectedCatelory.Unit_Name, null, new { @class = "danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>KHU VỰC:</label>
+                                        @Html.DropDownListFor(model => model.SelectedCatelory.Status, new List<SelectListItem>()
+                                       {
+                                            new SelectListItem(){Selected = true, Text = "Miền Nam", Value = "Miền Nam"},
+                                            new SelectListItem(){Selected = true, Text = "Miền Trung", Value = "Miền Trung"},
+                                            new SelectListItem(){Selected = false, Text = "Miền Bắc", Value = "Miền Bắc"}
+                                       }, new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>ĐÁNH GIÁ:</label>
+                                        @Html.DropDownListFor(model => model.SelectedCatelory.Status, new List<SelectListItem>()
+                                       {
+                                            new SelectListItem(){Selected = true,   Text = "Loại Tốt", Value = "Loại Tốt"},
+                                            new SelectListItem(){Selected = true,   Text = "Loại Khá", Value = "Loại Khá"},
+                                            new SelectListItem(){Selected = false,  Text = "Trung Bình", Value = "Trung Bình"},
+                                            new SelectListItem(){Selected = false,  Text = "Loại Yếu", Value = "Loại Yếu"},
+                                            new SelectListItem(){Selected = false,  Text = "Loại Kém", Value = "Loại Kém"}
+                                       }, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>LOẠI CÔNG VIỆC:</label>
+                                        @Html.DropDownListFor(model => model.SelectedCatelory.Status, new List<SelectListItem>()
+                                       {
+                                            new SelectListItem(){Selected = true,   Text = "Kết Cấu", Value = "Kết Cấu"},
+                                            new SelectListItem(){Selected = true,   Text = "Hoàn Thiện", Value = "Hoàn Thiện"},
+                                            new SelectListItem(){Selected = false,  Text = "Trắc Đạt", Value = "Trắc Đạt"},
+                                            new SelectListItem(){Selected = false,  Text = "Xây Tô", Value = "Xây Tô"},
+                                            new SelectListItem(){Selected = false,  Text = "Đội Chuyên Biệt", Value = "Đội Chuyên Biệt"}
+                                       }, new { @class = "form-control" })
+                                    </div>
+
+                                }
+                            }
+
+                        }
+
+                    </div>
+
                     <!-- /.col-lg-6 (nested) -->
                 </div>
                 <!-- /.row (nested) -->
