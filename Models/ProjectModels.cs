@@ -13,6 +13,7 @@ namespace Models
         public List<Project> Project { get; set; }
         public Project SelectedProject { get; set; }
         public List<Catelory> Catelory { get; set; }
+        public List<Catelory> Catelory_Project { get; set; }
         public string DisplayMode { get; set; }
     }
 

@@ -14,6 +14,7 @@ namespace Models
     {
         public List<Catelory> Catelory  { get; set; }
         public List<Project>  Project   { get; set; }
+        public List<Catelory> Catelory_Project { get; set; }
 
         public List<SelectListItem> ProjectAll { get; set; }
 

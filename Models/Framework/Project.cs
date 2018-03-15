@@ -12,5 +12,8 @@ namespace Models.Framework
         public int ID { get; set; }
 
         public string Project_Name { get; set; }
+
+        public int Number_Project;
+        public int Number_Person;
     }
 }

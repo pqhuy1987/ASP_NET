@@ -79,6 +79,10 @@ namespace ShopOnline.Areas.Admin.Controllers
                     obj.Person_Number       = collection.SelectedCatelory.Person_Number;
                     obj.Create_Date         = DateTime.Now;
                     obj.Status              = collection.SelectedCatelory.Status;
+                    obj.Rate                = collection.SelectedCatelory.Rate;
+                    obj.Job                 = collection.SelectedCatelory.Job;
+                    obj.Area                = collection.SelectedCatelory.Area;
+                    obj.Email               = collection.SelectedCatelory.Email;
 
                     db.Catelories.Add(obj);
                     db.SaveChanges();
@@ -134,7 +138,7 @@ namespace ShopOnline.Areas.Admin.Controllers
         // POST: /Admin/Catelory/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, CateloryViewModel collection)
+        public ActionResult Edit(int id, string number, CateloryViewModel collection)
         {
             try
             {
@@ -143,6 +147,15 @@ namespace ShopOnline.Areas.Admin.Controllers
                     CateloryViewModel model = new CateloryViewModel();
                     model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
                     model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+
+                    if (number == "123")
+                    {
+                        model.Catelory_Project = null;
+                    }
+                    else
+                    {
+                        model.Catelory_Project = db.Catelories.Where(i => i.Phone_Number == number).ToList();
+                    }
 
                     model.ProjectAll = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
@@ -180,7 +193,6 @@ namespace ShopOnline.Areas.Admin.Controllers
             {
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
-
                     Catelory exsiting = db.Catelories.Find(id);
                     exsiting.Prj_Name       = collection.SelectedCatelory.Prj_Name;
                     exsiting.Unit_Name      = collection.SelectedCatelory.Unit_Name;
@@ -189,6 +201,11 @@ namespace ShopOnline.Areas.Admin.Controllers
                     exsiting.Person_Number  = collection.SelectedCatelory.Person_Number;
                     //exsiting.Create_Date  = DateTime.Now;
                     exsiting.Status         = collection.SelectedCatelory.Status;
+                    exsiting.Area           = collection.SelectedCatelory.Area;
+                    exsiting.Email          = collection.SelectedCatelory.Email;
+                    exsiting.Job            = collection.SelectedCatelory.Job;
+                    exsiting.Rate           = collection.SelectedCatelory.Rate;
+
                     db.SaveChanges();
 
                     CateloryViewModel model = new CateloryViewModel();

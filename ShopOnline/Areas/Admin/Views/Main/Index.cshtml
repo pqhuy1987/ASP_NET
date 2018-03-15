@@ -19,9 +19,15 @@
                             <th>Tên Đội</th>
                             <th>Người Đại Diện</th>
                             <th>Điện Thoại</th>
+                            <th>Email</th>
                             <th>Quân Số</th>
+                            <th>Công Việc</th>
                             <th>Ngày Tạo</th>
                             <th>Tình Trạng</th>
+                            <th>Khu Vực</th>
+                            <th>Đánh Giá</th>
+                            <th>Chọn</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,9 +62,25 @@
                                 <td>@item.Unit_Name</td>
                                 <td>@item.Owner_Name</td>
                                 <td>@item.Phone_Number</td>
+                                <td>@item.Email</td>
                                 <td>@item.Person_Number</td>
+                                <td>@item.Job</td>
                                 <td>@(item.Create_Date.HasValue ? @item.Create_Date.Value.ToString("dd/MM/yyyy") : "")</td>
-                                <td class="center">@(item.Status.GetValueOrDefault(false) ? "Hoạt Động" : "Đã Ngưng")</td>
+                                <td>@item.Status</td>
+                                <td>@item.Area</td>
+                                <td>@item.Rate</td>
+                                <td>
+
+                                    <form action="@Url.Action("Edit", "Catelory",  new { id = @item.ID })" method="post">
+                                        <input type="submit" value="Select" />
+                                    </form>
+                                </td>
+                                <td>
+
+                                    <form action="@Url.Action("Delete", "Catelory", new { id = @item.ID })" method="post">
+                                        <input type="submit" value="Delete" />
+                                    </form>
+                                </td>
                             </tr>
                         }
                     </tbody>

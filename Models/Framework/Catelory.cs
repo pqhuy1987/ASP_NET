@@ -20,12 +20,26 @@ namespace Models.Framework
         [StringLength(100)]
         public string Owner_Name { get; set; }
 
-        public int? Phone_Number { get; set; }
+        [StringLength(50)]
+        public string Phone_Number { get; set; }
 
         public int? Person_Number { get; set; }
 
         public DateTime? Create_Date { get; set; }
 
-        public bool? Status { get; set; }
+        [StringLength(50)]
+        public string Status { get; set; }
+
+        [StringLength(50)]
+        public string Email { get; set; }
+
+        [StringLength(100)]
+        public string Area { get; set; }
+
+        [StringLength(100)]
+        public string Rate { get; set; }
+
+        [StringLength(100)]
+        public string Job { get; set; }
     }
 }

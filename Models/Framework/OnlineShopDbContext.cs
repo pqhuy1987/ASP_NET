@@ -19,6 +19,10 @@ namespace Models.Framework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Catelory>()
+                .Property(e => e.Email)
+                .IsFixedLength();
+
             modelBuilder.Entity<Product>()
                 .Property(e => e.Alias)
                 .IsUnicode(false);
