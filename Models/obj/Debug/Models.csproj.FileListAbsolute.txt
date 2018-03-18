@@ -26,4 +26,3 @@ D:\OnlineShop\Models\bin\Debug\EntityFramework.xml
 D:\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.xml
 D:\OnlineShop\Models\obj\Debug\Models.dll
 D:\OnlineShop\Models\obj\Debug\Models.pdb
-D:\OnlineShop\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

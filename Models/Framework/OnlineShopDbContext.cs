@@ -16,6 +16,7 @@ namespace Models.Framework
         public virtual DbSet<Catelory> Catelories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<WorkCount> WorkCounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

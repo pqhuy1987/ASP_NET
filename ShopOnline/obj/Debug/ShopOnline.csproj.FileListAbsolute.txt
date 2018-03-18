@@ -94,6 +94,7 @@ D:\ASP_PROJECT\ShopOnline\bin\System.Web.WebPages.Deployment.xml
 D:\ASP_PROJECT\ShopOnline\bin\System.Web.WebPages.Razor.xml
 D:\ASP_PROJECT\ShopOnline\obj\Debug\ShopOnline.dll
 D:\ASP_PROJECT\ShopOnline\obj\Debug\ShopOnline.pdb
+D:\OnlineShop\ShopOnline\obj\Debug\ShopOnline.csprojResolveAssemblyReference.cache
 D:\OnlineShop\ShopOnline\bin\ShopOnline.dll.config
 D:\OnlineShop\ShopOnline\bin\ShopOnline.dll
 D:\OnlineShop\ShopOnline\bin\ShopOnline.pdb
@@ -125,6 +126,5 @@ D:\OnlineShop\ShopOnline\bin\System.Web.Razor.xml
 D:\OnlineShop\ShopOnline\bin\System.Web.WebPages.xml
 D:\OnlineShop\ShopOnline\bin\System.Web.WebPages.Deployment.xml
 D:\OnlineShop\ShopOnline\bin\System.Web.WebPages.Razor.xml
-D:\OnlineShop\ShopOnline\obj\Debug\ShopOnline.csprojResolveAssemblyReference.cache
 D:\OnlineShop\ShopOnline\obj\Debug\ShopOnline.dll
 D:\OnlineShop\ShopOnline\obj\Debug\ShopOnline.pdb

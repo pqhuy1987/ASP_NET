@@ -10,7 +10,7 @@ namespace Models.Framework
     public partial class Account
     {
         [Key]
-        [StringLength(20)]
+        [StringLength(50)]
         public string UserName { get; set; }
 
         [StringLength(50)]

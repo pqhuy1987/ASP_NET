@@ -203,10 +203,11 @@
                                     @Html.ValidationSummary(true)
 
                                     <div class="form-group">
-                                        <label>TÊN CÔNG TRƯỜNG:</label>
-                                    @Html.DropDownListFor(model => model.SelectedCatelory.Prj_Name, Model.ProjectAll, "-- Chọn Công Trường --", new { @class = "form-control-2" })
+                                        <div class="ui-widget">
+                                            <label>TÊN CÔNG TRƯỜNG:</label>
+                                            @Html.DropDownListFor(model => model.SelectedCatelory.Prj_Name, Model.ProjectAll, "-- Chọn Công Trường --", new { @id = "combobox"})
+                                        </div>
                                     </div>
-
                                     <div class="form-group">
                                         <label>TÊN ĐỘI/ĐTC/NTP:</label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Unit_Name, new { @class = "form-control-2" })
@@ -372,7 +373,14 @@
                                     </div>
                                     <p>
                                         <button type="submit" class="btn btn-primary" value="Thêm">THÊM</button>
-                                    </p>       
+                                    </p>  
+                            
+                                    <div class="form-group">
+                                        <label>EMAIL:</label>
+                                        @Html.TextBoxFor(model => model.SelectedCatelory.Person_Number, new { @class = "form-control-2", @type = "date" })
+                                        @Html.ValidationMessageFor(model => model.SelectedCatelory.Unit_Name, null, new { @class = "danger" })
+                                    </div>                            
+                                 
                                 }                                
                             }                             
                             

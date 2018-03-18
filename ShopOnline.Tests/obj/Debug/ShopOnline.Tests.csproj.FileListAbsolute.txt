@@ -60,7 +60,6 @@ D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\EntityFramework.xml
 D:\ASP_PROJECT\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.csprojResolveAssemblyReference.cache
 D:\ASP_PROJECT\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.dll
 D:\ASP_PROJECT\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.pdb
-D:\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.Razor.xml
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.dll.config
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.dll
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.pdb
@@ -86,6 +85,7 @@ D:\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.Helpers.xml
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.Http.xml
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.Http.WebHost.xml
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.Mvc.xml
+D:\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.Razor.xml
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.xml
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Razor.xml
