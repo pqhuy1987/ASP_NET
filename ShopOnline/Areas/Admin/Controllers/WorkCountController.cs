@@ -19,7 +19,26 @@ namespace ShopOnline.Areas.Admin.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 WorkCountViewModel model = new WorkCountViewModel();
-                //model.SelectedProject.Number_Project = 100;
+                
+                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.ProjectAll = new List<SelectListItem>();
+
+                var items = new List<SelectListItem>();
+                foreach (var project in model.Project)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = project.Project_Name,
+                        Text = project.Project_Name,
+                    });
+                }
+
+                model.ProjectAll = items;
+
+                var Check = model.Project[0].Project_Name;
+
+                model.Catelory_Project = db.Catelories.Where(i => i.Prj_Name == Check).ToList();
+
                 return View(model);
             }
         }

@@ -12,8 +12,14 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
+
+
                             @using (Html.BeginForm("Edit", "WorkCount", new { id = 1 }, FormMethod.Post))
                             {
+                                <div class="form-group">
+                                <label>TÊN CÔNG TRƯỜNG:</label>
+                                @Html.DropDownListFor(model => model.SelectedProject, Model.ProjectAll, "-- Chọn Công Trường --", new { @class = "form-control" })
+                                 </div>
                                 <label>Từ Ngày:</label>
                                 @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control", @type = "date" })
                                 @Html.ValidationMessageFor(model => model.StartDate, null, new { @class = "danger" })
@@ -30,46 +36,26 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <tbody id="myDIV">
                                         @{
-                                            <tr>
-                                                <th>Tên Đội:</th>
-                                                @for (int i = 0; i < Model.SelectDate.Count(); i++)
-                                                {
-                                                    <th type="date"> @Model.SelectDate[i]</th>
-                                                }
-                                            </tr>
+                                            if (Model.SelectDate == null)
+                                            {
+                                                 <tr>
+                                                    <th>Tên Đội:</th>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                 <tr>
+                                                    <th>Tên Đội:</th>
+                                                    @for (int i = 0; i < Model.SelectDate.Count(); i++)
+                                                    {
+                                                        <th type="date"> @Model.SelectDate[i]</th>
+                                                    }
+                                                </tr>
+                                            }
+
                                             <tr class="odd gradeX">
                                                 <td>Lê Hữu Phi</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control"})</td>
+
                                             </tr>
 
                                         }
@@ -97,6 +83,10 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <div class="form-group">
+                                <label>TÊN CÔNG TRƯỜNG:</label>
+                                <th>@Model.Project[0].Project_Name</th>
+                            </div>
                             <label>Ngày Tháng:</label>
                             @Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "date" })
                             @Html.ValidationMessageFor(model => model.DisplayMode, null, new { @class = "danger" })
@@ -105,64 +95,12 @@
                                     <tbody id="myDIV">
                                         @{
                                             <tr>
-                                                <th>Đội_Thi_Công 1:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 2:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 3:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 4:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 5:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 6:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 7:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 8:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 9:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 10:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 11:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 12:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 13:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 14:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 15:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 16:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 17:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 18:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 19:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 20:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 21:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 22:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 23:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 24:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 25:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 26:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 27:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 28:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 29:Lê Hữu Phi</th>
-                                                <th>Đội_Thi_Công 30:Lê Hữu Phi</th>
+                                                @foreach (var item in @Model.Catelory_Project)
+                                                {
+                                                    <th type="date">Đội_Thi_Công: @item.Unit_Name</th>
+                                                }
                                             </tr>
                                             <tr class="odd gradeX">
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
-                                                <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
                                                 <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
                                                 <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>
                                                 <td>@Html.TextBoxFor(model => model.DisplayMode, new { @class = "form-control", @type = "number" })</td>

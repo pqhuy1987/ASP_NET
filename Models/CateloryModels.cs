@@ -19,6 +19,7 @@ namespace Models
         public List<SelectListItem> ProjectAll { get; set; }
 
         public Catelory SelectedCatelory { get; set; }
+
         public string DisplayMode { get; set; }
     }
 
