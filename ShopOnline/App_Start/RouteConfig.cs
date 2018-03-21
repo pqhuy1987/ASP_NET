@@ -16,7 +16,7 @@ namespace ShopOnline
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                new {Areas = "Admin", controller = "Login", action = "Index", id = UrlParameter.Optional },
                 new[] { "ShopOnline.Controllers" }
             );
         }

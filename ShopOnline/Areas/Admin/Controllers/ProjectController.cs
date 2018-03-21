@@ -8,6 +8,7 @@ using Models.Framework;
 
 namespace ShopOnline.Areas.Admin.Controllers
 {
+    [Authorize]
     public class ProjectController : Controller
     {
         //

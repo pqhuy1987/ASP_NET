@@ -9,6 +9,7 @@ using Models.Framework;
 
 namespace ShopOnline.Areas.Admin.Controllers
 {
+    [Authorize]
     public class MainController : Controller
     {
         //

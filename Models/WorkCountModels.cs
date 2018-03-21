@@ -11,17 +11,24 @@ namespace Models
 {
     public class WorkCountViewModel
     {
-        public List<DateTime> SelectDate;
-        public List<Catelory> Catelory { get; set; }
-        public List<Project> Project { get; set; }
-        public Catelory SelectedProject { get; set; }
+        public List<DateTime>   SelectDate;
+        public List<Catelory>   Catelory                { get; set; }
+        public List<Project>    Project                 { get; set; }
+        public List<WorkCount>  WorkCount               { get; set; }
+
+        public List<int> Count_Number                   { get; set; }
+
+        public Project SelectedProject                  { get; set; }
+        public WorkCount SelectedWorkCount              { get; set; }
 
         public List<Catelory> Catelory_Project { get; set; }
         public List<SelectListItem> ProjectAll { get; set; }
 
-        public string DisplayMode { get; set; }
-        public DateTime StartDate  { get; set; }
-        public DateTime EndDate  { get; set; }
+        public string DisplayMode   { get; set; }
+        public DateTime StartDate   { get; set; }
+        public DateTime EndDate     { get; set; }
+        public int Number_Team_1    { get; set; }
+        public int Number_Team_2    { get; set; }
     }
 
     class WorkCountModels
