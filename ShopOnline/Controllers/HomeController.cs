@@ -4,18 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace ShopOnline.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
+        // GET: /Admin/Home/
 
         public ActionResult Index()
         {
-            var message = new ShopOnline.Models.MesssageModel();
-            message.Welcome = "Chào mừng đến với Models";
-            return View(message);
+            return View();
         }
 
     }

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Models;
 using Models.Framework;
 
-namespace ShopOnline.Areas.Admin.Controllers
+namespace ShopOnline.Controllers
 {
     [Authorize]
     public class CateloryController : Controller
