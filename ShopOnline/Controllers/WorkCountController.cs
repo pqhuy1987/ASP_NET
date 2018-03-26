@@ -173,16 +173,30 @@ namespace ShopOnline.Controllers
                     model.Number_Team_2 = model.Catelory_Project.Count();
                     model.SelectedProject = null;
 
-                    model.WorkCount = db.WorkCounts.Where(i => i.Project_Name == collection.SelectedProject.Project_Name && i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).ToList();
-
                     var dates = new List<DateTime>();
 
-                    for (var dt = collection.StartDate; dt <= collection.EndDate; dt = dt.AddDays(1))
+                    var Date = db.WorkCounts.Where(i=>i.CreateDate>= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i=>i.CreateDate).Distinct().ToList();
+                    var Date_Count = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.CreateDate).Distinct().Count();
+
+                    DateTime Date_te = Convert.ToDateTime(Date[0]);
+
+                    var dt = Date_te;
+
+                    for (var temp_test = 0; temp_test < Date_Count; dt = dt.AddDays(1), temp_test++)
                     {
-                        dates.Add(dt);
+                        DateTime Date_Temp_Test = Convert.ToDateTime(Date[temp_test]);
+                        dates.Add(Date_Temp_Test);
                     }
 
-                    model.SelectDate = dates;
+                    model.WorkCount = db.WorkCounts.Where(i => i.Project_Name == collection.SelectedProject.Project_Name && i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).ToList();
+
+                    List<List<WorkCount>> myList = new List<List<WorkCount>>();
+
+                    myList.Add(model.WorkCount);
+
+                    model.WorkCount_List = myList;
+   
+                    model.SelectDate      = dates;
 
                     return View("Index", model);
                 }
