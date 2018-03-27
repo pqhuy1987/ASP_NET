@@ -173,30 +173,48 @@ namespace ShopOnline.Controllers
                     model.Number_Team_2 = model.Catelory_Project.Count();
                     model.SelectedProject = null;
 
+                    collection.Catelory_Project = model.Catelory_Project;
+
                     var dates = new List<DateTime>();
+                    var all_number = new List<int>();
 
                     var Date = db.WorkCounts.Where(i=>i.CreateDate>= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i=>i.CreateDate).Distinct().ToList();
                     var Date_Count = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.CreateDate).Distinct().Count();
 
                     DateTime Date_te = Convert.ToDateTime(Date[0]);
-
                     var dt = Date_te;
+
+                    List<List<WorkCount>> myList = new List<List<WorkCount>>();
 
                     for (var temp_test = 0; temp_test < Date_Count; dt = dt.AddDays(1), temp_test++)
                     {
                         DateTime Date_Temp_Test = Convert.ToDateTime(Date[temp_test]);
                         dates.Add(Date_Temp_Test);
+
+                        model.WorkCount = db.WorkCounts.Where(i => i.Project_Name == collection.SelectedProject.Project_Name && i.CreateDate == Date_Temp_Test).ToList();
+                        myList.Add(model.WorkCount);
+                        int temp_all_number = 0;
+                        for (var j = 0; j < model.WorkCount.Count(); j++)
+                        {
+                            temp_all_number = temp_all_number + (int)model.WorkCount[j].Unit_Number;           
+                        }
+                        all_number.Add(temp_all_number); 
+                                         
                     }
 
-                    model.WorkCount = db.WorkCounts.Where(i => i.Project_Name == collection.SelectedProject.Project_Name && i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).ToList();
+                    List<List<WorkCount>> myList_2 = new List<List<WorkCount>>();
 
-                    List<List<WorkCount>> myList = new List<List<WorkCount>>();
+                    foreach(var item in collection.Catelory_Project)
+                    {
+                        model.WorkCount_Temp_2 = db.WorkCounts.Where(i => i.Project_Name == collection.SelectedProject.Project_Name && i.Unit_Name == item.Unit_Name && i.CreateDate>= collection.StartDate && i.CreateDate <= collection.EndDate).ToList();
+                        myList_2.Add(model.WorkCount_Temp_2);
+                    }
 
-                    myList.Add(model.WorkCount);
-
-                    model.WorkCount_List = myList;
+                    model.WorkCount_List    = myList;
+                    model.WorkCount_List_2  = myList_2;
    
-                    model.SelectDate      = dates;
+                    model.SelectDate = dates;
+                    model.Total_number = all_number;
 
                     return View("Index", model);
                 }

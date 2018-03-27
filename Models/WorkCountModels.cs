@@ -16,7 +16,9 @@ namespace Models
         public List<Project>    Project                 { get; set; }
         public List<WorkCount> WorkCount                { get; set; }
         public List<List<WorkCount>>  WorkCount_List    { get; set; }
+        public List<List<WorkCount>>  WorkCount_List_2  { get; set; }
         public List<WorkCount>  WorkCount_Temp          { get; set; }
+        public List<WorkCount>  WorkCount_Temp_2        { get; set; }
 
         public List<int> Count_Number                   { get; set; }
 
@@ -31,6 +33,8 @@ namespace Models
         public DateTime EndDate     { get; set; }
         public int Number_Team_1    { get; set; }
         public int Number_Team_2    { get; set; }
+
+        public List<int> Total_number { get; set; }
     }
 
     class WorkCountModels
