@@ -11,7 +11,8 @@ namespace Models
 {
     public class WorkCountViewModel
     {
-        public List<DateTime>   SelectDate              { get; set; }             
+        public List<DateTime>   SelectDate              { get; set; }
+        public List<DateTime>   SelectDate_Temp         { get; set; }
         public List<Catelory>   Catelory                { get; set; }
         public List<Project>    Project                 { get; set; }
         public List<WorkCount> WorkCount                { get; set; }

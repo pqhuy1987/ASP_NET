@@ -107,12 +107,45 @@ namespace ShopOnline.Controllers
 
                     foreach (var item in collection.Count_Number)
                     {
-                        WorkCount obj = new WorkCount();
+                        WorkCount obj       = new WorkCount();
+                        WorkCount obj_temp  = new WorkCount();
+                        List<DateTime?>  Date_Temp    = new List<DateTime?>();
+
+                        int Count_Temp;
 
                         model.WorkCount = db.WorkCounts.Where(i => i.CreateDate == collection.SelectedWorkCount.CreateDate).ToList();
 
                         obj.Project_Name = Check;
                         obj.Unit_Name = model.Catelory_Project[j].Unit_Name;
+
+                        Count_Temp = db.WorkCounts.Where(i => i.Unit_Name == obj.Unit_Name).Count();
+
+                        if (Count_Temp == 0)
+                        {
+                            Date_Temp = db.WorkCounts.Select(i => i.CreateDate).Distinct().ToList();
+                            int Date_Temp_Count = db.WorkCounts.Select(i => i.CreateDate).Distinct().Count();
+
+                            
+
+                            if (Date_Temp_Count == 0){
+                                ;
+                            }
+                            else {
+                                Date_Temp_Count = Date_Temp_Count - 1;
+                                Date_Temp.RemoveAt(Date_Temp_Count);
+                            }
+                            
+                            foreach (var item_3 in Date_Temp)
+                            {
+                                obj_temp.Project_Name = Check;
+                                obj_temp.Unit_Name = model.Catelory_Project[j].Unit_Name;
+                                obj_temp.CreateDate = item_3;
+                                obj_temp.Unit_Number = 0;
+                                db.WorkCounts.Add(obj_temp);
+                                db.SaveChanges();
+                            }
+                        }
+
                         obj.CreateDate = collection.SelectedWorkCount.CreateDate;
                         obj.Unit_Number = item;
 
@@ -121,6 +154,8 @@ namespace ShopOnline.Controllers
                         j = j + 1;
 
                     }
+
+
                     return View("Index", model);
                 }
             }
@@ -193,10 +228,11 @@ namespace ShopOnline.Controllers
 
                         model.WorkCount = db.WorkCounts.Where(i => i.Project_Name == collection.SelectedProject.Project_Name && i.CreateDate == Date_Temp_Test).ToList();
                         myList.Add(model.WorkCount);
+
                         int temp_all_number = 0;
                         for (var j = 0; j < model.WorkCount.Count(); j++)
                         {
-                            temp_all_number = temp_all_number + (int)model.WorkCount[j].Unit_Number;           
+                            temp_all_number = temp_all_number + (int)model.WorkCount[j].Unit_Number;
                         }
                         all_number.Add(temp_all_number); 
                                          
@@ -206,7 +242,7 @@ namespace ShopOnline.Controllers
 
                     foreach(var item in collection.Catelory_Project)
                     {
-                        model.WorkCount_Temp_2 = db.WorkCounts.Where(i => i.Project_Name == collection.SelectedProject.Project_Name && i.Unit_Name == item.Unit_Name && i.CreateDate>= collection.StartDate && i.CreateDate <= collection.EndDate).ToList();
+                        model.WorkCount_Temp_2 = db.WorkCounts.Where(i => i.Project_Name == collection.SelectedProject.Project_Name && i.Unit_Name == item.Unit_Name && i.CreateDate>= collection.StartDate && i.CreateDate <= collection.EndDate).OrderBy(i => i.CreateDate).ToList();
                         myList_2.Add(model.WorkCount_Temp_2);
                     }
 

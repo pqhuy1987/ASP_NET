@@ -71,31 +71,44 @@
                                                                         }
                                                                         else
                                                                         {
-                                                                            <th style="color:red"> @Model.Catelory_Project[j].Unit_Name (@Model.Catelory_Project[j].Status - @Model.Catelory_Project[j].Job)</th>
+                                                                            <th style="color:red" > @Model.Catelory_Project[j].Unit_Name (@Model.Catelory_Project[j].Status - @Model.Catelory_Project[j].Job)</th>
                                                                         }
-                                                                  }
+                                                                 }
                                                                 @{
-                                                                    //for (int t = 0; t < 8; t++)
-                                                                    //{
-                                                                            foreach (var item_1 in @Model.WorkCount_List_2[j])
-                                                                            {
-                                                                                <th>
-                                                                                    @item_1.Unit_Number
-                                                                                </th>
-                                                                            }
+                                                                if (@Model.WorkCount_List_2 == null)
+                                                                {
+                                                                    ;
+                                                                }
+                                                                else
+                                                                {
+                                                                        foreach (var item_1 in @Model.WorkCount_List_2[j])
+                                                                        {
+                                                                            <th>
+                                                                                @item_1.Unit_Number/@Model.Catelory_Project[j].Person_Number Người
+                                                                            </th>
+                                                                        }
+                                                                }
 
-                                                                    //}
                                                                 }
                                                             </tr>
                                                     }
                                                     
                                                  <tr>
                                                     <th>Tổng Số:</th>
-                                                    @for (int i = 0; i < Model.SelectDate.Count(); i++)
+                                                 @{
+                                                    if (Model.SelectDate == null)
                                                     {
-                                                        <th type="date"> @Model.Total_number[i]</th>
+                                                        ;
                                                     }
-                                                    
+                                                    else
+                                                    {
+                                                        for (int i = 0; i < Model.SelectDate.Count(); i++)
+                                                        {
+                                                            <th type="date"> @Model.Total_number[i] Người</th>
+                                                        }   
+                                                    }
+                                                 }
+      
                                                 </tr>
 
                                                 }
@@ -145,11 +158,12 @@
                                                 {
                                                     if (item.Status == "Hoạt Động")
                                                     {
-                                                        <th type="date">@item.Unit_Name (@item.Status-@item.Job)</th>
+                                                        <th type="date">@item.Unit_Name (@item.Status-@item.Job), Tổng: @item.Person_Number người</th>
                                                     }
                                                     else
                                                     {
-                                                        <th type="date" style="color:red">@item.Unit_Name (@item.Status-@item.Job)</th>
+                            
+                                                       <th type="date" style="color:red">@item.Unit_Name (@item.Status-@item.Job), Tổng: @item.Person_Number người</th>
                                                     }
 
                                                 }
