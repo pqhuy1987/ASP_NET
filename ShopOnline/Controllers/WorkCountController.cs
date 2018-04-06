@@ -125,8 +125,6 @@ namespace ShopOnline.Controllers
                             Date_Temp = db.WorkCounts.Select(i => i.CreateDate).Distinct().ToList();
                             int Date_Temp_Count = db.WorkCounts.Select(i => i.CreateDate).Distinct().Count();
 
-                            
-
                             if (Date_Temp_Count == 0){
                                 ;
                             }

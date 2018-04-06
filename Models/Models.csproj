@@ -52,10 +52,12 @@
     <Compile Include="CateloryModels.cs" />
     <Compile Include="Framework\Account.cs" />
     <Compile Include="Framework\Catelory.cs" />
+    <Compile Include="Framework\LLTC.cs" />
     <Compile Include="Framework\OnlineShopDbContext.cs" />
     <Compile Include="Framework\Product.cs" />
     <Compile Include="Framework\Project.cs" />
     <Compile Include="Framework\WorkCount.cs" />
+    <Compile Include="LLTCModels.cs" />
     <Compile Include="WorkCountModels.cs" />
     <Compile Include="ProjectModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

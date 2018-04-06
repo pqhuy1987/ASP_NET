@@ -15,5 +15,8 @@ namespace Models.Framework
 
         [StringLength(50)]
         public string Password { get; set; }
+
+        [StringLength(100)]
+        public string Project_Name { get; set; }
     }
 }

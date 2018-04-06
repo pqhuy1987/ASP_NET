@@ -20,6 +20,7 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CateloryViewModel model = new CateloryViewModel();
+
                 model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
                 model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
 
@@ -36,7 +37,6 @@ namespace ShopOnline.Controllers
                 }
 
                 model.ProjectAll = items;
-
 
                 model.SelectedCatelory = null;
                 model.DisplayMode = null;

@@ -753,6 +753,7 @@
     <Content Include="Views\WorkCount\Index.cshtml" />
     <Content Include="Views\User\User.cshtml" />
     <Content Include="Views\LLTC\Index.cshtml" />
+    <Content Include="Views\LLTC\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
