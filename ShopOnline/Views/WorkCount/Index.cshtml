@@ -71,7 +71,7 @@
                                                                         }
                                                                         else
                                                                         {
-                                                                            <th style="color:red" > @Model.Catelory_Project[j].Unit_Name (@Model.Catelory_Project[j].Status - @Model.Catelory_Project[j].Job)</th>
+                                                                            <th style="color:red"> @Model.Catelory_Project[j].Unit_Name (@Model.Catelory_Project[j].Status - @Model.Catelory_Project[j].Job)</th>
                                                                         }
                                                                  }
                                                                 @{
@@ -94,7 +94,7 @@
                                                     }
                                                     
                                                  <tr>
-                                                    <th>Tổng Số:</th>
+                                                 <th>Tổng Quân Số Tại Công Trường:</th>
                                                  @{
                                                     if (Model.SelectDate == null)
                                                     {
@@ -110,10 +110,37 @@
                                                  }
       
                                                 </tr>
+                                                <th>Tổng Quân Số Kết Cấu: </th>
+                                                    if (Model.SelectDate == null)
+                                                    {
+                                                        ;
+                                                    }
+                                                    else
+                                                    {
+                                                        for (int i = 0; i < Model.SelectDate.Count(); i++)
+                                                        {
+                                                            <th type="date"> @Model.Total_number[i] Người</th>
+                                                        }   
+                                                    }
+                                              <tr>      
+                                              <th>Tổng Quân Số Trắc Đạt: </th>
+                                                  @{
+                                                    if (Model.SelectDate == null)
+                                                    {
+                                                        ;
+                                                    }
+                                                    else
+                                                    {
+                                                        for (int i = 0; i < Model.SelectDate.Count(); i++)
+                                                        {
+                                                          <th type="date"> @Model.Total_number[i] Người</th>
+                                                        }
+                                                    }
+                                                  }
+                                              </tr>
+                                        }
 
-                                                }
-
-                                            </tr>
+                                    </tr>
 
                                         }
                                     </tbody>

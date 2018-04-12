@@ -19,5 +19,7 @@ namespace Models.Framework
         public string Unit_Name { get; set; }
 
         public int? Unit_Number { get; set; }
+
+        public string Unit_Job { get; set; }
     }
 }

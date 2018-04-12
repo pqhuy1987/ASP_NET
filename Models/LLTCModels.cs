@@ -12,10 +12,20 @@ namespace Models
 {
     public class LLTCViewModel
     {
-        public List<LLTC>   LLTC            { get; set; }
-        public List<Catelory> Catelory      { get; set; }
-        public LLTC         SelectedLLTC    { get; set; }
+        public List<LLTC>       LLTC            { get; set; }
+        public List<Catelory>   Catelory        { get; set; }
+        public LLTC             SelectedLLTC    { get; set; }
 
         public string       DisplayMode     { get; set; }
+    }
+
+    class LLTCModels
+    {
+        private OnlineShopDbContext context = null;
+
+        public LLTCModels()
+        {
+            context = new OnlineShopDbContext();
+        }
     }
 }

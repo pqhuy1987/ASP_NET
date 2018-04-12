@@ -96,7 +96,7 @@ namespace ShopOnline.Controllers
 
                     model.Number_Team_2 = model.Catelory_Project.Count();
                     model.SelectedProject = null;
-                    int j =0;
+                    int j = 0;
 
                      model.WorkCount = db.WorkCounts.Where(i => i.CreateDate == collection.SelectedWorkCount.CreateDate).ToList();
 
@@ -117,6 +117,7 @@ namespace ShopOnline.Controllers
 
                         obj.Project_Name = Check;
                         obj.Unit_Name = model.Catelory_Project[j].Unit_Name;
+                        obj.Unit_Job = model.Catelory_Project[j].Job;
 
                         Count_Temp = db.WorkCounts.Where(i => i.Unit_Name == obj.Unit_Name).Count();
 
@@ -211,8 +212,11 @@ namespace ShopOnline.Controllers
                     var dates = new List<DateTime>();
                     var all_number = new List<int>();
 
-                    var Date = db.WorkCounts.Where(i=>i.CreateDate>= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i=>i.CreateDate).Distinct().ToList();
-                    var Date_Count = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.CreateDate).Distinct().Count();
+                    var Job = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.Unit_Job).Distinct().ToList();
+                    var Job_Count = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.Unit_Job).Distinct().Count();
+
+                    var Date = db.WorkCounts.Where(i=>i.CreateDate>= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i=>i.Unit_Job).Distinct().ToList();
+                    var Date_Count = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.Unit_Job).Distinct().Count();
 
                     DateTime Date_te = Convert.ToDateTime(Date[0]);
                     var dt = Date_te;

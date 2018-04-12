@@ -34,12 +34,12 @@
                             <th>ID</th>
                             <th>Công Trường</th>
                             <th>Tên ĐTC/NTP</th>
-                            <th>Người Đại Diện/Đội Trưởng/Giám Đốc</th>
+                            <th>Giám Đốc</th>
+                            <th>Điện Thoại-Giám Đốc</th>
+                            <th>Đội trưởng</th>
                             <th>Điện Thoại</th>
-                            <th>Email</th>
                             <th>Quân Số</th>
                             <th>Công Việc</th>
-                            <th>Ngày Tạo</th>
                             <th>Tình Trạng</th>
                             <th>Khu Vực</th>
                             <th>Đánh Giá</th>
@@ -77,10 +77,10 @@
                             <td>@item.Unit_Name</td>
                             <td>@item.Owner_Name</td>
                             <td>@item.Phone_Number</td>
-                            <td>@item.Email</td>
+                            <td>@item.Owner_Name</td>
+                            <td>@item.Phone_Number</td>
                             <td>@item.Person_Number</td>
                             <td>@item.Job</td>
-                            <td>@(item.Create_Date.HasValue ? @item.Create_Date.Value.ToString("dd/MM/yyyy") : "")</td>
                             <td class="center">@item.Status</td>
                             <td>@item.Area</td>
                             <td>@item.Rate</td>
@@ -96,7 +96,6 @@
                                 </form>
                             </td>
                             <td>
-
                                 <form action="@Url.Action("Delete", "Catelory", new { id = @item.ID })" method="post">
                                     <input type="submit" value="Xóa" />
                                 </form>

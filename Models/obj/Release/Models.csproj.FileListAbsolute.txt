@@ -7,4 +7,3 @@ D:\OnlineShop\Models\bin\Release\EntityFramework.xml
 D:\OnlineShop\Models\bin\Release\EntityFramework.SqlServer.xml
 D:\OnlineShop\Models\obj\Release\Models.dll
 D:\OnlineShop\Models\obj\Release\Models.pdb
-D:\OnlineShop\Models\obj\Release\Models.csprojResolveAssemblyReference.cache
