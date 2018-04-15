@@ -209,14 +209,16 @@ namespace ShopOnline.Controllers
 
                     collection.Catelory_Project = model.Catelory_Project;
 
-                    var dates = new List<DateTime>();
-                    var all_number = new List<int>();
+                    var dates                = new List<DateTime>();
+                    var all_number           = new List<int>();
+                    var all_job_number_temp  = new List<int>();
+                    var all_job_number       = new List<List<int>>();
 
-                    var Job = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.Unit_Job).Distinct().ToList();
-                    var Job_Count = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.Unit_Job).Distinct().Count();
+                    var Date = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.CreateDate).Distinct().ToList();
+                    var Date_Count = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.CreateDate).Distinct().Count();
 
-                    var Date = db.WorkCounts.Where(i=>i.CreateDate>= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i=>i.Unit_Job).Distinct().ToList();
-                    var Date_Count = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.Unit_Job).Distinct().Count();
+                    model.List_Job = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.Unit_Job).Distinct().ToList();
+                    model.Number_Job = db.WorkCounts.Where(i => i.CreateDate >= collection.StartDate && i.CreateDate <= collection.EndDate).Select(i => i.Unit_Job).Distinct().Count();
 
                     DateTime Date_te = Convert.ToDateTime(Date[0]);
                     var dt = Date_te;
@@ -232,12 +234,35 @@ namespace ShopOnline.Controllers
                         myList.Add(model.WorkCount);
 
                         int temp_all_number = 0;
+
                         for (var j = 0; j < model.WorkCount.Count(); j++)
                         {
                             temp_all_number = temp_all_number + (int)model.WorkCount[j].Unit_Number;
+
                         }
-                        all_number.Add(temp_all_number); 
-                                         
+                        all_number.Add(temp_all_number);
+                        
+                        for (var j = 0; j < model.Number_Job; j++)
+                        {
+                            int temp_job_all_number = 0;
+                            int temp_job = 0;
+                            
+                            for (var i = 0; i < model.WorkCount.Count(); i++)
+                            {
+                                if (model.WorkCount[i].Unit_Job == model.List_Job[j])
+                                {
+                                    temp_job_all_number = temp_job_all_number + (int)model.WorkCount[i].Unit_Number;
+                                }
+
+                                temp_job = i;
+                            }
+
+                            all_job_number_temp.Add(temp_job_all_number);
+                       
+                        }
+
+                        //all_job_number_temp.Clear();
+                        all_job_number[0].Add();
                     }
 
                     List<List<WorkCount>> myList_2 = new List<List<WorkCount>>();

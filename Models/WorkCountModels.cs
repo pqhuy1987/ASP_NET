@@ -22,7 +22,6 @@ namespace Models
         public List<WorkCount>  WorkCount_Temp_2        { get; set; }
 
         public List<int>  Count_Number                   { get; set; }
-        public List<char> Job                            { get; set; }
 
         public Project SelectedProject                  { get; set; }
         public WorkCount SelectedWorkCount              { get; set; }
@@ -36,7 +35,12 @@ namespace Models
         public int Number_Team_1    { get; set; }
         public int Number_Team_2    { get; set; }
 
-        public List<int> Total_number { get; set; }
+        public List<string> List_Job    { get; set;}
+        public int Number_Job           { get; set;}
+
+        public List<int> Total_number   { get; set;}
+
+        public List<List<int>> Total_Job_number { get; set;}
     }
 
     class WorkCountModels

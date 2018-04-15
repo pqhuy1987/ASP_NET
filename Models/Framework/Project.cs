@@ -13,7 +13,7 @@ namespace Models.Framework
 
         public string Project_Name { get; set; }
 
-        public int Number_Project;
         public int Number_Person;
+        public int Number_Project;
     }
 }
