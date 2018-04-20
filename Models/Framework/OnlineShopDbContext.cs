@@ -17,7 +17,6 @@ namespace Models.Framework
         public virtual DbSet<LLTC> LLTCs { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
-        public virtual DbSet<Work_Force> Work_Force { get; set; }
         public virtual DbSet<WorkCount> WorkCounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

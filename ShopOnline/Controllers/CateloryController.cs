@@ -19,11 +19,15 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CateloryViewModel model = new CateloryViewModel();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project       = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Catelory      = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC          = db.LLTCs.OrderBy(m => m.ID).Take(1000).ToList();
 
-                model.ProjectAll    = new List<SelectListItem>(); 
-                var items           = new List<SelectListItem>();
+                model.ProjectAll        = new List<SelectListItem>();
+                model.MainNameAll       = new List<SelectListItem>(); 
+
+                var items               = new List<SelectListItem>();
+                var items_2             = new List<SelectListItem>();
 
                 foreach (var project in model.Project)
                 {
@@ -36,6 +40,14 @@ namespace ShopOnline.Controllers
 
                 model.ProjectAll = items;
 
+                foreach (var Work_Force in model.LLTC)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value   = Work_Force.Main_Name_LLTC,
+                        Text    = Work_Force.Main_Name_LLTC,
+                    });
+                }
 
                 model.SelectedCatelory = null;
                 model.DisplayMode = null;

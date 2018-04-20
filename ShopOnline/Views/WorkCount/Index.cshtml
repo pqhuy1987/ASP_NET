@@ -32,7 +32,7 @@
                                 </p>
                             }
 
-                            <div style="min-width: 1000px; max-height: 500px; overflow: auto;">
+                            <div style="min-width: 1000px; max-width: 1200px; max-height: 700px; overflow: auto;">
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <tbody id="myDIV">
                                         @{
@@ -94,7 +94,7 @@
                                                     }
                                                     
                                                  <tr>
-                                                 <th>Tổng Quân Số Tại Công Trường:</th>
+                                                 <th>Tổng Quân Số: Công Trường </th>
                                                  @{
                                                     if (Model.SelectDate == null)
                                                     {
@@ -110,34 +110,28 @@
                                                  }
       
                                                 </tr>
-                                                <th>Tổng Quân Số Kết Cấu: </th>
-                                                    if (Model.SelectDate == null)
+                                                    int temp_i = 0;
+                                                    int temp_j = 1;
+                                                    if (Model.List_Job == null)
                                                     {
                                                         ;
-                                                    }
-                                                    else
+                                                    } else
                                                     {
-                                                        for (int i = 0; i < Model.SelectDate.Count(); i++)
+                                                        foreach (var item_1 in @Model.List_Job)
                                                         {
-                                                            <th type="date"> @Model.Total_number[i] Người</th>
-                                                        }   
-                                                    }
-                                              <tr>      
-                                              <th>Tổng Quân Số Trắc Đạt: </th>
-                                                  @{
-                                                    if (Model.SelectDate == null)
-                                                    {
-                                                        ;
-                                                    }
-                                                    else
-                                                    {
-                                                        for (int i = 0; i < Model.SelectDate.Count(); i++)
-                                                        {
-                                                          <th type="date"> @Model.Total_number[i] Người</th>
-                                                        }
-                                                    }
-                                                  }
-                                              </tr>
+                                                            <tr>
+                                                                <th>Tổng Quân Số: @item_1 </th>
+                                                                @for (int i = 0; i < Model.SelectDate.Count(); i++)
+                                                                {
+                                                                    <th>@Model.Total_Job_number_2[temp_i]</th>
+                                                                    temp_i = (temp_i + 5);
+                                                                    if (temp_i < 0) { temp_i = 0; }
+                                                                }
+                                                            </tr>
+                                                            temp_i = temp_j;
+                                                            temp_j = temp_j + 1;
+                                                        } 
+                                                    }  
                                         }
 
                                     </tr>

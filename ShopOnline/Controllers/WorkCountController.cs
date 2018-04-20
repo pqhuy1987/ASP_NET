@@ -138,6 +138,7 @@ namespace ShopOnline.Controllers
                             {
                                 obj_temp.Project_Name = Check;
                                 obj_temp.Unit_Name = model.Catelory_Project[j].Unit_Name;
+                                obj_temp.Unit_Job = model.Catelory_Project[j].Job;
                                 obj_temp.CreateDate = item_3;
                                 obj_temp.Unit_Number = 0;
                                 db.WorkCounts.Add(obj_temp);
@@ -240,6 +241,7 @@ namespace ShopOnline.Controllers
                             temp_all_number = temp_all_number + (int)model.WorkCount[j].Unit_Number;
 
                         }
+
                         all_number.Add(temp_all_number);
                         
                         for (var j = 0; j < model.Number_Job; j++)
@@ -258,11 +260,9 @@ namespace ShopOnline.Controllers
                             }
 
                             all_job_number_temp.Add(temp_job_all_number);
-                       
-                        }
 
-                        //all_job_number_temp.Clear();
-                        all_job_number[0].Add();
+                        }
+                        
                     }
 
                     List<List<WorkCount>> myList_2 = new List<List<WorkCount>>();
@@ -278,6 +278,8 @@ namespace ShopOnline.Controllers
    
                     model.SelectDate = dates;
                     model.Total_number = all_number;
+
+                    model.Total_Job_number_2 = all_job_number_temp;
 
                     return View("Index", model);
                 }

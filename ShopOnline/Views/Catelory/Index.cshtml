@@ -301,25 +301,24 @@
 
                                     <div class="form-group">
                                         <label>TÊN ĐỘI/ĐTC/NTP:</label>
-                                        @Html.TextBoxFor(model => model.SelectedCatelory.Unit_Name, new { @class = "form-control-2" })
-                                        @Html.ValidationMessageFor(model => model.SelectedCatelory.Unit_Name, null, new { @class = "danger" })
+                                     @Html.DropDownListFor(model => model.SelectedCatelory.Prj_Name, Model.MainNameAll, "-- Chọn Đội Thi Công --", new { @class = "form-control-2" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>NGƯỜI ĐẠI DIỆN/ĐỘI TRƯỞNG/GIÁM ĐỐC:</label>
+                                        <label>ĐỘI TRƯỞNG TẠI CÔNG TRƯỜNG:</label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Owner_Name, new { @class = "form-control-2" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Owner_Name, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>ĐIỆN THOẠI: </label><b style="color:red">(THÔNG TIN BẮT BUỘC)</b>
+                                        <label>ĐIỆN THOẠI ĐỘI TRƯỞNG: </label><b style="color:red">(THÔNG TIN BẮT BUỘC)</b>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Phone_Number, new { @class = "digit", @id = "prefixLogin", @type = "number" })
                                         <span id="errormsg"></span>
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Phone_Number, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>QUÂN SỐ: </label>
+                                        <label>QUÂN SỐ TẠI CÔNG TRƯỜNG: </label>
                                         @Html.TextBoxFor(model => model.SelectedCatelory.Person_Number, new { @class = "form-control-2" })
                                         @Html.ValidationMessageFor(model => model.SelectedCatelory.Person_Number, null, new { @class = "danger" })
                                     </div>
@@ -361,7 +360,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>LOẠI CÔNG VIỆC:</label>
-                                        @Html.DropDownListFor(model => model.SelectedCatelory.Job, new List<SelectListItem>()
+                                       @Html.DropDownListFor(model => model.SelectedCatelory.Job, new List<SelectListItem>()
                                        {
                                             new SelectListItem(){Text = "Kết Cấu", Value = "Kết Cấu"},
                                             new SelectListItem(){Text = "Hoàn Thiện", Value = "Hoàn Thiện"},
@@ -372,17 +371,9 @@
                                     </div>
                                     <p>
                                         <button type="submit" class="btn btn-primary" value="Thêm">THÊM</button>
-                                    </p>  
-                            
-                                    <div class="form-group">
-                                        <label>EMAIL:</label>
-                                        @Html.TextBoxFor(model => model.SelectedCatelory.Person_Number, new { @class = "form-control-2", @type = "date" })
-                                        @Html.ValidationMessageFor(model => model.SelectedCatelory.Unit_Name, null, new { @class = "danger" })
-                                    </div>                            
-                                 
+                                    </p>                                                        
                                 }                                
                             }                             
-                            
                         }
                     </div>
 

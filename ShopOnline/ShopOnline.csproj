@@ -137,7 +137,6 @@
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WorkCountController.cs" />
-    <Compile Include="Controllers\Work_Force.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,6 +147,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Assets\files\font-awesome.min.css" />
+    <Content Include="Assets\files\img-login.jpg" />
+    <Content Include="Assets\files\img-login2.jpg" />
+    <Content Include="Assets\files\login.css" />
+    <Content Include="Assets\files\logo.jpg" />
+    <Content Include="Assets\files\logo1.jpg" />
     <Content Include="Assets_3\admin\data\flot-data.js" />
     <Content Include="Assets_3\admin\data\morris-data.js" />
     <Content Include="Assets_3\admin\dist\css\sb-admin-2.css" />
@@ -741,6 +746,8 @@
     <Content Include="Assets_3\admin\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Assets_3\admin\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="Assets_3\admin\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Assets\files\Index.cshtml" />
+    <Content Include="Assets\files\jquery.min.js.download" />
     <None Include="Properties\PublishProfiles\Worker.pubxml" />
     <Content Include="Views\Catelory\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

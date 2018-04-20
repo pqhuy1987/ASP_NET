@@ -15,17 +15,17 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Tên Công Ty/NTP/ĐTC</th>
-                            <th>Tên Giám Đốc</th>
-                            <th>SĐT-Giám Đốc</th>
-                            <th>Khu Vực</th>
-                            <th>Khả Năng Huy Động</th>
-                            <th>Đánh Giá</th>
-                            <th>Hợp Tác</th>
-                            <th>Ghi Chú</th>
-                            <th>Tình Trạng</th>
-                            <th>Chọn</th>
-                            <th>Xóa</th>
+                            <th>TÊN CÔNG TY/NTP/ĐTC</th>
+                            <th>TÊN GIÁM ĐỐC</th>
+                            <th>SĐT-GIÁM ĐỐC</th>
+                            <th>CÔNG VIỆC</th>
+                            <th>KHU VỰC</th>
+                            <th>KHẢ NĂNG HUY ĐỘNG</th>
+                            <th>HỢP TÁC</th>
+                            <th>GHI CHÚ</th>
+                            <th>TÌNH TRẠNG</th>
+                            <th>CHỌN</th>
+                            <th>XÓA</th>
                         </tr>
                     </thead>
 
@@ -67,14 +67,13 @@
                                 <td>@item.Main_Note</td>
                                 <td>@item.Main_Status</td>
                                 <td>
-
-                                    <form action="@Url.Action("Edit", "Catelory",  new { id = @item.ID })" method="post">
+                                    <form action="@Url.Action("Create", "LLTC",  new { id = @item.ID })" method="post">
                                         <input type="submit" value="Select" />
                                     </form>
                                 </td>
                                 <td>
 
-                                    <form action="@Url.Action("Delete", "Catelory", new { id = @item.ID })" method="post">
+                                    <form action="@Url.Action("Delete", "LLTC", new { id = @item.ID })" method="post">
                                         <input type="submit" value="Delete" />
                                     </form>
                                 </td>

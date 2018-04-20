@@ -59,7 +59,6 @@
     <Compile Include="Framework\Product.cs" />
     <Compile Include="Framework\Project.cs" />
     <Compile Include="Framework\WorkCount.cs" />
-    <Compile Include="Framework\Work_Force.cs" />
     <Compile Include="LLTCModels.cs" />
     <Compile Include="WorkCountModels.cs" />
     <Compile Include="ProjectModels.cs" />
@@ -69,7 +68,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Work_ForceModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

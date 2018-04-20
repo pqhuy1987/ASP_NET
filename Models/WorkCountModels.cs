@@ -40,7 +40,8 @@ namespace Models
 
         public List<int> Total_number   { get; set;}
 
-        public List<List<int>> Total_Job_number { get; set;}
+        public List<List<int>> Total_Job_number     { get; set; }
+        public List<int>       Total_Job_number_2   { get; set; }
     }
 
     class WorkCountModels

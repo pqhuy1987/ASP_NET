@@ -12,11 +12,13 @@ namespace Models
 {
     public class CateloryViewModel
     {
-        public List<Catelory> Catelory  { get; set; }
-        public List<Project>  Project   { get; set; }
-        public List<Catelory> Catelory_Project { get; set; }
+        public List<Catelory>   Catelory            { get; set; }
+        public List<Project>    Project             { get; set; }
+        public List<LLTC>       LLTC                { get; set; }
+        public List<Catelory>   Catelory_Project    { get; set; }
 
-        public List<SelectListItem> ProjectAll { get; set; }
+        public List<SelectListItem> ProjectAll  { get; set; }
+        public List<SelectListItem> MainNameAll { get; set; }
 
         public Catelory SelectedCatelory { get; set; }
 

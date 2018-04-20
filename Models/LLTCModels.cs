@@ -16,7 +16,7 @@ namespace Models
         public List<Catelory>   Catelory        { get; set; }
         public LLTC             SelectedLLTC    { get; set; }
 
-        public string       DisplayMode     { get; set; }
+        public string           DisplayMode     { get; set; }
     }
 
     class LLTCModels

@@ -53,12 +53,27 @@ namespace ShopOnline.Controllers
         // POST: /LLTC/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(LLTCViewModel collection)
         {
             try
             {
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
+                    LLTC obj = new LLTC();
+
+                    obj.Main_Area       = collection.SelectedLLTC.Main_Area;
+                    obj.Main_Name_Job   = collection.SelectedLLTC.Main_Name_Job;
+                    obj.Main_Name_LLTC  = collection.SelectedLLTC.Main_Name_LLTC;
+                    obj.Main_Name_Ower  = collection.SelectedLLTC.Main_Name_Ower;
+                    obj.Main_Note       = collection.SelectedLLTC.Main_Note;
+                    obj.Main_Number     = collection.SelectedLLTC.Main_Number;
+                    obj.Main_Rate       = collection.SelectedLLTC.Main_Rate;
+                    obj.Main_Status     = collection.SelectedLLTC.Main_Status;
+                    obj.Main_Total_Number = collection.SelectedLLTC.Main_Total_Number;
+
+                    db.LLTCs.Add(obj);
+                    db.SaveChanges();
+
                     LLTCViewModel model = new LLTCViewModel();
                     model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
 

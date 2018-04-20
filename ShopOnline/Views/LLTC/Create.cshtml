@@ -32,17 +32,16 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Tên Công Ty/NTP/ĐTC</th>
-                            <th>Tên Giám Đốc</th>
-                            <th>SĐT-Giám Đốc</th>
-                            <th>Khu Vực</th>
-                            <th>Khả Năng Huy Động</th>
-                            <th>Đánh Giá</th>
-                            <th>Hợp Tác</th>
-                            <th>Ghi Chú</th>
-                            <th>Tình Trạng</th>
-                            <th>Chọn</th>
-                            <th>Xóa</th>
+                            <th>TÊN CÔNG TY/NTP/ĐTC</th>
+                            <th>TÊN GIÁM ĐỐC</th>
+                            <th>SĐT-GIÁM ĐỐC</th>
+                            <th>KHU VỰC</th>
+                            <th>KHẢ NĂNG HUY ĐỘNG</th>
+                            <th>HỢP TÁC</th>
+                            <th>GHI CHÚ</th>
+                            <th>TÌNH TRẠNG</th>
+                            <th>CHỌN</th>
+                            <th>XÓA</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,17 +50,16 @@
                     {
                         <tr>
                             <th>ID</th>
-                            <th>Tên Công Ty/NTP/ĐTC</th>
-                            <th>Tên Giám Đốc</th>
-                            <th>SĐT-Giám Đốc</th>
-                            <th>Khu Vực</th>
-                            <th>Khả Năng Huy Động</th>
-                            <th>Đánh Giá</th>
-                            <th>Hợp Tác</th>
-                            <th>Ghi Chú</th>
-                            <th>Tình Trạng</th>
-                            <th>Chọn</th>
-                            <th>Xóa</th>
+                            <th>TÊN CÔNG TY/NTP/ĐTC</th>
+                            <th>Tên GIÁM ĐỐC</th>
+                            <th>SĐT-GIÁM ĐỐC</th>
+                            <th>KHU VỰC</th>
+                            <th>KHẢ NĂNG HUY ĐỘNG</th>
+                            <th>HỢP TÁC</th>
+                            <th>GHI CHÚ</th>
+                            <th>TÌNH TRẠNG</th>
+                            <th>CHỌN</th>
+                            <th>XÓA</th>
                         </tr>
                     }
                     else
@@ -78,9 +76,8 @@
                                 <td>@item.Main_Rate</td>
                                 <td>@item.Main_Name_Job</td>
                                 <td>@item.Main_Note</td>
-                                <td>@item.Main_Rate</td>
                                 <td>
-                                    <form action="@Url.Action("Edit", "Catelory",  new { id = @item.ID, number = 123 })" method="post">
+                                    <form action="@Url.Action("Create", "LLTC", new { id = @item.ID, number = 123 })" method="post">
                                         <input type="submit" value="Chọn" />
                                     </form>
                                 </td>
@@ -118,45 +115,45 @@
                         @{
                             if (Model.DisplayMode == "Edit")
                             {
-                                using (Html.BeginForm("Save", "Catelory", new { id = Model.SelectedLLTC.ID }, FormMethod.Post))
+                                using (Html.BeginForm("Save", "LLTC", new { id = Model.SelectedLLTC.ID }, FormMethod.Post))
                                 {
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true)
 
                                     <div class="form-group">
-                                        <label>TÊN Công Ty/NTP/ĐTC: </label>
+                                        <label>TÊN CÔNG TY/NTP/ĐTC: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Name_LLTC, new { @class = "form-control-2" })
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Name_LLTC, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>TÊN Giám Đốc: </label>
+                                        <label>TÊN GIÁM ĐỐC: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Name_Ower, new { @class = "form-control-2" })
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Name_Ower, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Số ĐT Giám Đốc: </label>  <b style="color:red">(THÔNG TIN BẮT BUỘC)</b>
+                                        <label>SỐ ĐT GIÁM ĐỐC: </label>  <b style="color:red">(THÔNG TIN BẮT BUỘC)</b>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Number, new { @class = "digit", @id = "prefixLogin", @type = "number" })
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Number, null, new { @class = "danger" })
                                     </div>
                             
                                     <div class="form-group">
-                                        <label>Khu Vực: </label>
+                                        <label>KHU VỰC: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Area, new { @class = "digit" })
                                         <span id="errormsg"></span>
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Area, null, new { @class = "danger" })
                                     </div>
                             
                                     <div class="form-group">
-                                        <label>Khả Năng Huy Động: </label>
+                                        <label>KHẢ NĂNG HUY ĐỘNG: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Total_Number, new { @class = "digit" })
                                         <span id="errormsg"></span>
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Total_Number, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Đánh Giá: </label>
+                                        <label>ĐÁNH GIÁ: </label>
                                         @Html.DropDownListFor(model => model.SelectedLLTC.Main_Rate, new List<SelectListItem>()
                                         {
                                             new SelectListItem(){Text = "Hoạt Động", Value = "Hoạt Động"},
@@ -165,7 +162,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Hợp Tác: </label>
+                                        <label>HỢP TÁC: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Status, new { @class = "form-control-2" })
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Status, null, new { @class = "danger" })
                                     </div>
@@ -177,55 +174,58 @@
                             }
                             else
                             {
-                                using (Html.BeginForm("Create", "Catelory", FormMethod.Post))
+                                using (Html.BeginForm("Create", "LLTC", FormMethod.Post))
                                 {
                                     @Html.AntiForgeryToken()
                                     @Html.ValidationSummary(true)
 
                                     <div class="form-group">
-                                        <label>TÊN Công Ty/NTP/ĐTC: </label>
+                                        <label>TÊN CÔNG TY/NTP/ĐTC: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Name_LLTC, new { @class = "form-control-2" })
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Name_LLTC, null, new { @class = "danger" })
 
                                     </div>
 
                                     <div class="form-group">
-                                        <label>TÊN Giám Đốc: </label>
+                                        <label>TÊN GIÁM ĐỐC: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Name_Ower, new { @class = "form-control-2" })
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Name_Ower, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Số ĐT Giám Đốc: </label>  <b style="color:red">(THÔNG TIN BẮT BUỘC)</b>
+                                        <label>SỐ ĐT GIÁM ĐỐC: </label>  <b style="color:red">(THÔNG TIN BẮT BUỘC)</b>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Number, new { @class = "digit", @id = "prefixLogin", @type = "number" })
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Number, null, new { @class = "danger" })
                                     </div>
                             
                                     <div class="form-group">
-                                        <label>Khu Vực: </label>
+                                        <label>KHU VỰC: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Area, new { @class = "digit" })
                                         <span id="errormsg"></span>
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Area, null, new { @class = "danger" })
                                     </div>
                             
                                     <div class="form-group">
-                                        <label>Khả Năng Huy Động: </label>
+                                        <label>KHẢ NĂNG HUY ĐỘNG: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Total_Number, new { @class = "digit" })
                                         <span id="errormsg"></span>
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Total_Number, null, new { @class = "danger" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Đánh Giá: </label>
+                                        <label>HỢP TÁC: </label>
                                         @Html.DropDownListFor(model => model.SelectedLLTC.Main_Rate, new List<SelectListItem>()
                                         {
-                                            new SelectListItem(){Text = "Hoạt Động", Value = "Hoạt Động"},
-                                            new SelectListItem(){Text = "Đã Ngưng", Value = "Đã Ngưng"}
+                                            new SelectListItem(){Text = "Tích Cực Hợp Tác", Value = "Tích Cực Hợp Tác"},
+                                            new SelectListItem(){Text = "Hợp Tác Khá", Value = "Hợp Tác Khá"},
+                                            new SelectListItem(){Text = "Hợp Tác Vừa", Value = "Hợp Tác Vừa"},
+                                            new SelectListItem(){Text = "Hợp Tác Kém", Value = "Hợp Tác Kém"},
+                                            new SelectListItem(){Text = "Không Hợp Tác", Value = "Không Hợp Tác"},
                                         }, new { @class = "form-control-2" })
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Hợp Tác: </label>
+                                        <label>HỢP TÁC: </label>
                                         @Html.TextBoxFor(model => model.SelectedLLTC.Main_Status, new { @class = "form-control-2" })
                                         @Html.ValidationMessageFor(model => model.SelectedLLTC.Main_Status, null, new { @class = "danger" })
                                     </div>
