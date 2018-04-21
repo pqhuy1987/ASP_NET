@@ -28,18 +28,21 @@
             </div>
             <div class="login-form">
                 <p id="div-pthongbao"></p>
-                <form action="" method="post">
-                    <input name="__RequestVerificationToken" type="hidden" value="OS0YceR25esUvQjUl5lpkvuJJVnV_a-_BnYcfSafuBUxJ9WgkatyjERnIq7p6pFM_2Ju-0iSdI2ZJF2Z38t_AQ2QlnG22mkvCHqRJ3EzHw41">                    <div class="group">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger"})
+                    <div class="group">
                         <div class="error">
                             <span class="field-validation-valid" data-valmsg-for="Username" data-valmsg-replace="true"></span>
                         </div>
-                        <input class="input" data-val="true" data-val-required="Vui lòng nhập Tên đăng nhập" id="Username" name="Username" placeholder="Tên đăng nhập" type="text" value="">
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "input", @id = "Username", @name = "Username", @placeholder = "Tên đăng nhập", @type = "text" })
                     </div>
                     <div class="group">
                         <div class="error">
                             <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
                         </div>
-                        <input class="input" data-val="true" data-val-required="Vui lòng nhập Mật khẩu" id="Password" name="Password" placeholder="Mật khẩu" type="password">
+                        @Html.TextBoxFor(model => model.Password, new { @class = "input", @id = "Password", @name = "Password", @placeholder = "Mật khẩu", @type = "password" })
                     </div>
                     <div class="group">
                         <input checked="checked" data-val="true" data-val-required="The Ghi nhớ? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true"><input name="RememberMe" type="hidden" value="false"> Ghi nhớ đăng nhập
@@ -47,7 +50,7 @@
                     <div class="group">
                         <input type="submit" class="button" value="Đăng nhập">
                     </div>
-                </form>
+                }
             </div>
             <div class="login-footer">
                 <p>
