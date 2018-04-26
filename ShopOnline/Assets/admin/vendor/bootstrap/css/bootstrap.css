@@ -4527,9 +4527,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default {
   background-color: #f8f8f8;
   border-color: #245695;
+  min-height:100px;
 }
 .navbar-default .navbar-brand {
   color: #e00e0e;
+}
+.navbar-default .sidebar{
+  margin-top:100px;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -5715,6 +5719,7 @@ button.list-group-item-danger.active:focus {
   border-bottom: 1px solid #ddd;
 }
 .panel-default {
+  margin-top:15px;
   border-color: #F2A13F;
   border-radius: 15px;
 }
