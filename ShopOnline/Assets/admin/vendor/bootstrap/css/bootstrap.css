@@ -1083,7 +1083,7 @@ html {
 }
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
@@ -1096,6 +1096,35 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
+
+a.Menulevel1 {
+  color: #fff;
+  text-decoration: none;
+}
+a.Menulevel1:hover,
+a.Menulevel1:focus {
+  color: #ff1810;
+  text-decoration: underline;
+}
+a.Menulevel1:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+a.Menulevel2 {
+  color: #333;
+  text-decoration: none;
+}
+a.Menulevel2:hover,
+a.Menulevel2:focus {
+  color: #ff1810;
+  text-decoration: underline;
+}
+a.Menulevel2:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
 a {
   color: #337ab7;
   text-decoration: none;
@@ -5991,7 +6020,7 @@ button.close {
   z-index: 1070;
   display: block;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-style: normal;
   font-weight: normal;
   line-height: 1.42857143;
@@ -6110,7 +6139,7 @@ button.close {
   max-width: 276px;
   padding: 1px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   font-style: normal;
   font-weight: normal;
   line-height: 1.42857143;

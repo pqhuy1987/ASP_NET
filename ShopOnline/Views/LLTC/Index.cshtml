@@ -30,37 +30,54 @@
                     </thead>
 
                     <tbody>
-                        @foreach (var item in Model.LLTC)
+                @{
+                        if (Model.LLTC == null)
+                        {
+                        <tr>
+                            <th>ID</th>
+                            <th>TÊN CÔNG TY/NTP/ĐTC</th>
+                            <th>Tên GIÁM ĐỐC</th>
+                            <th>SĐT-GIÁM ĐỐC</th>
+                            <th>KHU VỰC</th>
+                            <th>KHẢ NĂNG HUY ĐỘNG</th>
+                            <th>HỢP TÁC</th>
+                            <th>GHI CHÚ</th>
+                            <th>TÌNH TRẠNG</th>
+                            <th>CHỌN</th>
+                            <th>XÓA</th>
+                        </tr>
+                        } else {
+                        foreach (var item in Model.LLTC)
                         {
                             <tr class="odd gradeX">
                                 <td>@item.ID</td>
                                 @{
-                                    foreach (var item1 in Model.LLTC)
-                                    {
-                                        if (item.Main_Name_LLTC == item1.Main_Name_LLTC)
-                                        {
-                                            counter = 2;
-                                            break;
-                                        }
-                                        else
-                                        {
-                                            counter = 1;
-                                        }
-                                    }
-                                    if (counter == 2)
-                                    {
-                                        <td>@item.Main_Name_LLTC</td>
-                                    }
-                                    else if (counter == 1)
-                                    {
-                                        <td style="color: red">@item.Main_Name_LLTC (Không tồn tại)</td>
+                            foreach (var item1 in Model.LLTC)
+                            {
+                                if (item.Main_Name_LLTC == item1.Main_Name_LLTC)
+                                {
+                                    counter = 2;
+                                    break;
+                                }
+                                else
+                                {
+                                    counter = 1;
+                                }
+                            }
+                            if (counter == 2)
+                            {
+                                <td>@item.Main_Name_LLTC</td>
+                            }
+                            else if (counter == 1)
+                            {
+                                <td style="color: red">@item.Main_Name_LLTC (Không tồn tại)</td>
 
-                                    }
+                            }
 
                                 }
                                 <td>@item.Main_Name_Ower</td>
-                                <td>@item.Main_Name_Job</td>
                                 <td>@item.Main_Number</td>
+                                <td>@item.Main_Name_Job</td>
                                 <td>@item.Main_Area</td>
                                 <td>@item.Main_Total_Number</td>
                                 <td>@item.Main_Rate</td>
@@ -78,6 +95,8 @@
                                     </form>
                                 </td>
                             </tr>
+                        }
+                        }
                         }
                     </tbody>
 

@@ -26,8 +26,8 @@ namespace Models
         public Project SelectedProject                  { get; set; }
         public WorkCount SelectedWorkCount              { get; set; }
 
-        public List<Catelory> Catelory_Project { get; set; }
-        public List<SelectListItem> ProjectAll { get; set; }
+        public List<Catelory> Catelory_Project          { get; set; }
+        public List<SelectListItem> ProjectAll          { get; set; }
 
         public string DisplayMode   { get; set; }
         public DateTime StartDate   { get; set; }

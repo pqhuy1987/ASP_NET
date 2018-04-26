@@ -207,11 +207,10 @@
                                             @Html.DropDownListFor(model => model.SelectedCatelory.Prj_Name, Model.ProjectAll, "-- Chọn Công Trường --", new { @id = "combobox"})
                                         </div>
                                     </div>
+                            
                                     <div class="form-group">
                                         <label>TÊN ĐỘI/ĐTC/NTP:</label>
-                                        @Html.TextBoxFor(model => model.SelectedCatelory.Unit_Name, new { @class = "form-control-2" })
-                                        @Html.ValidationMessageFor(model => model.SelectedCatelory.Unit_Name, null, new { @class = "danger" })
-
+                                            @Html.DropDownListFor(model => model.SelectedCatelory.Unit_Name, Model.MainNameAll, "-- Chọn Đội Thi Công --", new { @class = "form-control-2" })
                                     </div>
 
                                     <div class="form-group">
@@ -301,7 +300,7 @@
 
                                     <div class="form-group">
                                         <label>TÊN ĐỘI/ĐTC/NTP:</label>
-                                     @Html.DropDownListFor(model => model.SelectedCatelory.Prj_Name, Model.MainNameAll, "-- Chọn Đội Thi Công --", new { @class = "form-control-2" })
+                                            @Html.DropDownListFor(model => model.SelectedCatelory.Unit_Name, Model.MainNameAll, "-- Chọn Đội Thi Công --", new { @class = "form-control-2" })
                                     </div>
 
                                     <div class="form-group">

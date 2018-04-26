@@ -68,14 +68,13 @@ body {
   left: auto;
 }
 .sidebar .sidebar-nav.navbar-collapse {
-  padding-left: 0;
-  padding-right: 0;
+  padding: 7px;
 }
 .sidebar .sidebar-search {
   padding: 15px;
 }
 .sidebar ul li {
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid #ddd;
 }
 .sidebar ul li a.active {
   background-color: #1b184a;
@@ -91,7 +90,7 @@ body {
 }
 .sidebar .nav-second-level li,
 .sidebar .nav-third-level li {
-  border-bottom: none !important;
+
 }
 .sidebar .nav-second-level li a {
   padding-left: 37px;

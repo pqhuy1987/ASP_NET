@@ -477,6 +477,30 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Assets/admin/vendor/raphael/raphael.min.js">
       <publishTime>03/05/2018 00:39:35</publishTime>
     </File>
+    <File Include="Assets/files/font-awesome.min.css">
+      <publishTime>04/20/2018 14:09:24</publishTime>
+    </File>
+    <File Include="Assets/files/img-login.jpg">
+      <publishTime>04/20/2018 14:09:24</publishTime>
+    </File>
+    <File Include="Assets/files/img-login2.jpg">
+      <publishTime>04/20/2018 14:09:24</publishTime>
+    </File>
+    <File Include="Assets/files/Index.cshtml">
+      <publishTime>04/20/2018 14:09:24</publishTime>
+    </File>
+    <File Include="Assets/files/jquery.min.js.download">
+      <publishTime>04/20/2018 14:09:24</publishTime>
+    </File>
+    <File Include="Assets/files/login.css">
+      <publishTime>04/20/2018 14:09:24</publishTime>
+    </File>
+    <File Include="Assets/files/logo.jpg">
+      <publishTime>04/20/2018 14:09:24</publishTime>
+    </File>
+    <File Include="Assets/files/logo1.jpg">
+      <publishTime>04/20/2018 14:09:24</publishTime>
+    </File>
     <File Include="Assets_2/admin/data/flot-data.js">
       <publishTime>03/08/2018 14:55:30</publishTime>
     </File>
@@ -1360,13 +1384,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 08:00:07</publishTime>
     </File>
     <File Include="bin/Models.dll">
-      <publishTime>04/18/2018 07:37:18</publishTime>
+      <publishTime>04/23/2018 16:34:29</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>03/05/2018 08:00:07</publishTime>
     </File>
     <File Include="bin/ShopOnline.dll">
-      <publishTime>04/18/2018 07:37:19</publishTime>
+      <publishTime>04/23/2018 16:34:29</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>03/05/2018 08:00:07</publishTime>
@@ -1402,19 +1426,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 00:39:36</publishTime>
     </File>
     <File Include="Views/Catelory/Index.cshtml">
-      <publishTime>04/17/2018 13:48:19</publishTime>
+      <publishTime>04/23/2018 16:27:57</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>04/09/2018 11:56:20</publishTime>
     </File>
     <File Include="Views/LLTC/Create.cshtml">
-      <publishTime>04/18/2018 07:35:59</publishTime>
+      <publishTime>04/23/2018 16:01:12</publishTime>
     </File>
     <File Include="Views/LLTC/Index.cshtml">
-      <publishTime>04/17/2018 16:33:47</publishTime>
+      <publishTime>04/23/2018 15:04:16</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
-      <publishTime>03/21/2018 14:46:19</publishTime>
+      <publishTime>04/23/2018 16:16:57</publishTime>
     </File>
     <File Include="Views/Main/Index.cshtml">
       <publishTime>04/05/2018 08:57:23</publishTime>
@@ -1444,7 +1468,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/16/2018 17:14:01</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/18/2018 07:54:34</publishTime>
+      <publishTime>04/23/2018 16:34:35</publishTime>
     </File>
   </ItemGroup>
 </Project>

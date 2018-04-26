@@ -9,7 +9,6 @@ namespace Models.Framework
     [Table("LLTC")]
     public partial class LLTC
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         [StringLength(50)]
