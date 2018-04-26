@@ -2315,7 +2315,8 @@ th {
 .table > caption + thead > tr:first-child > td,
 .table > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > td {
-  border-top: 0;
+  border: 1px solid #fff;
+  background-color: #D8DCE3;
 }
 .table > tbody + tbody {
   border-top: 2px solid #ddd;
@@ -4013,6 +4014,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   display: block;
   padding: 10px 15px;
+  border-radius: 3px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -4523,7 +4525,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default {
   background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  border-color: #245695;
 }
 .navbar-default .navbar-brand {
   color: #e00e0e;
@@ -5478,7 +5480,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #FEF9EE;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -5712,7 +5714,8 @@ button.list-group-item-danger.active:focus {
   border-bottom: 1px solid #ddd;
 }
 .panel-default {
-  border-color: #ddd;
+  border-color: #F2A13F;
+  border-radius: 15px;
 }
 .panel-default > .panel-heading {
   color: #333;

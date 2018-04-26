@@ -4,22 +4,25 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-  background-color: #ce1212;
+  background-color: #F0F1F4;
 }
 #wrapper {
   width: 100%;
+  background-color:#FEF9EE;
+  border-radius:15px;
 }
 #page-wrapper {
   padding: 0 15px;
   min-height: 568px;
-  background-color: white;
+  background-color:#F0F1F4;
+  border-radius: 15px;
 }
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
     margin: 0 0 0 250px;
     padding: 0 30px;
-    border-left: 1px solid #e7e7e7;
+    border-left: 1px solid #F2A13F;
   }
 }
 .navbar-top-links {
@@ -68,7 +71,7 @@ body {
   left: auto;
 }
 .sidebar .sidebar-nav.navbar-collapse {
-  padding: 7px;
+  padding: 5px;
 }
 .sidebar .sidebar-search {
   padding: 15px;
