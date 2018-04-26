@@ -71,7 +71,7 @@ body {
   left: auto;
 }
 .sidebar .sidebar-nav.navbar-collapse {
-  padding: 5px;
+  padding: 15px;
 }
 .sidebar .sidebar-search {
   padding: 15px;
@@ -107,6 +107,7 @@ body {
     position: absolute;
     width: 250px;
     margin-top: 51px;
+    box-shadow: inset 0 14px 18px -15px rgba(0,0,0,0.8);
   }
   .navbar-top-links .dropdown-messages,
   .navbar-top-links .dropdown-tasks,
