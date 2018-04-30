@@ -4276,6 +4276,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-width: 0 0 1px;
   box-shadow: 0 0 15px rgba(0,0,0,0.7);
 }
+
+.navbar-static-top .sidebar-2 {
+  display: block;
+  position:absolute;
+  bottom: 0;
+  background-color:red;
+}
+
 @media (min-width: 768px) {
   .navbar-static-top {
     border-radius: 0;
