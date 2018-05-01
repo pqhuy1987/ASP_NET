@@ -367,9 +367,7 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_Layout_2.cshtml" />
     <Content Include="Views\Shared\_LeftMenu.cshtml" />
-    <Content Include="Views\Shared\_LeftMenu_2.cshtml" />
     <Content Include="Views\WorkCount\Index.cshtml" />
     <Content Include="Views\User\User.cshtml" />
     <Content Include="Views\LLTC\Index.cshtml" />

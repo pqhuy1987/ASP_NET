@@ -4538,12 +4538,34 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   min-height:0px;
 }
 
-.navbar-default .test1 {
+.navbar-default .menu-bar-bot {
   display:block;
   margin-left: 0px;
-  margin-top: 100px;
+  margin-top: 0px;
   background-color: #D8DCE3;
   min-height:20px;
+}
+
+.navbar-default .menu-bar-bot-2 {
+  display:block;
+  margin-left: 0px;
+  margin-top: 0px;
+  background-color: #D83B28;
+  min-height:2px;
+}
+
+.navbar-default .menu-bar-bot-3 {
+  display:inline-block;
+  margin-left: 90px;
+  margin-right: 0px;
+  margin-top: 65px;
+  background-color: #D83B28;
+  min-height: 30px;
+  border: 2px solid #D83B28;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 20px;
+  color: white;
 }
 
 .navbar-default .navbar-brand {
