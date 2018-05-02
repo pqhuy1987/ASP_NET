@@ -35,8 +35,8 @@ body {
   margin-right: 15px;
 }
 .navbar-top-links li a {
-  padding: 15px;
-  min-height: 50px;
+  padding: 5px;
+  min-height: 25px;
 }
 .navbar-top-links .dropdown-menu li {
   display: block;
