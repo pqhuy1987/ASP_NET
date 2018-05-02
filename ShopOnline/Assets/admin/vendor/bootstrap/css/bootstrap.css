@@ -4534,7 +4534,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default {
   background-color: #f8f8f8;
-  border-color: #245695;
+  border-color: #D8DCE3;
   min-height:0px;
 }
 
@@ -4572,7 +4572,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #e00e0e;
 }
 .navbar-default .sidebar{
-     border-top: 1px solid #245695;
+     border-top: 1px solid #D8DCE3;
      margin-top: 0px; 
 }
 .navbar-default .navbar-brand:hover,
