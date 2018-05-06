@@ -62,7 +62,8 @@ namespace ShopOnline.Controllers
                         ProjectViewModel model1 = new ProjectViewModel();
                         model1.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
                         model1.SelectedProject = null;
-                        return RedirectToAction("Index", model1);
+                        model1.DisplayMode = "Create";
+                        return RedirectToAction("Create", model1);
                     }
             }
             catch
@@ -73,7 +74,7 @@ namespace ShopOnline.Controllers
                     model1.Project = db.Projects.OrderBy(
                             m => m.ID).Take(100).ToList();
                     model1.SelectedProject = null;
-                    return View("Index", model1);
+                    return View("Create", model1);
                 }
             }
         }

@@ -13,9 +13,9 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        @using (Html.BeginForm("Index", "Project", FormMethod.Post))
+                        @using (Html.BeginForm("Index", "Project"))
                         {
-                            <button type="submit" style="margin-left:0px;margin-bottom:10px" class="btn btn-primary">THÊM MỚI DỰ ÁN</button>
+                            <button type="submit" onclick = " window.open('/Project/Create', 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')"  style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary">THÊM MỚI DỰ ÁN</button>
                         }
                         @{
                             if (Model.DisplayMode == "Edit")
