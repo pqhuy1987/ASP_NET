@@ -7,11 +7,17 @@ using ShopOnline.Areas.Admin.Models;
 using Models;
 using ShopOnline.Areas.Admin.Code;
 using System.Web.Security;
+using System.Configuration;
+using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
+ 
+
 
 namespace ShopOnline.Controllers
 {
     public class LoginController : Controller
     {
+        public static string result;
         //
         // GET: /Admin/Login/
 
@@ -28,10 +34,26 @@ namespace ShopOnline.Controllers
         {
             //var result = new AccountModel().Login(model.UserName, model.Password);
             //if (result && ModelState.IsValid)
-            if (Membership.ValidateUser(model.UserName, model.Password) && ModelState.IsValid)
+            if (Membership.ValidateUser(model.UserName, model.Password))
             {
                 //SessionHelper.SetSession(new UserSession() { UserName = model.UserName });
                 FormsAuthentication.SetAuthCookie(model.UserName,model.RememberMe);
+
+                using (var context = GetContext())
+                {
+                    try
+                    {
+                        using (var userPrinc = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, model.UserName))
+                        {
+                            result = userPrinc.Name;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                }
                 return RedirectToAction("Index", "Main");
             }
             else
@@ -45,6 +67,11 @@ namespace ShopOnline.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Login");
+        }
+
+        private static PrincipalContext GetContext()
+        {
+            return new PrincipalContext(ContextType.Domain, ConfigurationManager.AppSettings["DomainAccessServer"], ConfigurationManager.AppSettings["DomainAccessUser"], ConfigurationManager.AppSettings["DomainAccessPassword"]);
         }
 
     }
