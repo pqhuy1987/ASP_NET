@@ -46,6 +46,7 @@ namespace ShopOnline.Controllers
                         using (var userPrinc = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, model.UserName))
                         {
                             result = userPrinc.Name;
+                            Session["Name"] = result;
                         }
                     }
                     catch (Exception ex)

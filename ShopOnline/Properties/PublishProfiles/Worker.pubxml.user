@@ -49,10 +49,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 08:00:07</publishTime>
     </File>
     <File Include="Assets/admin/dist/css/sb-admin-2.css">
-      <publishTime>05/02/2018 07:34:24</publishTime>
+      <publishTime>05/02/2018 11:03:10</publishTime>
     </File>
     <File Include="Assets/admin/dist/css/sb-admin-2.min.css">
-      <publishTime>03/05/2018 00:39:35</publishTime>
+      <publishTime>05/02/2018 11:03:17</publishTime>
     </File>
     <File Include="Assets/admin/dist/js/sb-admin-2.js">
       <publishTime>04/26/2018 10:00:16</publishTime>
@@ -498,8 +498,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Assets/files/logo.jpg">
       <publishTime>04/20/2018 14:09:24</publishTime>
     </File>
+    <File Include="Assets/files/logo.png">
+      <publishTime>05/08/2018 07:54:19</publishTime>
+    </File>
     <File Include="Assets/files/logo1.jpg">
       <publishTime>04/20/2018 14:09:24</publishTime>
+    </File>
+    <File Include="Assets/files/logo1.png">
+      <publishTime>05/02/2018 13:44:49</publishTime>
     </File>
     <File Include="Assets_2/admin/data/flot-data.js">
       <publishTime>03/08/2018 14:55:30</publishTime>
@@ -1384,13 +1390,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 08:00:07</publishTime>
     </File>
     <File Include="bin/Models.dll">
-      <publishTime>05/02/2018 10:33:40</publishTime>
+      <publishTime>05/08/2018 09:15:32</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>03/05/2018 08:00:07</publishTime>
     </File>
     <File Include="bin/ShopOnline.dll">
-      <publishTime>05/02/2018 10:33:41</publishTime>
+      <publishTime>05/08/2018 09:15:32</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>03/05/2018 08:00:07</publishTime>
@@ -1423,7 +1429,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 08:00:07</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>03/05/2018 00:39:36</publishTime>
+      <publishTime>05/07/2018 11:06:58</publishTime>
     </File>
     <File Include="Views/Catelory/Index.cshtml">
       <publishTime>05/02/2018 07:34:24</publishTime>
@@ -1432,28 +1438,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/24/2018 15:34:51</publishTime>
     </File>
     <File Include="Views/LLTC/Create.cshtml">
-      <publishTime>05/02/2018 07:34:24</publishTime>
+      <publishTime>05/07/2018 10:30:26</publishTime>
     </File>
     <File Include="Views/LLTC/Index.cshtml">
       <publishTime>04/24/2018 13:11:26</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
-      <publishTime>05/02/2018 07:34:24</publishTime>
+      <publishTime>05/08/2018 08:06:26</publishTime>
     </File>
     <File Include="Views/Main/Index.cshtml">
       <publishTime>04/05/2018 08:57:23</publishTime>
     </File>
+    <File Include="Views/Project/Create.cshtml">
+      <publishTime>05/03/2018 09:47:25</publishTime>
+    </File>
     <File Include="Views/Project/Index.cshtml">
-      <publishTime>05/02/2018 07:34:24</publishTime>
+      <publishTime>05/03/2018 09:41:54</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/02/2018 08:38:25</publishTime>
+      <publishTime>05/08/2018 08:06:53</publishTime>
     </File>
     <File Include="Views/Shared/_Layout_2.cshtml">
       <publishTime>04/04/2018 13:16:58</publishTime>
     </File>
+    <File Include="Views/Shared/_Layout_Temp.cshtml">
+      <publishTime>05/03/2018 09:21:43</publishTime>
+    </File>
     <File Include="Views/Shared/_LeftMenu.cshtml">
-      <publishTime>05/02/2018 09:04:56</publishTime>
+      <publishTime>05/02/2018 11:03:19</publishTime>
     </File>
     <File Include="Views/Shared/_LeftMenu_2.cshtml">
       <publishTime>04/10/2018 10:07:31</publishTime>
@@ -1468,7 +1480,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/02/2018 07:34:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/02/2018 10:33:50</publishTime>
+      <publishTime>05/08/2018 09:15:38</publishTime>
     </File>
   </ItemGroup>
 </Project>
