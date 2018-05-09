@@ -110,7 +110,6 @@ namespace ShopOnline.Controllers
                     }
                     else
                     {
-                        
                         model1.SelectedProject = db.Projects.Find(id);
                         model1.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
 

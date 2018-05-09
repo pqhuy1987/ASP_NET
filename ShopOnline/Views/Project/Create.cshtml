@@ -3,6 +3,17 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout_Temp.cshtml";
 }
+<div class="row">
+    <div class="col-lg-3">
+        <!-- /.panel-heading -->
+        <div class="panel-body-2">
+            @using (Html.BeginForm("Index", "Project"))
+            {
+                <button type="submit" onclick=" window.open('/Project/Create', 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary"><b>+ TẠO MỚI THÔNG TIN</b></button>
+            }
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-lg-12">

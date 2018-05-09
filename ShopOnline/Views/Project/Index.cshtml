@@ -4,86 +4,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
 
-</script>
 <div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        @using (Html.BeginForm("Index", "Project"))
-                        {
-                            <button type="submit" onclick = " window.open('/Project/Create', 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')"  style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary">THÊM MỚI DỰ ÁN</button>
-                        }
-                        @{
-                            if (Model.DisplayMode == "Edit")
-                            {
-                                if (Model.SelectedProject.ID == 123456789)
-                                {
-                                    using (Html.BeginForm("Create", "Project", FormMethod.Post))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        @Html.ValidationSummary(true)
-
-                                        <label> NHẬP MỚI TÊN DỰ ÁN: </label>
-                                        <div class="form-group">
-                                            @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
-                                        </div>
-                                        <p>
-                                            <input type="submit" value="Thêm" />
-                                        </p>
-                                    }
-                                }
-                                else
-                                {
-                                    using (Html.BeginForm("Save", "Project", new { id = Model.SelectedProject.ID }, FormMethod.Post))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        @Html.ValidationSummary(true)
-
-                                        <label> NHẬP TÊN DỰ ÁN MUỐN CHỈNH SỬA: </label>
-                                        <div class="form-group">
-                                            @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
-                                        </div>
-                                        <p>
-                                            <input type="submit" value="Lưu" />
-                                        </p>
-                                    }
-                                }
-
-                            }
-                            else
-                            {
-                                using (Html.BeginForm("Create", "Project", FormMethod.Post))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    @Html.ValidationSummary(true)
-
-                                    <label> NHẬP MỚI TÊN DỰ ÁN: </label>
-                                    <div class="form-group">
-                                        @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
-                                    </div>
-                                    <p>
-                                        <input type="submit" value="Thêm" />
-                                    </p>
-                                }
-                            }
-                        }
-                    </div>
-                    <!-- /.col-lg-6 (nested) -->
-                </div>
-                <!-- /.row (nested) -->
-            </div>
-            <!-- /.panel-body -->
+    <div class="col-lg-3">
+        <!-- /.panel-heading -->
+        <div class="panel-body-2">
+            @using (Html.BeginForm("Index", "Project"))
+            {
+                <button type="submit" onclick=" window.open('/Project/Create', 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary"><b>+ TẠO MỚI THÔNG TIN</b></button>
+            }
         </div>
-        <!-- /.panel -->
     </div>
-    <!-- /.col-lg-12 -->
 </div>
 
 <div class="row">
