@@ -6,16 +6,13 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Project")]
-    public partial class Project
+    public partial class CS_tbConstructionSiteType
     {
+
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Không được để trống nội dung này")]
-        [StringLength(30, ErrorMessage = "Name can be no larger than 30 characters")]
-        public string Project_Name { get; set; }
-
-        public int Number_Person;
-        public int Number_Project;
+        [StringLength(50, ErrorMessage = "Nội dung nhập vào không quá 50 ký tự")]
+        public string Type { get; set; }
     }
 }

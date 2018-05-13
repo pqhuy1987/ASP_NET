@@ -1394,7 +1394,11 @@ a.text-warning:focus {
   color: #66512c;
 }
 .text-danger {
-  color: #a94442;
+  color: #D83B28;
+}
+.field-validation-error {
+    margin-top: 10px;
+    font-weight: bold;
 }
 a.text-danger:hover,
 a.text-danger:focus {
@@ -3051,6 +3055,28 @@ select[multiple].input-lg {
   border: 1px solid transparent;
   border-radius: 4px;
 }
+
+.btn-sub {
+  display: inline-block;
+  padding: 3px 6px;
+  margin-bottom: 0;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus,
@@ -3066,6 +3092,23 @@ select[multiple].input-lg {
   color: #333;
   text-decoration: none;
 }
+
+.btn-sub:focus,
+.btn-sub:active:focus,
+.btn-sub.active:focus,
+.btn-sub.focus,
+.btn-sub:active.focus,
+.btn-sub.active.focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn-sub:hover,
+.btn-sub:focus,
+.btn-sub.focus {
+  color: #333;
+  text-decoration: none;
+}
+
 .btn:active,
 .btn.active {
   background-image: none;

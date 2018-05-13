@@ -132,12 +132,12 @@
     <Compile Include="Code\SessionHelper.cs" />
     <Compile Include="Code\UserSession.cs" />
     <Compile Include="Controllers\CateloryController.cs" />
+    <Compile Include="Controllers\CS_tbConstructionSiteTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LLTCController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
-    <Compile Include="Controllers\QLConstructionSiteTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WorkCountController.cs" />
     <Compile Include="Global.asax.cs">
@@ -379,6 +379,10 @@
     <Content Include="Views\LLTC\Create.cshtml" />
     <Content Include="Views\Shared\_Layout_Temp.cshtml" />
     <Content Include="Views\Project\Create.cshtml" />
+    <Content Include="Views\CS_tbConstructionSiteType\Index.cshtml" />
+    <Content Include="Views\CS_tbConstructionSiteType\Create.cshtml" />
+    <Content Include="Views\CS_tbConstructionSiteType\Edit.cshtml" />
+    <Content Include="Views\CS_tbConstructionSiteType\Delete.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

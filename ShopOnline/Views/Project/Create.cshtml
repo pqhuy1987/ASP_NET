@@ -21,7 +21,7 @@
                                         <label> NHẬP MỚI TÊN DỰ ÁN: </label>
                                         <div class="form-group">
                                             @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
+                                            @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "text-danger", style = "font-weight:bold" })
                                         </div>
                                         <p>
                                             <button type="submit" value="Thêm" class="btn btn-primary"> <b>THÊM</b> </button>
@@ -30,46 +30,6 @@
                             }
                             else
                             {
-                                if (Model.DisplayMode == "Edit")
-                                {
-                                    if (Model.SelectedProject.ID == 123456789)
-                                    {
-                                        using (Html.BeginForm("Create", "Project", FormMethod.Post))
-                                        {
-                                            @Html.AntiForgeryToken()
-                                            @Html.ValidationSummary(true)
-
-                                            <label> NHẬP MỚI TÊN DỰ ÁN: </label>
-                                            <div class="form-group">
-                                                @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
-                                            </div>
-                                            <p>
-                                                <input type="submit" value="Thêm" />
-                                            </p>
-                                        }
-                                    }
-                                    else
-                                    {
-                                        using (Html.BeginForm("Save", "Project", new { id = Model.SelectedProject.ID }, FormMethod.Post))
-                                        {
-                                            @Html.AntiForgeryToken()
-                                            @Html.ValidationSummary(true)
-
-                                            <label> NHẬP TÊN DỰ ÁN MUỐN CHỈNH SỬA: </label>
-                                            <div class="form-group">
-                                                @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
-                                            </div>
-                                            <p>
-                                                <input type="submit" value="Lưu" />
-                                            </p>
-                                        }
-                                    }
-
-                                }
-                                else
-                                {
                                     using (Html.BeginForm("Create", "Project", FormMethod.Post))
                                     {
                                         @Html.AntiForgeryToken()
@@ -78,13 +38,12 @@
                                         <label> NHẬP MỚI TÊN DỰ ÁN: </label>
                                         <div class="form-group">
                                             @Html.TextBoxFor(model => Model.SelectedProject.Project_Name, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "danger" })
+                                            @Html.ValidationMessageFor(model => Model.SelectedProject.Project_Name, null, new { @class = "text-danger", style = "font-weight:bold" })
                                         </div>
                                         <p>
-                                            <input type="submit" value="Thêm" />
+                                            <button type="submit" value="Thêm" class="btn btn-primary"> <b>THÊM</b> </button>
                                         </p>
                                     }
-                                }
                             }
                         }
                     </div>
