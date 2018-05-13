@@ -11,6 +11,8 @@ namespace Models.Framework
     {
         public int ID { get; set; }
 
+        [Required(ErrorMessage = "First name is required")]
+        [StringLength(30, ErrorMessage = "Name can be no larger than 30 characters")]
         public string Project_Name { get; set; }
 
         public int Number_Person;
