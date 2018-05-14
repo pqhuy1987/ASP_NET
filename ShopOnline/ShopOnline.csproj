@@ -383,6 +383,8 @@
     <Content Include="Views\CS_tbConstructionSiteType\Create.cshtml" />
     <Content Include="Views\CS_tbConstructionSiteType\Edit.cshtml" />
     <Content Include="Views\CS_tbConstructionSiteType\Delete.cshtml" />
+    <Content Include="Views\CS_tbConstructionSiteType\Finish.cshtml" />
+    <Content Include="Views\Project\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

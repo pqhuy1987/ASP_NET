@@ -1,13 +1,3 @@
-D:\OnlineShop\Models\bin\Release\Models.dll.config
-D:\OnlineShop\Models\bin\Release\Models.dll
-D:\OnlineShop\Models\bin\Release\Models.pdb
-D:\OnlineShop\Models\bin\Release\EntityFramework.dll
-D:\OnlineShop\Models\bin\Release\EntityFramework.SqlServer.dll
-D:\OnlineShop\Models\bin\Release\EntityFramework.xml
-D:\OnlineShop\Models\bin\Release\EntityFramework.SqlServer.xml
-D:\OnlineShop\Models\obj\Release\Models.csprojResolveAssemblyReference.cache
-D:\OnlineShop\Models\obj\Release\Models.dll
-D:\OnlineShop\Models\obj\Release\Models.pdb
 D:\ASP_PROJECT\Models\bin\Release\Models.dll.config
 D:\ASP_PROJECT\Models\bin\Release\Models.dll
 D:\ASP_PROJECT\Models\bin\Release\Models.pdb
@@ -17,3 +7,13 @@ D:\ASP_PROJECT\Models\bin\Release\EntityFramework.xml
 D:\ASP_PROJECT\Models\bin\Release\EntityFramework.SqlServer.xml
 D:\ASP_PROJECT\Models\obj\Release\Models.dll
 D:\ASP_PROJECT\Models\obj\Release\Models.pdb
+D:\OnlineShop\Models\bin\Release\Models.dll.config
+D:\OnlineShop\Models\bin\Release\Models.dll
+D:\OnlineShop\Models\bin\Release\Models.pdb
+D:\OnlineShop\Models\bin\Release\EntityFramework.dll
+D:\OnlineShop\Models\bin\Release\EntityFramework.SqlServer.dll
+D:\OnlineShop\Models\bin\Release\EntityFramework.xml
+D:\OnlineShop\Models\bin\Release\EntityFramework.SqlServer.xml
+D:\OnlineShop\Models\obj\Release\Models.dll
+D:\OnlineShop\Models\obj\Release\Models.pdb
+D:\OnlineShop\Models\obj\Release\Models.csprojResolveAssemblyReference.cache

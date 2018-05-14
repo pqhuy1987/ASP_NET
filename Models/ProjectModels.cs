@@ -1,20 +1,25 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.Framework;
 using System.Data.SqlClient;
+using System.Web.Mvc;
 
 namespace Models
 {
     public class ProjectViewModel
     {
-        public List<Project> Project { get; set; }
-        public Project SelectedProject { get; set; }
-        public List<Catelory> Catelory { get; set; }
-        public List<Catelory> Catelory_Project { get; set; }
-        public string DisplayMode { get; set; }
+        public List<Project>            Project                 { get; set; }
+        public Project                  SelectedProject         { get; set; }
+        public List<Catelory>           Catelory                { get; set; }
+        public List<Catelory>           Catelory_Project        { get; set; }
+        public string DisplayMode                               { get; set; }
+
+        public List<CS_tbConstructionSiteType>  CS_tbConstructionSiteType   { get; set; }
+        public List<SelectListItem>             Project_Type_All            { get; set; }
     }
 
     public class ProjectModels

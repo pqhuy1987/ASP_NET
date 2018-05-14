@@ -19,7 +19,6 @@ namespace ShopOnline.Controllers
             {
                 CS_tbConstructioSiteTypeViewModel model = new CS_tbConstructioSiteTypeViewModel();
                 model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
-                //model.SelectedProject.Number_Project = 100;
                 return View(model);
             }
         }
@@ -138,7 +137,7 @@ namespace ShopOnline.Controllers
                     db.CS_tbConstructionSiteType.Remove(Exsiting_Type);
                     db.SaveChanges();
 
-                    return View("Create",model);
+                    return View("Finish",model);
                 }
             }
             catch

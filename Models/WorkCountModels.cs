@@ -42,6 +42,10 @@ namespace Models
 
         public List<List<int>> Total_Job_number     { get; set; }
         public List<int>       Total_Job_number_2   { get; set; }
+
+        //Để tạm
+        //public int Number_Person;
+        //public int Number_Project;
     }
 
     class WorkCountModels

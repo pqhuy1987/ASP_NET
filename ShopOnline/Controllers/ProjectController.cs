@@ -19,11 +19,25 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 ProjectViewModel model      = new ProjectViewModel();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project                       = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbConstructionSiteType     = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
 
-                model.SelectedProject = null;
-                model.Catelory_Project = null;
-                //model.SelectedProject.Number_Project = 100;
+                //--------Add Dropdown for Type-------------------//
+                model.Project_Type_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
+
+                foreach (var CS_tbConstructionSiteType in model.CS_tbConstructionSiteType)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value   = CS_tbConstructionSiteType.Type,
+                        Text    = CS_tbConstructionSiteType.Type,
+                    });
+                }
+
+                model.Project_Type_All = items;
+                //--------Add Dropdown for Type-------------------//
+
                 return View(model);
             }
         }
@@ -41,7 +55,29 @@ namespace ShopOnline.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                //--------Add Dropdown for Type-------------------//
+                ProjectViewModel model = new ProjectViewModel();
+                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project_Type_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
+
+                foreach (var CS_tbConstructionSiteType in model.CS_tbConstructionSiteType)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = CS_tbConstructionSiteType.Type,
+                        Text = CS_tbConstructionSiteType.Type,
+                    });
+                }
+
+                model.Project_Type_All = items;
+                //--------Add Dropdown for Type-------------------//
+
+                return View(model);
+            }
         }
 
         //
@@ -54,27 +90,66 @@ namespace ShopOnline.Controllers
             {
                     using (OnlineShopDbContext db = new OnlineShopDbContext())
                     {
-                        Project obj = new Project();
-                        obj.Project_Name = collection.SelectedProject.Project_Name;
+                        Project obj             = new Project();
+                        obj.Project_Name        = collection.SelectedProject.Project_Name;
+                        obj.Site_Type           = collection.SelectedProject.Site_Type;
+                        obj.General_Director    = collection.SelectedProject.General_Director;
+                        obj.Site_Manager        = collection.SelectedProject.Site_Manager;
+                        obj.Site_Address        = collection.SelectedProject.Site_Address;
+                        obj.Value_Cost          = collection.SelectedProject.Value_Cost;
+                        obj.Start_Date          = collection.SelectedProject.Start_Date;
+                        obj.End_Date            = collection.SelectedProject.End_Date;
+                        obj.Operation_Status    = collection.SelectedProject.Operation_Status;
+                        obj.Site_Area           = collection.SelectedProject.Site_Area;
+
                         db.Projects.Add(obj);
                         db.SaveChanges();
 
-                        ProjectViewModel model1 = new ProjectViewModel();
-                        model1.Project = db.Projects.OrderByDescending(m => m.ID).Take(100).ToList();
-                        model1.SelectedProject = null;
-                        model1.DisplayMode = "Create";
-                        return RedirectToAction("Create", model1);
+                        //--------Add Dropdown for Type-------------------//
+                        ProjectViewModel model = new ProjectViewModel();
+                        model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                        model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                        model.Project_Type_All = new List<SelectListItem>();
+                        var items = new List<SelectListItem>();
+
+                        foreach (var CS_tbConstructionSiteType in model.CS_tbConstructionSiteType)
+                        {
+                            items.Add(new SelectListItem()
+                            {
+                                Value = CS_tbConstructionSiteType.Type,
+                                Text = CS_tbConstructionSiteType.Type,
+                            });
+                        }
+                        model.Project_Type_All = items;
+                        //--------Add Dropdown for Type-------------------//
+
+                        return RedirectToAction("Create",model);
                     }
             }
             catch
             {
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
-                    ProjectViewModel model1 = new ProjectViewModel();
-                    model1.Project = db.Projects.OrderBy(
-                            m => m.ID).Take(100).ToList();
-                    model1.SelectedProject = null;
-                    return View("Create", model1);
+                    //--------Add Dropdown for Type-------------------//
+                    ProjectViewModel model = new ProjectViewModel();
+                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project_Type_All = new List<SelectListItem>();
+                    var items = new List<SelectListItem>();
+
+                    foreach (var CS_tbConstructionSiteType in model.CS_tbConstructionSiteType)
+                    {
+                        items.Add(new SelectListItem()
+                        {
+                            Value = CS_tbConstructionSiteType.Type,
+                            Text = CS_tbConstructionSiteType.Type,
+                        });
+                    }
+
+                    model.Project_Type_All = items;
+                    //--------Add Dropdown for Type-------------------//
+
+                    return View(model);
                 }
             }
         }
@@ -84,7 +159,28 @@ namespace ShopOnline.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            //--------Add Dropdown for Type-------------------//
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                ProjectViewModel model = new ProjectViewModel();
+                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project_Type_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
+
+                foreach (var CS_tbConstructionSiteType in model.CS_tbConstructionSiteType)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = CS_tbConstructionSiteType.Type,
+                        Text = CS_tbConstructionSiteType.Type,
+                    });
+                }
+
+                model.Project_Type_All = items;
+                return View(model);
+            }
+            //--------Add Dropdown for Type-------------------//
         }
 
         //
