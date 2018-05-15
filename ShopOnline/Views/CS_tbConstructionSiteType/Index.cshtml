@@ -30,10 +30,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @{int i = 1;}
                         @foreach (var item in Model.CS_tbConstructionSiteType )
                         {
                             <tr class="odd gradeX">
-                                <td>@item.ID</td>
+                                <td>@i</td>
                                 <td>@item.Type</td>
                                 <td>
                                     <button type="submit" onclick="window.open('/CS_tbConstructionSiteType/Edit/'+@item.ID , 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-success"><b>Sửa</b></button>
@@ -41,8 +42,8 @@
                                 <td>
                                     <button type="submit" onclick="window.open('/CS_tbConstructionSiteType/Delete/'+@item.ID , 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-danger"><b>Xóa</b></button>
                                 </td>
-
                             </tr>
+                            i++;
                         }
                     </tbody>
                 </table>

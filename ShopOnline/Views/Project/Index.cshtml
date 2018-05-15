@@ -49,8 +49,8 @@
                                 <td>@item.Site_Manager</td>
                                 <td>@item.Site_Address</td>
                                 <td>@item.Value_Cost</td>
-                                <td>@item.Start_Date</td>
-                                <td>@item.End_Date</td>
+                                <td>@(item.Start_Date.HasValue ? @item.Start_Date.Value.ToString("dd/MM/yyyy") : "")</td>
+                                <td>@(item.End_Date.HasValue ? @item.End_Date.Value.ToString("dd/MM/yyyy") : "")</td>
                                 <td>@item.Operation_Status</td>
                                 <td>@item.Site_Area</td>
                                 <td>
