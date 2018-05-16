@@ -281,6 +281,7 @@
     <Content Include="Views\LLTC\Edit.cshtml" />
     <Content Include="Views\LLTC\Delete.cshtml" />
     <Content Include="Views\LLTC\Details.cshtml" />
+    <Content Include="Views\LLTC\Finish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

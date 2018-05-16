@@ -58,6 +58,9 @@
         [StringLength(50)]
         public string stSiteManagerPhone_1 { get; set; }
 
+        [StringLength(50)]
+        public string stSiteJob_1 { get; set; }
+
         [Column(TypeName = "date")]
         public DateTime? stSiteStartDate_1 { get; set; }
 
@@ -77,6 +80,9 @@
 
         [StringLength(50)]
         public string stSiteManagerPhone_2 { get; set; }
+
+        [StringLength(50)]
+        public string stSiteJob_2 { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? stSiteStartDate_2 { get; set; }
@@ -98,6 +104,9 @@
         [StringLength(50)]
         public string stSiteManagerPhone_3 { get; set; }
 
+        [StringLength(50)]
+        public string stSiteJob_3 { get; set; }
+
         [Column(TypeName = "date")]
         public DateTime? stSiteStartDate_3 { get; set; }
 
@@ -118,6 +127,9 @@
         [StringLength(50)]
         public string stSiteManagerPhone_4 { get; set; }
 
+        [StringLength(50)]
+        public string stSiteJob_4 { get; set; }
+
         [Column(TypeName = "date")]
         public DateTime? stSiteStartDate_4 { get; set; }
 
@@ -137,6 +149,9 @@
 
         [StringLength(50)]
         public string stSiteManagerPhone_5 { get; set; }
+
+        [StringLength(50)]
+        public string stSiteJob_5 { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? stSiteStartDate_5 { get; set; }
