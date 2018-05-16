@@ -274,7 +274,13 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\CS_tbWorkType\Index.cshtml" />
-    <Content Include="Views\CS_tbWorkType\Details.cshtml" />
+    <Content Include="Views\CS_tbWorkType\Create.cshtml" />
+    <Content Include="Views\CS_tbWorkType\Edit.cshtml" />
+    <Content Include="Views\CS_tbWorkType\Delete.cshtml" />
+    <Content Include="Views\CS_tbWorkType\Finish.cshtml" />
+    <Content Include="Views\LLTC\Edit.cshtml" />
+    <Content Include="Views\LLTC\Delete.cshtml" />
+    <Content Include="Views\LLTC\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

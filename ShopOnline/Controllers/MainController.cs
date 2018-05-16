@@ -19,29 +19,10 @@ namespace ShopOnline.Controllers
         {
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
-                CateloryViewModel model = new CateloryViewModel();
+                LLTCViewModel model = new LLTCViewModel();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
 
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
-
-                model.ProjectAll = new List<SelectListItem>();
-                var items = new List<SelectListItem>();
-
-                foreach (var project in model.Project)
-                {
-                    items.Add(new SelectListItem()
-                    {
-                        Value = project.Project_Name,
-                        Text = project.Project_Name,
-                    });
-                }
-
-                model.ProjectAll = items;
-
-                model.SelectedCatelory = null;
-                model.DisplayMode = null;
-
-                return View(model);
+                return View("Index",model);
             }
         }
 

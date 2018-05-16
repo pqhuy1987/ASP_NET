@@ -40,13 +40,27 @@ namespace ShopOnline.Controllers
 
         public ActionResult Create()
         {
+            //--------Add Dropdown for Project Name-------------------//
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 LLTCViewModel model = new LLTCViewModel();
                 model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project_Name_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
 
+                foreach (var CS_Project_Name in model.Project)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = CS_Project_Name.Project_Name,
+                        Text = CS_Project_Name.Project_Name,
+                    });
+                }
+                model.Project_Name_All = items;
                 return View(model);
             }
+            //--------Add Dropdown for Project Name-------------------//
         }
 
         //
@@ -61,29 +75,61 @@ namespace ShopOnline.Controllers
                 {
                     LLTC obj = new LLTC();
 
-                    obj.Main_Area       = collection.SelectedLLTC.Main_Area;
-                    obj.Main_Name_Job   = collection.SelectedLLTC.Main_Name_Job;
-                    obj.Main_Name_LLTC  = collection.SelectedLLTC.Main_Name_LLTC;
-                    obj.Main_Name_Ower  = collection.SelectedLLTC.Main_Name_Ower;
-                    obj.Main_Note       = collection.SelectedLLTC.Main_Note;
-                    obj.Main_Number     = collection.SelectedLLTC.Main_Number;
-                    obj.Main_Rate       = collection.SelectedLLTC.Main_Rate;
-                    obj.Main_Status     = collection.SelectedLLTC.Main_Status;
+                    obj.Main_Name_LLTC = collection.SelectedLLTC.Main_Name_LLTC;
+                    obj.Main_Name_Ower = collection.SelectedLLTC.Main_Name_Ower;
+                    obj.Main_Number = collection.SelectedLLTC.Main_Number;
                     obj.Main_Total_Number = collection.SelectedLLTC.Main_Total_Number;
-
+                    obj.Main_Name_Job = collection.SelectedLLTC.Main_Name_Job;
+                    obj.Main_Area       = collection.SelectedLLTC.Main_Area;
+                    obj.Main_Status = collection.SelectedLLTC.Main_Status;
+                    obj.Main_Rate = collection.SelectedLLTC.Main_Rate;
+                    obj.Main_Note       = collection.SelectedLLTC.Main_Note;                                                                            
                     db.LLTCs.Add(obj);
                     db.SaveChanges();
 
+                    //--------Add Dropdown for Project Name-------------------//
                     LLTCViewModel model = new LLTCViewModel();
                     model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project_Name_All = new List<SelectListItem>();
+                    var items = new List<SelectListItem>();
 
+                    foreach (var CS_Project_Name in model.Project)
+                    {
+                        items.Add(new SelectListItem()
+                        {
+                            Value = CS_Project_Name.Project_Name,
+                            Text = CS_Project_Name.Project_Name,
+                        });
+                    }
+                    model.Project_Name_All = items;
                     return View(model);
+                    //--------Add Dropdown for Project Name-------------------//
                 }
             }
             catch
             {
+                //--------Add Dropdown for Project Name-------------------//
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    LLTCViewModel model = new LLTCViewModel();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project_Name_All = new List<SelectListItem>();
+                    var items = new List<SelectListItem>();
 
-                return View("Create");
+                    foreach (var CS_Project_Name in model.Project)
+                    {
+                        items.Add(new SelectListItem()
+                        {
+                            Value = CS_Project_Name.Project_Name,
+                            Text = CS_Project_Name.Project_Name,
+                        });
+                    }
+                    model.Project_Name_All = items;
+                    return View(model);
+                }
+                //--------Add Dropdown for Project Name-------------------//
             }
         }
 
@@ -92,20 +138,62 @@ namespace ShopOnline.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            //--------Add Dropdown for Project Name-------------------//
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                LLTCViewModel model = new LLTCViewModel();
+                //--------Select ID trả kết quả về View-----------//
+                model.SelectedLLTC = db.LLTCs.Find(id);
+                //--------Add Dropdown for ProjectName-------------------//
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project_Name_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
+
+                foreach (var CS_Project_Name in model.Project)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = CS_Project_Name.Project_Name,
+                        Text = CS_Project_Name.Project_Name,
+                    });
+                }
+                model.Project_Name_All = items;
+                return View(model);
+            }
+            //--------Add Dropdown for Project Name-------------------//
         }
 
         //
         // POST: /LLTC/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Save(int id, LLTCViewModel collection)
         {
             try
             {
-                // TODO: Add update logic here
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    LLTCViewModel model = new LLTCViewModel();
+                    //--------Select ID trả kết quả về View-----------//
+                    model.SelectedLLTC = db.LLTCs.Find(id);
+                    //--------Add Dropdown for ProjectName-------------------//
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project_Name_All = new List<SelectListItem>();
+                    var items = new List<SelectListItem>();
 
-                return RedirectToAction("Index");
+                    foreach (var CS_Project_Name in model.Project)
+                    {
+                        items.Add(new SelectListItem()
+                        {
+                            Value = CS_Project_Name.Project_Name,
+                            Text = CS_Project_Name.Project_Name,
+                        });
+                    }
+                    model.Project_Name_All = items;
+                    return View(model);
+                }
             }
             catch
             {
@@ -118,7 +206,30 @@ namespace ShopOnline.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            //--------Add Dropdown for Project Name-------------------//
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                LLTCViewModel model = new LLTCViewModel();
+                //--------Select ID trả kết quả về View-----------//
+                model.SelectedLLTC = db.LLTCs.Find(id);
+                //--------Add Dropdown for ProjectName-------------------//
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project_Name_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
+
+                foreach (var CS_Project_Name in model.Project)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = CS_Project_Name.Project_Name,
+                        Text = CS_Project_Name.Project_Name,
+                    });
+                }
+                model.Project_Name_All = items;
+                return View(model);
+            }
+            //--------Add Dropdown for Project Name-------------------//
         }
 
         //

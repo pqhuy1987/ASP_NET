@@ -1,4 +1,4 @@
-﻿@model Models.CateloryViewModel
+﻿@model Models.LLTCViewModel
 
 @{
     int counter = 3;
@@ -9,15 +9,11 @@
     <div class="col-lg-3">
         <!-- /.panel-heading -->
         <div class="panel-body-2">
-            @using (Html.BeginForm("Index", "Project"))
-            {
-                <button type="submit" onclick=" window.open('/Project/Create', 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary"><b>+ TẠO MỚI THÔNG TIN</b></button>
-            }
+            <button type="submit" onclick=" window.open('/LLTC/Create', 'windowName', 'width=700, height=600, left=24, top=24, scrollbars, resizable')" style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary"><b>+ TẠO MỚI THÔNG TIN</b></button>
         </div>
     </div>
 </div>
 
-<!-- /.row -->
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
@@ -27,81 +23,52 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Công Trường</th>
-                            <th>Tên Đội</th>
-                            <th>Người Đại Diện</th>
-                            <th>Điện Thoại</th>
-                            <th>Email</th>
-                            <th>Quân Số</th>
-                            <th>Công Việc</th>
-                            <th>Ngày Tạo</th>
-                            <th>Tình Trạng</th>
-                            <th>Khu Vực</th>
-                            <th>Đánh Giá</th>
-                            <th>Chọn</th>
-                            <th>Xóa</th>
+                            <th>Tên Công Ty/Đội</th>
+                            <th>Tên Giám Đốc</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Số Quân Có Thể Huy Động</th>
+                            <th>Công Việc Thực Hiện</th>
+                            <th>Khu Vực Thi Công</th>
+                            <th>Mô Hình Tổ Chức</th>
+                            <th>Hợp Tác</th>
+                            <th>Ghi Chú</th>
+                            <th>Công Trường</th>
+                            <th>Sửa</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.Catelory)
+                        @{int i = 1;}
+                        @foreach (var item in Model.LLTC)
                         {
                             <tr class="odd gradeX">
-                                <td>@item.ID</td>
-                                @{
-                                    foreach (var item1 in Model.Project)
-                                    {
-                                        if (item.Prj_Name == item1.Project_Name)
-                                        {
-                                            counter = 2;
-                                            break;
-                                        }
-                                        else
-                                        {
-                                            counter = 1;
-                                        }
-                                    }
-                                    if (counter == 2)
-                                    {
-                                        <td>@item.Prj_Name</td>
-                                    }
-                                    else if (counter == 1)
-                                    {
-                                        <td style="color: red">@item.Prj_Name (Không tồn tại)</td>
-
-                                    }
-
-                                }
-                                <td>@item.Unit_Name</td>
-                                <td>@item.Owner_Name</td>
-                                <td>@item.Phone_Number</td>
-                                <td>@item.Email</td>
-                                <td>@item.Person_Number</td>
-                                <td>@item.Job</td>
-                                <td>@(item.Create_Date.HasValue ? @item.Create_Date.Value.ToString("dd/MM/yyyy") : "")</td>
-                                <td>@item.Status</td>
-                                <td>@item.Area</td>
-                                <td>@item.Rate</td>
+                                <td>@i</td>
+                                <td>@item.Main_Name_LLTC</td>
+                                <td>@item.Main_Name_Ower</td>
+                                <td>@item.Main_Number</td>
+                                <td>@item.Main_Total_Number</td>
+                                <td>@item.Main_Name_Job</td>
+                                <td>@item.Main_Area</td>
+                                <td>@item.Main_Status</td>
+                                <td>@item.Main_Rate</td>
+                                <td>@item.Main_Note</td>
                                 <td>
-
-                                    <form action="@Url.Action("Edit", "Catelory",  new { id = @item.ID })" method="post">
-                                        <input type="submit" value="Select" />
-                                    </form>
+                                    <button type="submit" onclick="window.open('/LLTC/Details/'+@item.ID , 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-warning"><b>Thêm / Xem</b></button>
                                 </td>
                                 <td>
-
-                                    <form action="@Url.Action("Delete", "Catelory", new { id = @item.ID })" method="post">
-                                        <input type="submit" value="Delete" />
-                                    </form>
+                                    <button type="submit" onclick="window.open('/LLTC/Edit/'+@item.ID , 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-success"><b>Sửa</b></button>
                                 </td>
+                                <td>
+                                    <button type="submit" onclick="window.open('/LLTC/Delete/'+@item.ID , 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-danger"><b>Xóa</b></button>
+                                </td>
+
                             </tr>
+                            i++;
                         }
                     </tbody>
                 </table>
-                <!-- /.table-responsive -->
             </div>
-            <!-- /.panel-body -->
         </div>
-        <!-- /.panel -->
     </div>
-    <!-- /.col-lg-12 -->
 </div>
+

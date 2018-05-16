@@ -9,15 +9,11 @@
     <div class="col-lg-3">
         <!-- /.panel-heading -->
         <div class="panel-body-2">
-            @using (Html.BeginForm("Index", "Project"))
-            {
-                <button type="submit" onclick=" window.open('/Project/Create', 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary"><b>+ TẠO MỚI THÔNG TIN</b></button>
-            }
+            <button type="submit" onclick=" window.open('/LLTC/Create', 'windowName', 'width=700, height=600, left=24, top=24, scrollbars, resizable')" style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary"><b>+ TẠO MỚI THÔNG TIN</b></button>
         </div>
     </div>
 </div>
 
-<!-- /.row -->
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
@@ -27,97 +23,52 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>TÊN CÔNG TY/NTP/ĐTC</th>
-                            <th>TÊN GIÁM ĐỐC</th>
-                            <th>SĐT-GIÁM ĐỐC</th>
-                            <th>CÔNG VIỆC</th>
-                            <th>KHU VỰC</th>
-                            <th>KHẢ NĂNG HUY ĐỘNG</th>
-                            <th>HỢP TÁC</th>
-                            <th>GHI CHÚ</th>
-                            <th>TÌNH TRẠNG</th>
-                            <th>CHỌN</th>
-                            <th>XÓA</th>
+                            <th>Tên Công Ty/Đội</th>
+                            <th>Tên Giám Đốc</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Số Quân Có Thể Huy Động</th>
+                            <th>Công Việc Thực Hiện</th>
+                            <th>Khu Vực Thi Công</th>
+                            <th>Mô Hình Tổ Chức</th>
+                            <th>Hợp Tác</th>
+                            <th>Ghi Chú</th>
+                            <th>Công Trường</th>
+                            <th>Sửa</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
-
                     <tbody>
-                @{
-                        if (Model.LLTC == null)
-                        {
-                        <tr>
-                            <th>ID</th>
-                            <th>TÊN CÔNG TY/NTP/ĐTC</th>
-                            <th>Tên GIÁM ĐỐC</th>
-                            <th>SĐT-GIÁM ĐỐC</th>
-                            <th>KHU VỰC</th>
-                            <th>KHẢ NĂNG HUY ĐỘNG</th>
-                            <th>HỢP TÁC</th>
-                            <th>GHI CHÚ</th>
-                            <th>TÌNH TRẠNG</th>
-                            <th>CHỌN</th>
-                            <th>XÓA</th>
-                        </tr>
-                        } else {
-                        foreach (var item in Model.LLTC)
+                        @{int i = 1;}
+                        @foreach (var item in Model.LLTC)
                         {
                             <tr class="odd gradeX">
-                                <td>@item.ID</td>
-                                @{
-                            foreach (var item1 in Model.LLTC)
-                            {
-                                if (item.Main_Name_LLTC == item1.Main_Name_LLTC)
-                                {
-                                    counter = 2;
-                                    break;
-                                }
-                                else
-                                {
-                                    counter = 1;
-                                }
-                            }
-                            if (counter == 2)
-                            {
+                                <td>@i</td>
                                 <td>@item.Main_Name_LLTC</td>
-                            }
-                            else if (counter == 1)
-                            {
-                                <td style="color: red">@item.Main_Name_LLTC (Không tồn tại)</td>
-
-                            }
-
-                                }
                                 <td>@item.Main_Name_Ower</td>
                                 <td>@item.Main_Number</td>
+                                <td>@item.Main_Total_Number</td>
                                 <td>@item.Main_Name_Job</td>
                                 <td>@item.Main_Area</td>
-                                <td>@item.Main_Total_Number</td>
+                                <td>@item.Main_Status</td>
                                 <td>@item.Main_Rate</td>
                                 <td>@item.Main_Note</td>
-                                <td>@item.Main_Status</td>
                                 <td>
-                                    <form action="@Url.Action("Create", "LLTC",  new { id = @item.ID })" method="post">
-                                        <input type="submit" value="Select" />
-                                    </form>
+                                    <button type="submit" onclick="window.open('/LLTC/Details/'+@item.ID , 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-warning"><b>Thêm / Xem</b></button>
                                 </td>
                                 <td>
+                                    <button type="submit" onclick="window.open('/LLTC/Edit/'+@item.ID , 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-success"><b>Sửa</b></button>
+                                </td>
+                                <td>
+                                    <button type="submit" onclick="window.open('/LLTC/Delete/'+@item.ID , 'windowName', 'width=700, height=400, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-danger"><b>Xóa</b></button>
+                                </td>
 
-                                    <form action="@Url.Action("Delete", "LLTC", new { id = @item.ID })" method="post">
-                                        <input type="submit" value="Delete" />
-                                    </form>
-                                </td>
                             </tr>
-                        }
-                        }
+                            i++;
                         }
                     </tbody>
-
                 </table>
-                <!-- /.table-responsive -->
             </div>
-            <!-- /.panel-body -->
         </div>
-        <!-- /.panel -->
     </div>
-    <!-- /.col-lg-12 -->
 </div>
+

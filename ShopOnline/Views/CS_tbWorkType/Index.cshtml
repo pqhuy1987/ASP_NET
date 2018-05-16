@@ -22,21 +22,20 @@
                     <label style="background-color: #07347E; color: white; border-radius: 5px; padding: 5px; display: block; "> LỌC THEO DANH SÁCH CÔNG VIỆC CHÍNH: </label>
                     <div class="form-group">
                         @using (Ajax.BeginForm("Details", new AjaxOptions
-                    {
-                        HttpMethod = "Get",
-                        InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace
-                    }))
+                        {
+                            HttpMethod = "Get",
+                            InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace
+                        }))
                         {
                             @Html.DropDownListFor(model => model.CS_tbWorkTypeSelect.CoreWorkType, new List<SelectListItem>()
-                                            {
-                                                 new SelectListItem(){ Text = "-- Chọn Công Việc Chính --",   Value = "-- Chọn Công Việc Chính --"},
-                                                 new SelectListItem(){ Text = "Kết Cấu",   Value = "Kết Cấu"},
-                                                 new SelectListItem(){ Text = "MEP", Value = "MEP"},
-                                                 new SelectListItem(){ Text = "Hoàn Thiện", Value = "Hoàn Thiện"},
-                                                 new SelectListItem(){ Text = "Xây Tô", Value = "Xây Tô"},
-                                                 new SelectListItem(){ Text = "Công Việc Khác", Value = "Công Việc Khác"}
-                                            }, new { @class = "form-control", @onchange = "$(this.form).submit();" })
-                            @Html.ValidationMessageFor(model => Model.CS_tbWorkTypeSelect.CoreWorkType, null, new { @class = "text-danger", style = "font-weight:bold" })
+                            {
+                                 new SelectListItem(){ Text = "-- Chọn Công Việc Chính --",   Value = ""},
+                                 new SelectListItem(){ Text = "Kết Cấu",   Value = "Kết Cấu"},
+                                 new SelectListItem(){ Text = "MEP", Value = "MEP"},
+                                 new SelectListItem(){ Text = "Hoàn Thiện", Value = "Hoàn Thiện"},
+                                 new SelectListItem(){ Text = "Cơ Giới", Value = "Cơ Giới"},
+                                 new SelectListItem(){ Text = "Công Việc Khác", Value = "Công Việc Khác"}
+                            }, new { @class = "form-control", @onchange = "$(this.form).submit();" })
                         }
                     </div>
                     <div id="dvCategoryResults">
@@ -45,7 +44,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Công Việc Chính</th>
-                                    <th>Công Việc Phụ</th>
+                                    <th>Công Việc Chi Tiết</th>
                                     <th>Chọn</th>
                                     <th>Xóa</th>
                                 </tr>

@@ -30,9 +30,19 @@ namespace ShopOnline.Controllers
         {
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
-                CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
-                model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == collection.CS_tbWorkTypeSelect.CoreWorkType).OrderBy(i => i.ID).ToList();
-                return View("Index",model);
+                if (collection.CS_tbWorkTypeSelect.CoreWorkType == null)
+                {
+                    CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                    model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(i => i.ID).ToList();
+                    return View("Index", model);
+                }
+                else
+                {
+                    CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == collection.CS_tbWorkTypeSelect.CoreWorkType).OrderBy(i => i.ID).ToList();
+                    return View("Index", model);
+                }
+
             }
         }
 
@@ -41,24 +51,45 @@ namespace ShopOnline.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+                return View("Create",model);
+            }
         }
 
         //
         // POST: /CS_tbWorkType/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CS_tbWorkTypeViewModel collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    CS_tbWorkType obj = new CS_tbWorkType();
+                    CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                    model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
 
-                return RedirectToAction("Index");
+                    obj.CoreWorkType = collection.CS_tbWorkTypeSelect.CoreWorkType;
+                    obj.SubWorkType = collection.CS_tbWorkTypeSelect.SubWorkType;
+
+                    db.CS_tbWorkType.Add(obj);
+                    db.SaveChanges();
+
+                    return View("Create", model);
+                }
             }
             catch
             {
-                return View();
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                    model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+                    return View("Create",model);
+                }
             }
         }
 
@@ -67,24 +98,43 @@ namespace ShopOnline.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+           using (OnlineShopDbContext db = new OnlineShopDbContext())
+           {
+                 CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                 model.CS_tbWorkTypeSelect = db.CS_tbWorkType.Find(id);
+                 return View("Edit", model);
+           }
         }
 
         //
         // POST: /CS_tbWorkType/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Save(int id, CS_tbWorkTypeViewModel collection)
         {
             try
             {
-                // TODO: Add update logic here
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    CS_tbWorkType Exsiting_WorkType = db.CS_tbWorkType.Find(id);
+                    Exsiting_WorkType.CoreWorkType = collection.CS_tbWorkTypeSelect.CoreWorkType;
+                    Exsiting_WorkType.SubWorkType = collection.CS_tbWorkTypeSelect.SubWorkType;
+                    db.SaveChanges();
 
-                return RedirectToAction("Index");
+                    CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                    model.CS_tbWorkTypeSelect = db.CS_tbWorkType.Find(id);
+
+                    return View("Edit", model);
+                }
             }
             catch
             {
-                return View();
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                    model.CS_tbWorkTypeSelect = db.CS_tbWorkType.Find(id);
+                    return View("Edit", model);
+                }
             }
         }
 
@@ -93,20 +143,31 @@ namespace ShopOnline.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                model.CS_tbWorkTypeSelect = db.CS_tbWorkType.Find(id);
+                return View("Delete", model);
+            }
         }
 
         //
         // POST: /CS_tbWorkType/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, CS_tbWorkTypeViewModel collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (OnlineShopDbContext db = new OnlineShopDbContext())
+                {
+                    CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
+                    CS_tbWorkType Exsiting_WorkType = db.CS_tbWorkType.Find(id);
+                    db.CS_tbWorkType.Remove(Exsiting_WorkType);
+                    db.SaveChanges();
 
-                return RedirectToAction("Index");
+                    return View("Finish", model);
+                }
             }
             catch
             {

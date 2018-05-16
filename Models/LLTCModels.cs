@@ -12,11 +12,13 @@ namespace Models
 {
     public class LLTCViewModel
     {
-        public List<LLTC>       LLTC            { get; set; }
-        public List<Catelory>   Catelory        { get; set; }
-        public LLTC             SelectedLLTC    { get; set; }
+        public List<LLTC>           LLTC                { get; set; }
+        public List<Catelory>       Catelory            { get; set; }
+        public LLTC                 SelectedLLTC        { get; set; }
 
-        public string           DisplayMode     { get; set; }
+        public string               DisplayMode         { get; set; }
+        public List<Project>        Project             { get; set; }
+        public List<SelectListItem> Project_Name_All    { get; set; }
     }
 
     class LLTCModels
