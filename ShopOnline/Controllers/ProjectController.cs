@@ -45,7 +45,7 @@ namespace ShopOnline.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            return View("");
         }
 
         //

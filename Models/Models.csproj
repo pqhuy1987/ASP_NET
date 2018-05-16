@@ -11,6 +11,8 @@
     <AssemblyName>Models</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,11 +55,12 @@
     <Compile Include="AccountModels.cs" />
     <Compile Include="CateloryModels.cs" />
     <Compile Include="CS_tbConstructioSiteTypeModel.cs" />
+    <Compile Include="CS_tbWorkTypeModels.cs" />
     <Compile Include="Framework\Account.cs" />
     <Compile Include="Framework\Catelory.cs" />
     <Compile Include="Framework\CS_tbConstructionSiteType.cs" />
+    <Compile Include="Framework\CS_tbWorkType.cs" />
     <Compile Include="Framework\LLTC.cs" />
-    <Compile Include="Framework\Model1.cs" />
     <Compile Include="Framework\OnlineShopDbContext.cs" />
     <Compile Include="Framework\Product.cs" />
     <Compile Include="Framework\Project.cs" />
@@ -73,15 +76,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.8.3.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -19,6 +19,7 @@ namespace Models.Framework
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<WorkCount> WorkCounts { get; set; }
         public virtual DbSet<CS_tbConstructionSiteType> CS_tbConstructionSiteType { get; set; }
+        public virtual DbSet<CS_tbWorkType> CS_tbWorkType { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
