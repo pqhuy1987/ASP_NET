@@ -55,10 +55,12 @@
     <Compile Include="AccountModels.cs" />
     <Compile Include="CateloryModels.cs" />
     <Compile Include="CS_tbConstructioSiteTypeModel.cs" />
+    <Compile Include="CS_tbLLTCTypeSubModel.cs" />
     <Compile Include="CS_tbWorkTypeModels.cs" />
     <Compile Include="Framework\Account.cs" />
     <Compile Include="Framework\Catelory.cs" />
     <Compile Include="Framework\CS_tbConstructionSiteType.cs" />
+    <Compile Include="Framework\CS_tbLLTCTypeSub.cs" />
     <Compile Include="Framework\CS_tbWorkType.cs" />
     <Compile Include="Framework\OnlineShopDbContext.cs" />
     <Compile Include="Framework\Product.cs" />
