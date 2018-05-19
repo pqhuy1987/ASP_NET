@@ -12,14 +12,19 @@ namespace Models
 {
     public class LLTCViewModel
     {
-        public List<LLTC>                   LLTC                { get; set; }
-        public LLTC                         SelectedLLTC        { get; set; }
+        public List<LLTC>                   LLTC                    { get; set; }
+        public LLTC                         SelectedLLTC            { get; set; }
 
-        public List<CS_tbWorkTypeViewModel> CS_tbWorkTypeViewModel { get; set; }
+        public List<CS_tbLLTCTypeSub>       CS_tbLLTCTypeSub        { get; set; }
+        public CS_tbLLTCTypeSub             CS_tbLLTCTypeSub_Select { get; set; }
 
-        public string                       DisplayMode         { get; set; }
-        public List<Project>                Project             { get; set; }
-        public List<SelectListItem>         Project_Name_All    { get; set; }
+        public List<Project>                Project                 { get; set; }
+        public List<CS_tbWorkType>          CS_tbWorkType           { get; set; }
+
+        public List<SelectListItem>         Project_Name_All        { get; set; }
+        public List<SelectListItem>         WorkTypeDetails_All     { get; set; }
+
+        public string                       DisplayMode             { get; set; }
     }
 
     class LLTCModels

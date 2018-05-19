@@ -20,8 +20,7 @@
         public string Main_Name_Ower { get; set; }
 
         [Required(ErrorMessage = "Không được để trống nội dung này")]
-        [StringLength(50, ErrorMessage = "Nội dung nhập vào không quá 50 ký tự")]
-        public string Main_Name_Job { get; set; }
+        public int Main_Name_Job { get; set; }
 
         [Required(ErrorMessage = "Không được để trống nội dung này")]
         [StringLength(50, ErrorMessage = "Nội dung nhập vào không quá 50 ký tự")]

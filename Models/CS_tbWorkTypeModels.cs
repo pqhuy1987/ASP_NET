@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.Framework;
+using System.Data.SqlClient;
+using System.Web.Mvc;
 
 namespace Models
 {
@@ -11,5 +14,9 @@ namespace Models
     {
         public List<CS_tbWorkType> CS_tbWorkType { get; set; }
         public CS_tbWorkType CS_tbWorkTypeSelect { get; set; }
+
+        public List<CS_tbWorkTypeMain>  CS_tbWorkTypeMain { get; set; }
+
+        public List<SelectListItem>     WorkTypeMain_All { get; set; }
     }
 }

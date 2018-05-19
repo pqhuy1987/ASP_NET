@@ -19,6 +19,22 @@ namespace ShopOnline.Controllers
             {
                 CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
                 model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+
+                //--------Add Dropdown for ProjectName-------------------//
+                model.WorkTypeMain_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
+                foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = CS_WorkType_Main.ID.ToString(),
+                        Text = CS_WorkType_Main.CS_WorkTypeMain,
+                    });
+                }
+                model.WorkTypeMain_All = items;
+                //--------Add Dropdown for ProjectName-------------------//
+
                 return View(model);
             }
         }
@@ -40,6 +56,7 @@ namespace ShopOnline.Controllers
                 {
                     CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
                     model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == collection.CS_tbWorkTypeSelect.CoreWorkType).OrderBy(i => i.ID).ToList();
+
                     return View("Index", model);
                 }
 

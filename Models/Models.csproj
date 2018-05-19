@@ -62,6 +62,7 @@
     <Compile Include="Framework\CS_tbConstructionSiteType.cs" />
     <Compile Include="Framework\CS_tbLLTCTypeSub.cs" />
     <Compile Include="Framework\CS_tbWorkType.cs" />
+    <Compile Include="Framework\CS_tbWorkTypeMain.cs" />
     <Compile Include="Framework\OnlineShopDbContext.cs" />
     <Compile Include="Framework\Product.cs" />
     <Compile Include="Framework\Project.cs" />

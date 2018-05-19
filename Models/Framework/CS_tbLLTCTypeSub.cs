@@ -12,13 +12,14 @@
 
         public int? CS_tbLLTC_ID { get; set; }
 
-        [Required(ErrorMessage = "Không được để trống nội dung này")]
-        [StringLength(50, ErrorMessage = "Nội dung nhập vào không quá 50 ký tự")]
+        [StringLength(50)]
         public string CS_tbLLTCNameSub { get; set; }
+
+        public int? CS_tbLLTCNameSiteID { get; set; }
 
         [Required(ErrorMessage = "Không được để trống nội dung này")]
         [StringLength(50, ErrorMessage = "Nội dung nhập vào không quá 50 ký tự")]
-        public string CS_tbLLTCNameSiteSub { get; set; }
+        public string CS_tbLLTCNumberRegisterSub { get; set; }
 
         [StringLength(50)]
         public string CS_tbLLTCNameSiteManagerSub { get; set; }
@@ -40,7 +41,8 @@
         [Column(TypeName = "date")]
         public DateTime? CS_tbLLTCEndDateSub { get; set; }
 
-        [StringLength(50)]
+        [Required(ErrorMessage = "Không được để trống nội dung này")]
+        [StringLength(50, ErrorMessage = "Nội dung nhập vào không quá 50 ký tự")]
         public string CS_tbLLTCStatusSub { get; set; }
     }
 }
