@@ -22,6 +22,21 @@ namespace ShopOnline.Controllers
             {
                 LLTCViewModel model = new LLTCViewModel();
                 model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+
+                //--------Add Dropdown for MainProjectName-------------------//
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.WorkTypeMain_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
+                foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = CS_WorkType_Main.ID.ToString(),
+                        Text = CS_WorkType_Main.CS_WorkTypeMain,
+                    });
+                }
+                model.WorkTypeMain_All = items;
+                //--------Add Dropdown for MainProjectName-------------------//
                 
                 return View(model);
             }
@@ -509,6 +524,7 @@ namespace ShopOnline.Controllers
 
         public ActionResult Create()
         {
+
             //--------Add Dropdown for Project Name-------------------//
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
@@ -527,6 +543,23 @@ namespace ShopOnline.Controllers
                     });
                 }
                 model.Project_Name_All = items;
+
+                //--------Add Dropdown for MainProjectName-------------------//
+
+                //--------Add Dropdown for CoreJob--------------------------//
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.WorkTypeMain_All = new List<SelectListItem>();
+                var items_2 = new List<SelectListItem>();
+                foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                {
+                    items_2.Add(new SelectListItem()
+                    {
+                        Value = CS_WorkType_Main.ID.ToString(),
+                        Text = CS_WorkType_Main.CS_WorkTypeMain,
+                    });
+                }
+                model.WorkTypeMain_All = items_2;
+                //--------Add Dropdown for CoreJob-------------------------//
                 return View(model);
             }
             //--------Add Dropdown for Project Name-------------------//
@@ -572,6 +605,22 @@ namespace ShopOnline.Controllers
                         });
                     }
                     model.Project_Name_All = items;
+
+                    //--------Add Dropdown for CoreJob--------------------------//
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.WorkTypeMain_All = new List<SelectListItem>();
+                    var items_2 = new List<SelectListItem>();
+                    foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                    {
+                        items_2.Add(new SelectListItem()
+                        {
+                            Value = CS_WorkType_Main.ID.ToString(),
+                            Text = CS_WorkType_Main.CS_WorkTypeMain,
+                        });
+                    }
+                    model.WorkTypeMain_All = items_2;
+                    //--------Add Dropdown for CoreJob-------------------------//
+
                     return View(model);
                     //--------Add Dropdown for Project Name-------------------//
                 }
@@ -596,6 +645,22 @@ namespace ShopOnline.Controllers
                         });
                     }
                     model.Project_Name_All = items;
+
+                    //--------Add Dropdown for CoreJob--------------------------//
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.WorkTypeMain_All = new List<SelectListItem>();
+                    var items_2 = new List<SelectListItem>();
+                    foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                    {
+                        items_2.Add(new SelectListItem()
+                        {
+                            Value = CS_WorkType_Main.ID.ToString(),
+                            Text = CS_WorkType_Main.CS_WorkTypeMain,
+                        });
+                    }
+                    model.WorkTypeMain_All = items_2;
+                    //--------Add Dropdown for CoreJob-------------------------//
+
                     return View(model);
                 }
                 //--------Add Dropdown for Project Name-------------------//
@@ -628,6 +693,22 @@ namespace ShopOnline.Controllers
                     });
                 }
                 model.Project_Name_All = items;
+
+                //--------Add Dropdown for CoreJob--------------------------//
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.WorkTypeMain_All = new List<SelectListItem>();
+                var items_2 = new List<SelectListItem>();
+                foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                {
+                    items_2.Add(new SelectListItem()
+                    {
+                        Value = CS_WorkType_Main.ID.ToString(),
+                        Text = CS_WorkType_Main.CS_WorkTypeMain,
+                    });
+                }
+                model.WorkTypeMain_All = items_2;
+                //--------Add Dropdown for CoreJob-------------------------//
+
                 return View(model);
             }
             //--------Add Dropdown for Project Name-------------------//
@@ -674,6 +755,22 @@ namespace ShopOnline.Controllers
                         });
                     }
                     model.Project_Name_All = items;
+
+                    //--------Add Dropdown for CoreJob--------------------------//
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.WorkTypeMain_All = new List<SelectListItem>();
+                    var items_2 = new List<SelectListItem>();
+                    foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                    {
+                        items_2.Add(new SelectListItem()
+                        {
+                            Value = CS_WorkType_Main.ID.ToString(),
+                            Text = CS_WorkType_Main.CS_WorkTypeMain,
+                        });
+                    }
+                    model.WorkTypeMain_All = items_2;
+                    //--------Add Dropdown for CoreJob-------------------------//
+
                     return View("Edit", model);
                 }
             }
@@ -700,6 +797,22 @@ namespace ShopOnline.Controllers
                         });
                     }
                     model.Project_Name_All = items;
+
+                    //--------Add Dropdown for CoreJob--------------------------//
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.WorkTypeMain_All = new List<SelectListItem>();
+                    var items_2 = new List<SelectListItem>();
+                    foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                    {
+                        items_2.Add(new SelectListItem()
+                        {
+                            Value = CS_WorkType_Main.ID.ToString(),
+                            Text = CS_WorkType_Main.CS_WorkTypeMain,
+                        });
+                    }
+                    model.WorkTypeMain_All = items_2;
+                    //--------Add Dropdown for CoreJob-------------------------//
+
                     return View("Edit",model);
                 }
                 //--------Add Dropdown for Project Name-------------------//
@@ -732,6 +845,22 @@ namespace ShopOnline.Controllers
                     });
                 }
                 model.Project_Name_All = items;
+
+                //--------Add Dropdown for CoreJob--------------------------//
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.WorkTypeMain_All = new List<SelectListItem>();
+                var items_2 = new List<SelectListItem>();
+                foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                {
+                    items_2.Add(new SelectListItem()
+                    {
+                        Value = CS_WorkType_Main.ID.ToString(),
+                        Text = CS_WorkType_Main.CS_WorkTypeMain,
+                    });
+                }
+                model.WorkTypeMain_All = items_2;
+                //--------Add Dropdown for CoreJob-------------------------//
+
                 return View(model);
             }
             //--------Add Dropdown for Project Name-------------------//
@@ -752,6 +881,21 @@ namespace ShopOnline.Controllers
                     LLTC Exsiting_LLTC = db.LLTCs.Find(id);
                     db.LLTCs.Remove(Exsiting_LLTC);
                     db.SaveChanges();
+
+                    //--------Add Dropdown for CoreJob--------------------------//
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.WorkTypeMain_All = new List<SelectListItem>();
+                    var items_2 = new List<SelectListItem>();
+                    foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                    {
+                        items_2.Add(new SelectListItem()
+                        {
+                            Value = CS_WorkType_Main.ID.ToString(),
+                            Text = CS_WorkType_Main.CS_WorkTypeMain,
+                        });
+                    }
+                    model.WorkTypeMain_All = items_2;
+                    //--------Add Dropdown for CoreJob-------------------------//
 
                     return View("Finish", model);
                 }
@@ -779,6 +923,22 @@ namespace ShopOnline.Controllers
                         });
                     }
                     model.Project_Name_All = items;
+
+                    //--------Add Dropdown for CoreJob--------------------------//
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.WorkTypeMain_All = new List<SelectListItem>();
+                    var items_2 = new List<SelectListItem>();
+                    foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
+                    {
+                        items_2.Add(new SelectListItem()
+                        {
+                            Value = CS_WorkType_Main.ID.ToString(),
+                            Text = CS_WorkType_Main.CS_WorkTypeMain,
+                        });
+                    }
+                    model.WorkTypeMain_All = items_2;
+                    //--------Add Dropdown for CoreJob-------------------------//
+
                     return View(model);
                 }
                 //--------Add Dropdown for Project Name-------------------//

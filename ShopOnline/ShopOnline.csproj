@@ -135,7 +135,9 @@
     <Compile Include="Code\UserSession.cs" />
     <Compile Include="Controllers\CateloryController.cs" />
     <Compile Include="Controllers\CS_tbConstructionSiteTypeController.cs" />
+    <Compile Include="Controllers\CS_tbWorkCountController.cs" />
     <Compile Include="Controllers\CS_tbWorkTypeController.cs" />
+    <Compile Include="Controllers\CS_tbWorkTypeMainController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LLTCController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -282,6 +284,18 @@
     <Content Include="Views\LLTC\Delete.cshtml" />
     <Content Include="Views\LLTC\Details.cshtml" />
     <Content Include="Views\LLTC\Finish.cshtml" />
+    <Content Include="Views\CS_tbWorkTypeMain\Index.cshtml" />
+    <Content Include="Views\CS_tbWorkTypeMain\Create.cshtml" />
+    <Content Include="Views\CS_tbWorkTypeMain\Edit.cshtml" />
+    <Content Include="Views\CS_tbWorkTypeMain\Delete.cshtml" />
+    <Content Include="Views\CS_tbWorkTypeMain\Finish.cshtml" />
+    <Content Include="Views\CS_tbWorkCount\Index.cshtml" />
+    <Content Include="Views\CS_tbWorkCount\Create.cshtml" />
+    <Content Include="Views\CS_tbWorkCount\Edit.cshtml" />
+    <Content Include="Views\CS_tbWorkCount\Delete.cshtml" />
+    <Content Include="Views\CS_tbWorkCount\Finish.cshtml" />
+    <Content Include="Views\CS_tbWorkCount\Details.cshtml" />
+    <Content Include="Views\Project\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

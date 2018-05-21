@@ -22,7 +22,6 @@ namespace ShopOnline.Areas.Admin.Controllers
                 model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
 
                 model.SelectedProject = null;
-                model.Catelory_Project = null;
                 //model.SelectedProject.Number_Project = 100;
                 return View(model);
             }
@@ -84,70 +83,6 @@ namespace ShopOnline.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             return View();
-        }
-
-        //
-        // POST: /Admin/Project/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, string number, FormCollection collection)
-        {
-            try
-            {
-                using (OnlineShopDbContext db = new OnlineShopDbContext())
-                {
-                    ProjectViewModel model1 = new ProjectViewModel();
-
-                    if (id == 123456789)
-                    {
-                        model1.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-
-                        model1.Catelory = db.Catelories.Where(i => i.Prj_Name == null).ToList();
-                        model1.DisplayMode = "Edit";
-                        model1.SelectedProject.ID = 123456789;
-                        return View("Index", model1);
-                    }
-                    else
-                    {
-                        
-                        model1.SelectedProject = db.Projects.Find(id);
-                        model1.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-
-                        model1.Catelory = db.Catelories.Where(i => i.Prj_Name == model1.SelectedProject.Project_Name).ToList();
-                        if (number == "123")
-                        {
-                            model1.Catelory_Project = null;
-                        }
-                        else
-                        {
-                            model1.Catelory_Project = db.Catelories.Where(i => i.Phone_Number == number).ToList();
-                        }
-                        
-                        model1.SelectedProject.Number_Project =  db.Catelories.Where(i => i.Prj_Name == model1.SelectedProject.Project_Name).Count();
-                        model1.SelectedProject.Number_Person = 0;
-                        model1.DisplayMode = "Edit";
-
-                        foreach (var item1 in model1.Catelory)
-                        {
-                            model1.SelectedProject.Number_Person = model1.SelectedProject.Number_Person + (int)item1.Person_Number;
-                        }
-
-                        return View("Index", model1);
-                    }
-
-                }
-            }
-            catch
-            {
-                using (OnlineShopDbContext db = new OnlineShopDbContext())
-                {
-                    ProjectViewModel model1 = new ProjectViewModel();
-                    model1.Project = db.Projects.OrderBy(
-                            m => m.ID).Take(100).ToList();
-                    model1.SelectedProject = null;
-                    return View("Index", model1);
-                }
-            }
         }
 
         //

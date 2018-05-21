@@ -15,6 +15,7 @@
         [StringLength(50)]
         public string CS_tbLLTCNameSub { get; set; }
 
+        [Required(ErrorMessage = "Không được để trống nội dung này")]
         public int? CS_tbLLTCNameSiteID { get; set; }
 
         [Required(ErrorMessage = "Không được để trống nội dung này")]

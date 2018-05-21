@@ -34,6 +34,7 @@
                             <th>Ngày Kết Thúc</th>
                             <th>Trạng Thái Họat Động</th>
                             <th>Khu Vực Thi Công</th>
+                            <th>Đội Thi Công</th>
                             <th>Sửa</th>
                             <th>Xóa</th>
                         </tr>
@@ -54,6 +55,9 @@
                                 <td>@(item.End_Date.HasValue ? @item.End_Date.Value.ToString("dd/MM/yyyy") : "")</td>
                                 <td>@item.Operation_Status</td>
                                 <td>@item.Site_Area</td>
+                                <td>
+                                    <button type="submit" onclick="window.open('/Project/Details/'+@item.ID , 'windowName_big', 'width=1300, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-info"><b>Thêm / Xem</b></button>
+                                </td>
                                 <td>
                                     <button type="submit" onclick="window.open('/Project/Edit/'+@item.ID , 'windowName', 'width=400, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-success"><b>Sửa</b></button>
                                 </td>

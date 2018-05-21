@@ -21,15 +21,7 @@
 
                                     <label style="background-color: #5cb85c; color: white; border-radius: 5px; padding: 5px; display: block; "> CHỌN LOẠI CÔNG VIỆC CHÍNH: </label>
                                     <div class="form-group">
-                                        @Html.DropDownListFor(model => model.CS_tbWorkTypeSelect.CoreWorkType, new List<SelectListItem>()
-                                                                    {
-                                                                         new SelectListItem(){ Text = "-- Chọn Công Việc Chính --",   Value = ""},
-                                                                         new SelectListItem(){ Text = "Kết Cấu",   Value = "Kết Cấu"},
-                                                                         new SelectListItem(){ Text = "MEP", Value = "MEP"},
-                                                                         new SelectListItem(){ Text = "Hoàn Thiện", Value = "Hoàn Thiện"},
-                                                                         new SelectListItem(){ Text = "Cơ Giới", Value = "Cơ Giới"},
-                                                                         new SelectListItem(){ Text = "Công Việc Khác", Value = "Công Việc Khác"}
-                                                                     }, new { @class = "form-control" })
+                                        @Html.DropDownListFor(model => model.CS_tbWorkTypeSelect.CoreWorkType, Model.WorkTypeMain_All, "-- Chọn Công Việc Chính --", new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => Model.CS_tbWorkTypeSelect.CoreWorkType, null, new { @class = "text-danger", style = "font-weight:bold" })
                                     </div>
                                     <label style="background-color: #5cb85c; color: white; border-radius: 5px; padding: 5px; display: block; "> CÔNG VIỆC CHI TIẾT: </label>
@@ -51,15 +43,7 @@
 
                                     <label style="background-color: #5cb85c; color: white; border-radius: 5px; padding: 5px; display: block; ">  CHỌN LOẠI CÔNG VIỆC CHÍNH: </label>
                                     <div class="form-group">
-                                        @Html.DropDownListFor(model => model.CS_tbWorkTypeSelect.CoreWorkType, new List<SelectListItem>()
-                                                                    {
-                                                                         new SelectListItem(){ Text = "-- Chọn Công Việc Chính --",   Value = ""},
-                                                                         new SelectListItem(){ Text = "Kết Cấu",   Value = "Kết Cấu"},
-                                                                         new SelectListItem(){ Text = "MEP", Value = "MEP"},
-                                                                         new SelectListItem(){ Text = "Hoàn Thiện", Value = "Hoàn Thiện"},
-                                                                         new SelectListItem(){ Text = "Cơ Giới", Value = "Cơ Giới"},
-                                                                         new SelectListItem(){ Text = "Công Việc Khác", Value = "Công Việc Khác"}
-                                                                     }, new { @class = "form-control" })
+                                        @Html.DropDownListFor(model => model.CS_tbWorkTypeSelect.CoreWorkType, Model.WorkTypeMain_All, "-- Chọn Công Việc Chính --", new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => Model.CS_tbWorkTypeSelect.CoreWorkType, null, new { @class = "text-danger", style = "font-weight:bold" })
                                     </div>
                                     <label style="background-color: #5cb85c; color: white; border-radius: 5px; padding: 5px; display: block; "> CÔNG VIỆC CHI TIẾT: </label>

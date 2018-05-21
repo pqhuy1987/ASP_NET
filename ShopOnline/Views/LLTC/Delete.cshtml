@@ -41,15 +41,7 @@
                                     </div>
                                     <label style="background-color: #d9534f; color: white; border-radius: 5px; padding: 5px; display: block; "> CÔNG VIỆC THỰC HIỆN: </label>
                                     <div class="form-group">
-                                        @Html.DropDownListFor(model => model.SelectedLLTC.Main_Name_Job, new List<SelectListItem>()
-                                            {
-                                                 new SelectListItem(){ Text = "-- Chọn Công Việc Chính --",   Value = ""},
-                                                 new SelectListItem(){ Text = "Kết Cấu",   Value = "Kết Cấu"},
-                                                 new SelectListItem(){ Text = "MEP", Value = "MEP"},
-                                                 new SelectListItem(){ Text = "Hoàn Thiện", Value = "Hoàn Thiện"},
-                                                 new SelectListItem(){ Text = "Cơ Giới", Value = "Cơ Giới"},
-                                                 new SelectListItem(){ Text = "Công Việc Khác", Value = "Công Việc Khác"}
-                                            }, new { @class = "form-control" })
+                                        @Html.DropDownListFor(model => model.SelectedLLTC.Main_Name_Job, Model.WorkTypeMain_All, "-- Chọn Công Việc Chính --", new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => Model.SelectedLLTC.Main_Name_Job, null, new { @class = "text-danger", style = "font-weight:bold" })
                                     </div>
                                     <label style="background-color: #d9534f; color: white; border-radius: 5px; padding: 5px; display: block; "> KHU VỰC THI CÔNG: </label>
@@ -124,15 +116,7 @@
                                     </div>
                                     <label style="background-color: #d9534f; color: white; border-radius: 5px; padding: 5px; display: block; "> CÔNG VIỆC THỰC HIỆN: </label>
                                     <div class="form-group">
-                                        @Html.DropDownListFor(model => model.SelectedLLTC.Main_Name_Job, new List<SelectListItem>()
-                                            {
-                                                 new SelectListItem(){ Text = "-- Chọn Công Việc Chính --",   Value = ""},
-                                                 new SelectListItem(){ Text = "Kết Cấu",   Value = "Kết Cấu"},
-                                                 new SelectListItem(){ Text = "MEP", Value = "MEP"},
-                                                 new SelectListItem(){ Text = "Hoàn Thiện", Value = "Hoàn Thiện"},
-                                                 new SelectListItem(){ Text = "Cơ Giới", Value = "Cơ Giới"},
-                                                 new SelectListItem(){ Text = "Công Việc Khác", Value = "Công Việc Khác"}
-                                            }, new { @class = "form-control" })
+                                        @Html.DropDownListFor(model => model.SelectedLLTC.Main_Name_Job, Model.WorkTypeMain_All, "-- Chọn Công Việc Chính --", new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => Model.SelectedLLTC.Main_Name_Job, null, new { @class = "text-danger", style = "font-weight:bold" })
                                     </div>
                                     <label style="background-color: #d9534f; color: white; border-radius: 5px; padding: 5px; display: block; "> KHU VỰC THI CÔNG: </label>

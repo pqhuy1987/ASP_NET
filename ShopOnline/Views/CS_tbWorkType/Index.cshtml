@@ -29,7 +29,7 @@
                             InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace
                         }))
                         {
-                            @Html.DropDownListFor(model => model.CS_tbWorkTypeSelect.CoreWorkType, Model.WorkTypeMain_All, new { @class = "form-control", @onchange = "$(this.form).submit();" })
+                            @Html.DropDownListFor(model => model.CS_tbWorkTypeSelect.CoreWorkType, Model.WorkTypeMain_All, "-- Chọn Công Việc Chính --", new { @class = "form-control", @onchange = "$(this.form).submit();" })
                         }
                         </div>
                     </div>
@@ -45,12 +45,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @{int i = 1;}
+                                    @{int i = 1; int j = 0;}
                                     @foreach (var item in Model.CS_tbWorkType)
                                     {
                                         <tr class="odd gradeX">
                                             <td>@i</td>
-                                            <td>@item.CoreWorkType</td>
+                                            <td>@Html.DropDownListFor(model => Model.CS_tbWorkType[j].CoreWorkType, new SelectList(Model.WorkTypeMain_All, "Value", "Text", @Model.CS_tbWorkType[j].CoreWorkType), new { @class = "form-control", @disabled = "disabled" })</td>
                                             <td>@item.SubWorkType</td>
                                             <td>
                                                 <button type="submit" onclick="window.open('/CS_tbWorkType/Edit/'+@item.ID , 'windowName', 'width=400, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-success"><b>Sửa</b></button>
@@ -60,6 +60,7 @@
                                             </td>
                                         </tr>
                                         i++;
+                                        j++;
                                     }
                                 </tbody>
                             </table>

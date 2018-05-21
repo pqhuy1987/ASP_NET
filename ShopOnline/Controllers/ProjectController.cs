@@ -45,7 +45,104 @@ namespace ShopOnline.Controllers
 
         public ActionResult Details(int id)
         {
-            return View("");
+            //--------Add Dropdown for Project Name-------------------//
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                ProjectViewModel model = new ProjectViewModel();
+                //--------Select ID trả kết quả về View-----------//
+                model.SelectedProject = db.Projects.Find(id);
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+
+                //--------Add Dropdown for LLTCName-------------------//
+                model.LLTC_Name_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
+                foreach (var CS_LLTC_Name in model.LLTC)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = CS_LLTC_Name.ID.ToString(),
+                        Text = CS_LLTC_Name.Main_Name_LLTC,
+                    });
+                }
+                model.LLTC_Name_All = items;
+                //--------Add Dropdown for LLTCName-------------------//
+
+                //--------Add Dropdown for Details Job-------------------//
+                model.WorkTypeDetails_All = new List<SelectListItem>();
+                var items_2 = new List<SelectListItem>();
+                foreach (var CS_SubJob_Details in model.CS_tbWorkType)
+                {
+                    items_2.Add(new SelectListItem()
+                    {
+                        Value = CS_SubJob_Details.ID.ToString(),
+                        Text = CS_SubJob_Details.SubWorkType,
+                    });
+                }
+                model.WorkTypeDetails_All = items_2;
+                //--------Add Dropdown for Details Job-------------------//
+
+                return View("Details", model);
+            }
+            //--------Add Dropdown for Project Name-------------------//
+        }
+
+        [HttpPost]
+        public ActionResult DetailsSub(int id, int LLTC_ID, int display)
+        {
+            //--------Add Dropdown for Project Name-------------------//
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                ProjectViewModel model = new ProjectViewModel();
+                //--------Select ID trả kết quả về View-----------//
+                if (display != 1)
+                {
+                    display = 1;
+                    model.DisplayModeSub = display;
+                }
+                else
+                {
+                    display = 2;
+                    model.DisplayModeSub = display;
+                }
+                model.LLTC_Select = db.LLTCs.Find(LLTC_ID);
+                model.SelectedProject = db.Projects.Find(id);
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+
+                //--------Add Dropdown for LLTCName-------------------//
+                model.LLTC_Name_All = new List<SelectListItem>();
+                var items = new List<SelectListItem>();
+                foreach (var CS_LLTC_Name in model.LLTC)
+                {
+                    items.Add(new SelectListItem()
+                    {
+                        Value = CS_LLTC_Name.ID.ToString(),
+                        Text = CS_LLTC_Name.Main_Name_LLTC,
+                    });
+                }
+                model.LLTC_Name_All = items;
+                //--------Add Dropdown for LLTCName-------------------//
+
+                //--------Add Dropdown for Details Job-------------------//
+                model.WorkTypeDetails_All = new List<SelectListItem>();
+                var items_2 = new List<SelectListItem>();
+                foreach (var CS_SubJob_Details in model.CS_tbWorkType)
+                {
+                    items_2.Add(new SelectListItem()
+                    {
+                        Value = CS_SubJob_Details.ID.ToString(),
+                        Text = CS_SubJob_Details.SubWorkType,
+                    });
+                }
+                model.WorkTypeDetails_All = items_2;
+                //--------Add Dropdown for Details Job-------------------//
+
+                return View("Details", model);
+            }
+            //--------Add Dropdown for Project Name-------------------//
         }
 
         //

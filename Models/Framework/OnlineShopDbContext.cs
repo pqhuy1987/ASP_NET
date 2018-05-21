@@ -22,6 +22,7 @@ namespace Models.Framework
         public virtual DbSet<CS_tbWorkType> CS_tbWorkType { get; set; }
         public virtual DbSet<CS_tbWorkTypeMain> CS_tbWorkTypeMain { get; set; }
         public virtual DbSet<CS_tbLLTCTypeSub> CS_tbLLTCTypeSub { get; set; }
+        public virtual DbSet<CS_tbWorkCount> CS_tbWorkCount { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

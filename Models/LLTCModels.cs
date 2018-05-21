@@ -20,9 +20,11 @@ namespace Models
 
         public List<Project>                Project                 { get; set; }
         public List<CS_tbWorkType>          CS_tbWorkType           { get; set; }
+        public List<CS_tbWorkTypeMain>      CS_tbWorkTypeMain       { get; set; }
 
         public List<SelectListItem>         Project_Name_All        { get; set; }
         public List<SelectListItem>         WorkTypeDetails_All     { get; set; }
+        public List<SelectListItem>         WorkTypeMain_All        { get; set; }
 
         public string                       DisplayMode             { get; set; }
     }
