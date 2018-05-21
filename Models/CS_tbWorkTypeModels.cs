@@ -12,8 +12,8 @@ namespace Models
 {
     public class CS_tbWorkTypeViewModel
     {
-        public List<CS_tbWorkType> CS_tbWorkType { get; set; }
-        public CS_tbWorkType CS_tbWorkTypeSelect { get; set; }
+        public List<CS_tbWorkType>      CS_tbWorkType { get; set; }
+        public CS_tbWorkType            CS_tbWorkTypeSelect { get; set; }
 
         public List<CS_tbWorkTypeMain>  CS_tbWorkTypeMain { get; set; }
 

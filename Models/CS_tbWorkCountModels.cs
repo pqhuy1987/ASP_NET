@@ -12,16 +12,17 @@ namespace Models
 {
     public class CS_tbWorkCountViewModels
     {
-        public List<CS_tbWorkCount> CS_tbWorkCount { get; set; }
-        public CS_tbWorkCount CS_tbWorkCount_Select { get; set; }
+        public List<CS_tbWorkCount>     CS_tbWorkCount          { get; set; }
+        public List<CS_tbWorkCount_Sub> CS_tbWorkCount_Sub      { get; set; }
+        public CS_tbWorkCount           CS_tbWorkCount_Select   { get; set; }
 
-        public List<Project> Project { get; set; }
-        //public List<CS_tbWorkType> CS_tbWorkType { get; set; }
-        //public List<CS_tbWorkTypeMain> CS_tbWorkTypeMain { get; set; }
+        public List<Project>            Project                 { get; set; }
+        public List<CS_tbLLTCTypeSub>   CS_tbLLTCTypeSub        { get; set; }
+        public CS_tbLLTCTypeSub         CS_tbLLTCTypeSub_Select { get; set; }
 
-        public List<SelectListItem> Project_Name_All { get; set; }
-        //public List<SelectListItem> WorkTypeDetails_All { get; set; }
-        //public List<SelectListItem> WorkTypeMain_All { get; set; }
+        public List<SelectListItem>     Project_Name_All        { get; set; }
+       
+     
 
     }
 }

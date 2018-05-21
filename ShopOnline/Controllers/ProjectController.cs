@@ -45,7 +45,6 @@ namespace ShopOnline.Controllers
 
         public ActionResult Details(int id)
         {
-            //--------Add Dropdown for Project Name-------------------//
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 ProjectViewModel model = new ProjectViewModel();
@@ -85,7 +84,6 @@ namespace ShopOnline.Controllers
 
                 return View("Details", model);
             }
-            //--------Add Dropdown for Project Name-------------------//
         }
 
         [HttpPost]
