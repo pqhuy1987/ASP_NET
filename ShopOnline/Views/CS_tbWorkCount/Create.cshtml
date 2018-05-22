@@ -39,7 +39,11 @@
                                     <p>
                                         <button type="submit" value="Thêm" class="btn btn-primary"> <b>THÊM</b> </button>
                                     </p>
-
+                                    if (Model.ValidStatus == "Invalid") {
+                                    <div class="alert alert-danger">
+                                        Đã có bảng  chấm công cho công trường và ngày này
+                                    </div>
+                                    }
                                 }
                             }
                     </div>

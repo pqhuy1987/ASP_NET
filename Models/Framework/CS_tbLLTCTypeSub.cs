@@ -29,8 +29,7 @@
         public string CS_tbLLTCNameSiteManagerMobileSub { get; set; }
 
         [Required(ErrorMessage = "Không được để trống nội dung này")]
-        [StringLength(50, ErrorMessage = "Nội dung nhập vào không quá 50 ký tự")]
-        public string CS_tbLLTCNameJobDetailsSub { get; set; }
+        public int? CS_tbLLTCNameJobDetailsSub { get; set; }
 
         [Required(ErrorMessage = "Không được để trống nội dung này")]
         [DataType(DataType.Date)]

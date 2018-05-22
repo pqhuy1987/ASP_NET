@@ -21,6 +21,9 @@ namespace ShopOnline.Controllers
                 model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
                 model.Project_Name_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
+
+
+
                 foreach (var CS_Project_Name in model.Project)
                 {
                     items.Add(new SelectListItem()
@@ -45,21 +48,65 @@ namespace ShopOnline.Controllers
             {
                 CS_tbWorkCountViewModels model = new CS_tbWorkCountViewModels();
                 //--------Select ID trả kết quả về View-----------//
-                
-                model.CS_tbWorkCount_Sub = db.CS_tbWorkCount_Sub.Where(m => m.CS_tbWorkCount_ID == id).Take(100).ToList();
-                model.CS_tbLLTCTypeSub = new List<CS_tbLLTCTypeSub>();
 
+                model.CS_tbWorkCount_Select = db.CS_tbWorkCount.Find(id);
+                model.CS_tbWorkCount_Sub = db.CS_tbWorkCount_Sub.Where(m => m.CS_tbWorkCount_ID == id).Take(100).ToList();
+                model.CS_tbLLTCTypeSub      = new List<CS_tbLLTCTypeSub>();
+                model.LLTC_temp             = new List<LLTC>();
+                model.CS_tbWorkType_temp    = new List<CS_tbWorkType>();
+
+                int j = 0;
                 foreach (var CS_tbWorkCount_Sub in model.CS_tbWorkCount_Sub)
                 {
-                    id = 7;
-                    CS_tbLLTCTypeSub obj_2 = db.CS_tbLLTCTypeSub.Find(id);
-                    model.CS_tbLLTCTypeSub.Add(obj_2); 
+                    CS_tbLLTCTypeSub obj_temp = db.CS_tbLLTCTypeSub.Find(CS_tbWorkCount_Sub.CS_tbLLTCTypeSub_ID);
+                    model.CS_tbLLTCTypeSub.Add(obj_temp);
+                    LLTC obj_temp_2 = db.LLTCs.Find(CS_tbWorkCount_Sub.CS_LLTC_ID);
+                    model.LLTC_temp.Add(obj_temp_2);
+                    CS_tbWorkType obj_temp_3 = db.CS_tbWorkType.Find(model.CS_tbLLTCTypeSub[j].CS_tbLLTCNameJobDetailsSub);
+                    model.CS_tbWorkType_temp.Add(obj_temp_3);
+                    j++;                   
                 }
 
                 return View("Details", model);
             }
         }
 
+        [HttpPost]
+        public ActionResult DetailsEditGet(int id, CS_tbWorkCountViewModels collection)
+        {
+            using (OnlineShopDbContext db = new OnlineShopDbContext())
+            {
+                CS_tbWorkCountViewModels model = new CS_tbWorkCountViewModels();
+
+                foreach (var CS_tbWorkCount_Sub_Temp in collection.CS_tbWorkCount_Sub)
+                {
+                    CS_tbWorkCount_Sub obj = db.CS_tbWorkCount_Sub.Find(CS_tbWorkCount_Sub_Temp.ID);
+                    obj.CS_tbNumberDailyCount = CS_tbWorkCount_Sub_Temp.CS_tbNumberDailyCount;
+                    db.SaveChanges();
+                }
+
+                //--------Select ID trả kết quả về View-----------//
+                model.CS_tbWorkCount_Select = db.CS_tbWorkCount.Find(id);
+                model.CS_tbWorkCount_Sub = db.CS_tbWorkCount_Sub.Where(m => m.CS_tbWorkCount_ID == id).Take(100).ToList();
+                model.CS_tbLLTCTypeSub = new List<CS_tbLLTCTypeSub>();
+                model.LLTC_temp = new List<LLTC>();
+                model.CS_tbWorkType_temp = new List<CS_tbWorkType>();
+
+                int j = 0;
+                foreach (var CS_tbWorkCount_Sub in model.CS_tbWorkCount_Sub)
+                {
+                    CS_tbLLTCTypeSub obj_temp = db.CS_tbLLTCTypeSub.Find(CS_tbWorkCount_Sub.CS_tbLLTCTypeSub_ID);
+                    model.CS_tbLLTCTypeSub.Add(obj_temp);
+                    LLTC obj_temp_2 = db.LLTCs.Find(CS_tbWorkCount_Sub.CS_LLTC_ID);
+                    model.LLTC_temp.Add(obj_temp_2);
+                    CS_tbWorkType obj_temp_3 = db.CS_tbWorkType.Find(model.CS_tbLLTCTypeSub[j].CS_tbLLTCNameJobDetailsSub);
+                    model.CS_tbWorkType_temp.Add(obj_temp_3);
+                    j++;
+                }
+
+                return View("Details", model);
+            }
+        }
         //
         // GET: /CS_tbWorkCount/Create
 
@@ -99,31 +146,40 @@ namespace ShopOnline.Controllers
             {
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
-                    CS_tbWorkCount obj = new CS_tbWorkCount();
-                    obj.tb_WorkCountProject_ID = collection.CS_tbWorkCount_Select.tb_WorkCountProject_ID;
-                    obj.tb_WorkCountForDate = collection.CS_tbWorkCount_Select.tb_WorkCountForDate;
-                    obj.tb_WorkCountName_Report = collection.CS_tbWorkCount_Select.tb_WorkCountName_Report;
-                    obj.tb_WorkCountDateTime_Report = DateTime.Today;
-                    db.CS_tbWorkCount.Add(obj);
-                    db.SaveChanges();
-                    int id = obj.ID;
-                    //--------Add Dropdown for ProjectName-------------------//
                     CS_tbWorkCountViewModels model = new CS_tbWorkCountViewModels();
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == collection.CS_tbWorkCount_Select.tb_WorkCountProject_ID).Take(100).ToList();
+                    var existingStatus = db.CS_tbWorkCount.FirstOrDefault(s => s.tb_WorkCountProject_ID == collection.CS_tbWorkCount_Select.tb_WorkCountProject_ID && s.tb_WorkCountForDate == collection.CS_tbWorkCount_Select.tb_WorkCountForDate);
 
-                    //--------Tạo Bảng Công Chi Tiết-------------------//
-                    foreach(var CS_LLTCTyleSub in model.CS_tbLLTCTypeSub)
+                    if (existingStatus == null)
                     {
-                        CS_tbWorkCount_Sub obj_temp = new CS_tbWorkCount_Sub();
-                        obj_temp.CS_tbWorkCount_ID = id;
-                        obj_temp.CS_tbLLTCTypeSub_ID = CS_LLTCTyleSub.ID;
-                        obj_temp.CS_LLTC_ID = CS_LLTCTyleSub.CS_tbLLTC_ID;
-                        obj_temp.CS_tbNumberDailyCount = 0;
-                        db.CS_tbWorkCount_Sub.Add(obj_temp);
+                        CS_tbWorkCount obj = new CS_tbWorkCount();
+                        obj.tb_WorkCountProject_ID = collection.CS_tbWorkCount_Select.tb_WorkCountProject_ID;
+                        obj.tb_WorkCountForDate = collection.CS_tbWorkCount_Select.tb_WorkCountForDate;
+                        obj.tb_WorkCountName_Report = collection.CS_tbWorkCount_Select.tb_WorkCountName_Report;
+                        obj.tb_WorkCountDateTime_Report = DateTime.Today;
+                        db.CS_tbWorkCount.Add(obj);
                         db.SaveChanges();
+                        int id = obj.ID;
+                        //--------Tạo Bảng Công Chi Tiết-------------------//
+                        model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == collection.CS_tbWorkCount_Select.tb_WorkCountProject_ID).Take(100).ToList();
+                        foreach (var CS_LLTCTyleSub in model.CS_tbLLTCTypeSub)
+                        {
+                            CS_tbWorkCount_Sub obj_temp = new CS_tbWorkCount_Sub();
+                            obj_temp.CS_tbWorkCount_ID = id;
+                            obj_temp.CS_tbLLTCTypeSub_ID = CS_LLTCTyleSub.ID;
+                            obj_temp.CS_LLTC_ID = CS_LLTCTyleSub.CS_tbLLTC_ID;
+                            obj_temp.CS_tbNumberDailyCount = 0;
+                            db.CS_tbWorkCount_Sub.Add(obj_temp);
+                            db.SaveChanges();
+                        }
+                        model.ValidStatus = "Valid";
+                        //--------Tạo Bảng Công Chi Tiết-------------------//
                     }
-                    //--------Tạo Bảng Công Chi Tiết-------------------//
-
+                    else
+                    {
+                        // set the status back to existing
+                        model.ValidStatus = "Invalid";
+                    }
+                    //--------Add Dropdown for ProjectName-------------------//
                     model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
                     model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
                     model.Project_Name_All = new List<SelectListItem>();

@@ -28,8 +28,7 @@
                             <th>Chấm Công Cho Ngày</th>
                             <th>Người Tạo</th>
                             <th>Ngày Tạo</th>
-                            <th>Người Sửa</th>
-                            <th>Ngày Sửa</th>
+                            <th>Tổng Quân</th>
                             <th>Chấm Công</th>
                             <th>Sửa</th>
                             <th>Xóa</th>
@@ -45,13 +44,12 @@
                                 <td>@(item.tb_WorkCountForDate.HasValue ? @item.tb_WorkCountForDate.Value.ToString("dd/MM/yyyy") : "")</td>
                                 <td>@item.tb_WorkCountName_Report</td>
                                 <td>@(item.tb_WorkCountDateTime_Report.HasValue ? @item.tb_WorkCountDateTime_Report.Value.ToString("dd/MM/yyyy") : "")</td>
-                                <td>@item.tb_WorkCountName_Edit</td>
-                                <td>@(item.tb_WorkCountDateTime_Edit.HasValue ? @item.tb_WorkCountDateTime_Edit.Value.ToString("dd/MM/yyyy") : "")</td>
+                                <td>@item.tb_WorkCountName_Report</td>
                                 <td>
-                                    <button type="submit" onclick="window.open('/CS_tbWorkCount/Details/'+@item.ID , 'windowName_big', 'width=1300, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-info"><b>Thêm / Xem</b></button>
+                                    <button type="submit" onclick="window.open('/CS_tbWorkCount/Details/'+@item.ID , 'windowName_big_2', 'width=1000, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-info"><b>Thêm / Xem</b></button>
                                 </td>
                                 <td>
-                                    <button type="submit" onclick="window.open('/CS_tbWorkCount/Edit/'+@item.ID , 'windowName', 'width=400, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-success"><b>Sửa</b></button>
+                                    <button type="submit" onclick="window.open('/CS_tbWorkCount/Edit/'+@item.ID , 'windowName', 'width=400, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-block" disabled><b>Sửa</b></button>
                                 </td>
                                 <td>
                                     <button type="submit" onclick="window.open('/CS_tbWorkCount/Delete/'+@item.ID , 'windowName', 'width=400, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-danger"><b>Xóa</b></button>
