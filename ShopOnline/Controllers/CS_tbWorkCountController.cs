@@ -15,14 +15,12 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CS_tbWorkCountViewModels model = new CS_tbWorkCountViewModels();
-                model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for ProjectName-------------------//
                 model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
                 model.Project_Name_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
-
-
 
                 foreach (var CS_Project_Name in model.Project)
                 {
@@ -87,12 +85,22 @@ namespace ShopOnline.Controllers
 
                 //--------Select ID trả kết quả về View-----------//
                 model.CS_tbWorkCount_Select = db.CS_tbWorkCount.Find(id);
-                model.CS_tbWorkCount_Sub = db.CS_tbWorkCount_Sub.Where(m => m.CS_tbWorkCount_ID == id).Take(100).ToList();
+                model.CS_tbWorkCount_Sub = db.CS_tbWorkCount_Sub.Where(m => m.CS_tbWorkCount_ID == id).ToList();
+
+                int mTotalCount = 0;
+                foreach (var CS_tbWorkCount_Sub in model.CS_tbWorkCount_Sub)
+                {
+                    mTotalCount = mTotalCount + (int)CS_tbWorkCount_Sub.CS_tbNumberDailyCount; 
+                }
+                CS_tbWorkCount objTotalCount = db.CS_tbWorkCount.Find(id);
+                objTotalCount.tb_mTotalCount = mTotalCount;
+                db.SaveChanges();
                 model.CS_tbLLTCTypeSub = new List<CS_tbLLTCTypeSub>();
                 model.LLTC_temp = new List<LLTC>();
                 model.CS_tbWorkType_temp = new List<CS_tbWorkType>();
 
                 int j = 0;
+                model.CS_tbWorkCount_Sub = db.CS_tbWorkCount_Sub.Where(m => m.CS_tbWorkCount_ID == id).ToList();
                 foreach (var CS_tbWorkCount_Sub in model.CS_tbWorkCount_Sub)
                 {
                     CS_tbLLTCTypeSub obj_temp = db.CS_tbLLTCTypeSub.Find(CS_tbWorkCount_Sub.CS_tbLLTCTypeSub_ID);
@@ -156,6 +164,7 @@ namespace ShopOnline.Controllers
                         obj.tb_WorkCountForDate = collection.CS_tbWorkCount_Select.tb_WorkCountForDate;
                         obj.tb_WorkCountName_Report = collection.CS_tbWorkCount_Select.tb_WorkCountName_Report;
                         obj.tb_WorkCountDateTime_Report = DateTime.Today;
+                        obj.tb_mTotalCount = 0;
                         db.CS_tbWorkCount.Add(obj);
                         db.SaveChanges();
                         int id = obj.ID;

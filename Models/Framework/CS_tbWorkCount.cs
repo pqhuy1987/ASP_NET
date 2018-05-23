@@ -24,5 +24,7 @@
         public string tb_WorkCountName_Edit { get; set; }
 
         public DateTime? tb_WorkCountDateTime_Edit { get; set; }
+
+        public int? tb_mTotalCount { get; set; }
     }
 }

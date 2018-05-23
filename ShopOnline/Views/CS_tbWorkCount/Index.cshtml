@@ -44,7 +44,7 @@
                                 <td>@(item.tb_WorkCountForDate.HasValue ? @item.tb_WorkCountForDate.Value.ToString("dd/MM/yyyy") : "")</td>
                                 <td>@item.tb_WorkCountName_Report</td>
                                 <td>@(item.tb_WorkCountDateTime_Report.HasValue ? @item.tb_WorkCountDateTime_Report.Value.ToString("dd/MM/yyyy") : "")</td>
-                                <td>@item.tb_WorkCountName_Report</td>
+                                <td>@item.tb_mTotalCount</td>
                                 <td>
                                     <button type="submit" onclick="window.open('/CS_tbWorkCount/Details/'+@item.ID , 'windowName_big_2', 'width=1000, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-info"><b>Thêm / Xem</b></button>
                                 </td>

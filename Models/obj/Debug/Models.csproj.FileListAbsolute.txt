@@ -15,5 +15,6 @@ D:\ASP_PROJECT\Models\bin\Debug\EntityFramework.dll
 D:\ASP_PROJECT\Models\bin\Debug\EntityFramework.SqlServer.dll
 D:\ASP_PROJECT\Models\bin\Debug\EntityFramework.xml
 D:\ASP_PROJECT\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\ASP_PROJECT\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 D:\ASP_PROJECT\Models\obj\Debug\Models.dll
 D:\ASP_PROJECT\Models\obj\Debug\Models.pdb

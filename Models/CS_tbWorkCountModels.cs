@@ -23,9 +23,8 @@ namespace Models
         public List<CS_tbWorkType>      CS_tbWorkType_temp            { get; set; }
         public CS_tbLLTCTypeSub         CS_tbLLTCTypeSub_Select       { get; set; }
 
-        public List<SelectListItem>     Project_Name_All        { get; set; }
+        public List<SelectListItem>     Project_Name_All              { get; set; }
 
-        public string                   ValidStatus             { get; set; }
-        public int                      mTotalCount             { get; set; } 
+        public string                   ValidStatus                   { get; set; }
     }
 }
