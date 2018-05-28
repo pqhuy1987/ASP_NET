@@ -18,7 +18,7 @@ namespace ShopOnline.Controllers
                 model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for ProjectName-------------------//
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.Project_Name_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
 
@@ -48,7 +48,7 @@ namespace ShopOnline.Controllers
                 //--------Select ID trả kết quả về View-----------//
 
                 model.CS_tbWorkCount_Select = db.CS_tbWorkCount.Find(id);
-                model.CS_tbWorkCount_Sub = db.CS_tbWorkCount_Sub.Where(m => m.CS_tbWorkCount_ID == id).Take(100).ToList();
+                model.CS_tbWorkCount_Sub = db.CS_tbWorkCount_Sub.Where(m => m.CS_tbWorkCount_ID == id).ToList();
                 model.CS_tbLLTCTypeSub      = new List<CS_tbLLTCTypeSub>();
                 model.LLTC_temp             = new List<LLTC>();
                 model.CS_tbWorkType_temp    = new List<CS_tbWorkType>();
@@ -123,10 +123,10 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CS_tbWorkCountViewModels model = new CS_tbWorkCountViewModels();
-                model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for ProjectName-------------------//
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.Project_Name_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
                 foreach (var CS_Project_Name in model.Project)
@@ -169,7 +169,7 @@ namespace ShopOnline.Controllers
                         db.SaveChanges();
                         int id = obj.ID;
                         //--------Tạo Bảng Công Chi Tiết-------------------//
-                        model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == collection.CS_tbWorkCount_Select.tb_WorkCountProject_ID).Take(100).ToList();
+                        model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == collection.CS_tbWorkCount_Select.tb_WorkCountProject_ID).ToList();
                         foreach (var CS_LLTCTyleSub in model.CS_tbLLTCTypeSub)
                         {
                             CS_tbWorkCount_Sub obj_temp = new CS_tbWorkCount_Sub();
@@ -189,8 +189,8 @@ namespace ShopOnline.Controllers
                         model.ValidStatus = "Invalid";
                     }
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_Project_Name in model.Project)
@@ -212,10 +212,10 @@ namespace ShopOnline.Controllers
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
                     CS_tbWorkCountViewModels model = new CS_tbWorkCountViewModels();
-                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_Project_Name in model.Project)
@@ -244,10 +244,10 @@ namespace ShopOnline.Controllers
                 CS_tbWorkCountViewModels model = new CS_tbWorkCountViewModels();
                 //--------Select ID trả kết quả về View-----------//
                 model.CS_tbWorkCount_Select = db.CS_tbWorkCount.Find(id);
-                model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for ProjectName-------------------//
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.Project_Name_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
                 foreach (var CS_Project_Name in model.Project)
@@ -289,10 +289,10 @@ namespace ShopOnline.Controllers
                     db.SaveChanges();
 
                     model.CS_tbWorkCount_Select = db.CS_tbWorkCount.Find(id);
-                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_Project_Name in model.Project)
@@ -315,10 +315,10 @@ namespace ShopOnline.Controllers
                 {
                     CS_tbWorkCountViewModels model = new CS_tbWorkCountViewModels();
                     model.CS_tbWorkCount_Select = db.CS_tbWorkCount.Find(id);
-                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_Project_Name in model.Project)
@@ -348,10 +348,10 @@ namespace ShopOnline.Controllers
 
 
                 model.CS_tbWorkCount_Select = db.CS_tbWorkCount.Find(id);
-                model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for ProjectName-------------------//
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.Project_Name_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
                 foreach (var CS_Project_Name in model.Project)
@@ -385,10 +385,10 @@ namespace ShopOnline.Controllers
                     db.SaveChanges();
 
                     model.CS_tbWorkCount_Select     = db.CS_tbWorkCount.Find(id);
-                    model.CS_tbWorkCount            = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkCount            = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_Project_Name in model.Project)
@@ -411,10 +411,10 @@ namespace ShopOnline.Controllers
                 {
                     CS_tbWorkCountViewModels model = new CS_tbWorkCountViewModels();
                     model.CS_tbWorkCount_Select = db.CS_tbWorkCount.Find(id);
-                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkCount = db.CS_tbWorkCount.OrderBy(m => m.ID).ToList();
 
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_Project_Name in model.Project)

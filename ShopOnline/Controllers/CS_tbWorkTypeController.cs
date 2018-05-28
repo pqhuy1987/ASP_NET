@@ -18,8 +18,8 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
-                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for MainProjectName-------------------//
                 model.WorkTypeMain_All = new List<SelectListItem>();
@@ -52,7 +52,7 @@ namespace ShopOnline.Controllers
                     model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(i => i.ID).ToList();
 
                     //--------Add Dropdown for MainProjectName-------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -74,7 +74,7 @@ namespace ShopOnline.Controllers
                     model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == collection.CS_tbWorkTypeSelect.CoreWorkType).OrderBy(i => i.ID).ToList();
 
                     //--------Add Dropdown for MainProjectName-------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -102,10 +102,10 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
-                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for MainProjectName-------------------//
-                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 model.WorkTypeMain_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
                 foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -135,7 +135,7 @@ namespace ShopOnline.Controllers
                 {
                     CS_tbWorkType obj = new CS_tbWorkType();
                     CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
-                    model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
 
                     obj.CoreWorkType = collection.CS_tbWorkTypeSelect.CoreWorkType;
                     obj.SubWorkType = collection.CS_tbWorkTypeSelect.SubWorkType;
@@ -144,7 +144,7 @@ namespace ShopOnline.Controllers
                     db.SaveChanges();
 
                     //--------Add Dropdown for MainProjectName-------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -166,10 +166,10 @@ namespace ShopOnline.Controllers
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
                     CS_tbWorkTypeViewModel model = new CS_tbWorkTypeViewModel();
-                    model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
 
                     //--------Add Dropdown for MainProjectName-------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -199,7 +199,7 @@ namespace ShopOnline.Controllers
                  model.CS_tbWorkTypeSelect = db.CS_tbWorkType.Find(id);
 
                  //--------Add Dropdown for MainProjectName-------------------//
-                 model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                 model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                  model.WorkTypeMain_All = new List<SelectListItem>();
                  var items = new List<SelectListItem>();
                  foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -234,7 +234,7 @@ namespace ShopOnline.Controllers
                     db.SaveChanges();
 
                     //--------Add Dropdown for MainProjectName-------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -261,7 +261,7 @@ namespace ShopOnline.Controllers
                     model.CS_tbWorkTypeSelect = db.CS_tbWorkType.Find(id);
 
                     //--------Add Dropdown for MainProjectName-------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -291,7 +291,7 @@ namespace ShopOnline.Controllers
                 model.CS_tbWorkTypeSelect = db.CS_tbWorkType.Find(id);
 
                 //--------Add Dropdown for MainProjectName-------------------//
-                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 model.WorkTypeMain_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
                 foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -325,7 +325,7 @@ namespace ShopOnline.Controllers
                     db.SaveChanges();
 
                     //--------Add Dropdown for MainProjectName-------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)

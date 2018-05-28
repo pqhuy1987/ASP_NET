@@ -21,10 +21,10 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 LLTCViewModel model = new LLTCViewModel();
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for MainProjectName-------------------//
-                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 model.WorkTypeMain_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
                 foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -54,10 +54,10 @@ namespace ShopOnline.Controllers
                 //--------Select ID trả kết quả về View-----------//
                 model.SelectedLLTC = db.LLTCs.Find(id);
                 //--------Add Dropdown for ProjectName-------------------//
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).ToList();
+                model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).ToList();
                 model.DisplayMode = "Index";
                     //--------Add Dropdown for ProjectName-------------------//
                     model.Project_Name_All = new List<SelectListItem>();
@@ -102,10 +102,10 @@ namespace ShopOnline.Controllers
                 model.CS_tbLLTCTypeSub_Select = db.CS_tbLLTCTypeSub.Find(id);
                 model.SelectedLLTC = db.LLTCs.Find(LLTC_ID);
                 //--------Add Dropdown for ProjectName-------------------//
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).ToList();
+                model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).ToList();
                 model.DisplayMode = "Edit";
                 //--------Add Dropdown for ProjectName-------------------//
                 model.Project_Name_All = new List<SelectListItem>();
@@ -150,10 +150,10 @@ namespace ShopOnline.Controllers
                 model.CS_tbLLTCTypeSub_Select = db.CS_tbLLTCTypeSub.Find(id);
                 model.SelectedLLTC = db.LLTCs.Find(LLTC_ID);
                 //--------Add Dropdown for ProjectName-------------------//
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).ToList();
+                model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).ToList();
                 model.DisplayMode = "Delete";
                 //--------Add Dropdown for ProjectName-------------------//
                 model.Project_Name_All = new List<SelectListItem>();
@@ -215,10 +215,10 @@ namespace ShopOnline.Controllers
                     //--------Select ID trả kết quả về View-----------//
                     model.SelectedLLTC = db.LLTCs.Find(LLTC_ID);
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == LLTC_ID).OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == LLTC_ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).ToList();
                     model.DisplayMode = "Index";
                     //--------Add Dropdown for ProjectName-------------------//
                     model.Project_Name_All = new List<SelectListItem>();
@@ -261,10 +261,10 @@ namespace ShopOnline.Controllers
                     //--------Select ID trả kết quả về View-----------//
                     model.SelectedLLTC = db.LLTCs.Find(LLTC_ID);
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == LLTC_ID).OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == LLTC_ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).ToList();
                     model.DisplayMode = "Index";
                     //--------Add Dropdown for ProjectName-------------------//
                     model.Project_Name_All = new List<SelectListItem>();
@@ -328,10 +328,10 @@ namespace ShopOnline.Controllers
                     model.CS_tbLLTCTypeSub_Select = db.CS_tbLLTCTypeSub.Find(id);
                     model.SelectedLLTC = db.LLTCs.Find(LLTC_ID);
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).ToList();
                     model.DisplayMode = "Edit";
                     //--------Add Dropdown for ProjectName-------------------//
                     model.Project_Name_All = new List<SelectListItem>();
@@ -375,10 +375,10 @@ namespace ShopOnline.Controllers
                     model.CS_tbLLTCTypeSub_Select = db.CS_tbLLTCTypeSub.Find(id);
                     model.SelectedLLTC = db.LLTCs.Find(LLTC_ID);
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).ToList();
                     model.DisplayMode = "Edit";
                     //--------Add Dropdown for ProjectName-------------------//
                     model.Project_Name_All = new List<SelectListItem>();
@@ -434,10 +434,10 @@ namespace ShopOnline.Controllers
                     //model.CS_tbLLTCTypeSub_Select = db.CS_tbLLTCTypeSub.Find(id);
                     model.SelectedLLTC = db.LLTCs.Find(LLTC_ID);
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).ToList();
                     model.DisplayMode = "Finish";
                     //--------Add Dropdown for ProjectName-------------------//
                     model.Project_Name_All = new List<SelectListItem>();
@@ -481,10 +481,10 @@ namespace ShopOnline.Controllers
                     //model.CS_tbLLTCTypeSub_Select = db.CS_tbLLTCTypeSub.Find(id);
                     model.SelectedLLTC = db.LLTCs.Find(LLTC_ID);
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTC_ID == model.SelectedLLTC.ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.SelectedLLTC.Main_Name_Job).OrderBy(m => m.ID).ToList();
                     model.DisplayMode = "Finish";
                     //--------Add Dropdown for ProjectName-------------------//
                     model.Project_Name_All = new List<SelectListItem>();
@@ -529,8 +529,8 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 LLTCViewModel model = new LLTCViewModel();
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.Project_Name_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
 
@@ -547,7 +547,7 @@ namespace ShopOnline.Controllers
                 //--------Add Dropdown for MainProjectName-------------------//
 
                 //--------Add Dropdown for CoreJob--------------------------//
-                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 model.WorkTypeMain_All = new List<SelectListItem>();
                 var items_2 = new List<SelectListItem>();
                 foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -591,8 +591,8 @@ namespace ShopOnline.Controllers
 
                     //--------Add Dropdown for Project Name-------------------//
                     LLTCViewModel model = new LLTCViewModel();
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
 
@@ -607,7 +607,7 @@ namespace ShopOnline.Controllers
                     model.Project_Name_All = items;
 
                     //--------Add Dropdown for CoreJob--------------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items_2 = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -631,8 +631,8 @@ namespace ShopOnline.Controllers
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
                     LLTCViewModel model = new LLTCViewModel();
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
 
@@ -647,7 +647,7 @@ namespace ShopOnline.Controllers
                     model.Project_Name_All = items;
 
                     //--------Add Dropdown for CoreJob--------------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items_2 = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -679,8 +679,8 @@ namespace ShopOnline.Controllers
                 //--------Select ID trả kết quả về View-----------//
                 model.SelectedLLTC = db.LLTCs.Find(id);
                 //--------Add Dropdown for ProjectName-------------------//
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.Project_Name_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
 
@@ -695,7 +695,7 @@ namespace ShopOnline.Controllers
                 model.Project_Name_All = items;
 
                 //--------Add Dropdown for CoreJob--------------------------//
-                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 model.WorkTypeMain_All = new List<SelectListItem>();
                 var items_2 = new List<SelectListItem>();
                 foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -741,8 +741,8 @@ namespace ShopOnline.Controllers
                     //--------Select ID trả kết quả về View-----------//
                     model.SelectedLLTC = db.LLTCs.Find(id);
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
 
@@ -757,7 +757,7 @@ namespace ShopOnline.Controllers
                     model.Project_Name_All = items;
 
                     //--------Add Dropdown for CoreJob--------------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items_2 = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -783,8 +783,8 @@ namespace ShopOnline.Controllers
                     //--------Select ID trả kết quả về View-----------//
                     model.SelectedLLTC = db.LLTCs.Find(id);
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
 
@@ -799,7 +799,7 @@ namespace ShopOnline.Controllers
                     model.Project_Name_All = items;
 
                     //--------Add Dropdown for CoreJob--------------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items_2 = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -831,8 +831,8 @@ namespace ShopOnline.Controllers
                 //--------Select ID trả kết quả về View-----------//
                 model.SelectedLLTC = db.LLTCs.Find(id);
                 //--------Add Dropdown for ProjectName-------------------//
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.Project_Name_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
 
@@ -847,7 +847,7 @@ namespace ShopOnline.Controllers
                 model.Project_Name_All = items;
 
                 //--------Add Dropdown for CoreJob--------------------------//
-                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 model.WorkTypeMain_All = new List<SelectListItem>();
                 var items_2 = new List<SelectListItem>();
                 foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -883,7 +883,7 @@ namespace ShopOnline.Controllers
                     db.SaveChanges();
 
                     //--------Add Dropdown for CoreJob--------------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items_2 = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)
@@ -909,8 +909,8 @@ namespace ShopOnline.Controllers
                     //--------Select ID trả kết quả về View-----------//
                     model.SelectedLLTC = db.LLTCs.Find(id);
                     //--------Add Dropdown for ProjectName-------------------//
-                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.Project_Name_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
 
@@ -925,7 +925,7 @@ namespace ShopOnline.Controllers
                     model.Project_Name_All = items;
 
                     //--------Add Dropdown for CoreJob--------------------------//
-                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                    model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.WorkTypeMain_All = new List<SelectListItem>();
                     var items_2 = new List<SelectListItem>();
                     foreach (var CS_WorkType_Main in model.CS_tbWorkTypeMain)

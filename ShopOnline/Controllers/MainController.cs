@@ -20,7 +20,7 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 LLTCViewModel model = new LLTCViewModel();
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
 
                 return View("Index",model);
             }

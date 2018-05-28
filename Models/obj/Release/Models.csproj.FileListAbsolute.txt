@@ -17,3 +17,4 @@ D:\ASP_PROJECT\Models\bin\Release\EntityFramework.SqlServer.xml
 D:\ASP_PROJECT\Models\obj\Release\Models.csprojResolveAssemblyReference.cache
 D:\ASP_PROJECT\Models\obj\Release\Models.dll
 D:\ASP_PROJECT\Models\obj\Release\Models.pdb
+D:\OnlineShop\Models\obj\Release\Models.csprojResolveAssemblyReference.cache

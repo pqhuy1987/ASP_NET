@@ -20,8 +20,8 @@ namespace ShopOnline.Controllers
             {
                 //--------Add Dropdown for Type-------------------//
                 ProjectViewModel model      = new ProjectViewModel();
-                model.Project                       = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbConstructionSiteType     = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project                       = db.Projects.OrderBy(m => m.ID).ToList();
+                model.CS_tbConstructionSiteType     = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                 model.Project_Type_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
 
@@ -50,9 +50,9 @@ namespace ShopOnline.Controllers
                 ProjectViewModel model = new ProjectViewModel();
                 //--------Select ID trả kết quả về View-----------//
                 model.SelectedProject = db.Projects.Find(id);
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for LLTCName-------------------//
                 model.LLTC_Name_All = new List<SelectListItem>();
@@ -106,9 +106,9 @@ namespace ShopOnline.Controllers
                 }
                 model.LLTC_Select = db.LLTCs.Find(LLTC_ID);
                 model.SelectedProject = db.Projects.Find(id);
-                model.LLTC = db.LLTCs.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).Take(100).ToList();
+                model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
 
                 //--------Add Dropdown for LLTCName-------------------//
                 model.LLTC_Name_All = new List<SelectListItem>();
@@ -152,8 +152,8 @@ namespace ShopOnline.Controllers
             {
                 //--------Add Dropdown for Type-------------------//
                 ProjectViewModel model = new ProjectViewModel();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                 model.Project_Type_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
 
@@ -199,8 +199,8 @@ namespace ShopOnline.Controllers
 
                         //--------Add Dropdown for Type-------------------//
                         ProjectViewModel model = new ProjectViewModel();
-                        model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                        model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                        model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                        model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                         model.Project_Type_All = new List<SelectListItem>();
                         var items = new List<SelectListItem>();
 
@@ -223,8 +223,8 @@ namespace ShopOnline.Controllers
                 {
                     //--------Add Dropdown for Type-------------------//
                     ProjectViewModel model = new ProjectViewModel();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                     model.Project_Type_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
 
@@ -256,8 +256,8 @@ namespace ShopOnline.Controllers
                     model.SelectedProject = db.Projects.Find(id);
                     //--------Add Dropdown for Type-------------------//
                 //--------Model để phía trên----------------------//
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                 model.Project_Type_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
 
@@ -300,8 +300,8 @@ namespace ShopOnline.Controllers
                         //--------Select ID trả kết quả về View-----------//
                         model.SelectedProject = db.Projects.Find(id);
                         //--------Select ID trả kết quả về View-----------//
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                     model.Project_Type_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
 
@@ -328,8 +328,8 @@ namespace ShopOnline.Controllers
                         //--------Select ID trả kết quả về View-----------//
                         model.SelectedProject = db.Projects.Find(id);
                         //--------Select ID trả kết quả về View-----------//
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                     model.Project_Type_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
 
@@ -361,8 +361,8 @@ namespace ShopOnline.Controllers
                     //--------Select ID trả kết quả về View-----------//
                     model.SelectedProject = db.Projects.Find(id);
                     //--------Select ID trả kết quả về View-----------//
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                 model.Project_Type_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
 
@@ -409,8 +409,8 @@ namespace ShopOnline.Controllers
                         //--------Select ID trả kết quả về View-----------//
                         model.SelectedProject = db.Projects.Find(id);
                         //--------Select ID trả kết quả về View-----------//
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                     model.Project_Type_All = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
 

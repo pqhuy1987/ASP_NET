@@ -18,7 +18,7 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CS_tbConstructioSiteTypeViewModel model = new CS_tbConstructioSiteTypeViewModel();
-                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbConstructionSiteType = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
                 return View(model);
             }
         }

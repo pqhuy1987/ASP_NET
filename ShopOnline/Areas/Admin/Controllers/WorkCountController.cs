@@ -21,7 +21,7 @@ namespace ShopOnline.Areas.Admin.Controllers
             {
                 WorkCountViewModel model = new WorkCountViewModel();
                 
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.ProjectAll = new List<SelectListItem>();
 
                 var items = new List<SelectListItem>();
@@ -75,7 +75,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
                     WorkCountViewModel model = new WorkCountViewModel();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.ProjectAll = new List<SelectListItem>();
 
                     var items = new List<SelectListItem>();
@@ -150,7 +150,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                 {
                     WorkCountViewModel model = new WorkCountViewModel();
 
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.ProjectAll = new List<SelectListItem>();
 
                     var items = new List<SelectListItem>();

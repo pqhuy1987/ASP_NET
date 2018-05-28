@@ -18,7 +18,7 @@ namespace ShopOnline.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CS_tbWorkTypeMainViewModel model = new CS_tbWorkTypeMainViewModel();
-                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).Take(100).ToList();
+                model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 return View(model);
             }
         }

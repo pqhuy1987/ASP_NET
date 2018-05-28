@@ -19,8 +19,8 @@ namespace ShopOnline.Areas.Admin.Controllers
             using (OnlineShopDbContext db = new OnlineShopDbContext())
             {
                 CateloryViewModel model = new CateloryViewModel();
-                model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                model.Catelory = db.Catelories.OrderBy(m => m.ID).ToList();
 
                 model.ProjectAll    = new List<SelectListItem>(); 
                 var items           = new List<SelectListItem>();
@@ -89,8 +89,8 @@ namespace ShopOnline.Areas.Admin.Controllers
                     db.SaveChanges();
 
                     CateloryViewModel model = new CateloryViewModel();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.Catelory = db.Catelories.OrderBy(m => m.ID).ToList();
 
                     model.ProjectAll = new List<SelectListItem>();
 
@@ -118,8 +118,8 @@ namespace ShopOnline.Areas.Admin.Controllers
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
                     CateloryViewModel model = new CateloryViewModel();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.Catelory = db.Catelories.OrderBy(m => m.ID).ToList();
                     model.SelectedCatelory = null;
                     model.DisplayMode = null;
                     return View("Index", model);
@@ -146,8 +146,8 @@ namespace ShopOnline.Areas.Admin.Controllers
                 using (OnlineShopDbContext db = new OnlineShopDbContext())
                 {
                     CateloryViewModel model = new CateloryViewModel();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.Catelory = db.Catelories.OrderBy(m => m.ID).ToList();
 
                     if (number == "123")
                     {
@@ -210,8 +210,8 @@ namespace ShopOnline.Areas.Admin.Controllers
                     db.SaveChanges();
 
                     CateloryViewModel model = new CateloryViewModel();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.Catelory = db.Catelories.OrderBy(m => m.ID).ToList();
 
                     model.ProjectAll    = new List<SelectListItem>();
                     var items           = new List<SelectListItem>();
@@ -239,7 +239,7 @@ namespace ShopOnline.Areas.Admin.Controllers
                 {
                     ProjectViewModel model1 = new ProjectViewModel();
                     model1.Project = db.Projects.OrderBy(
-                            m => m.ID).Take(100).ToList();
+                            m => m.ID).ToList();
                     model1.SelectedProject = null;
                     return View("Index", model1);
                 }
@@ -270,8 +270,8 @@ namespace ShopOnline.Areas.Admin.Controllers
                     db.SaveChanges();
 
                     CateloryViewModel model = new CateloryViewModel();
-                    model.Project = db.Projects.OrderBy(m => m.ID).Take(100).ToList();
-                    model.Catelory = db.Catelories.OrderBy(m => m.ID).Take(100).ToList();
+                    model.Project = db.Projects.OrderBy(m => m.ID).ToList();
+                    model.Catelory = db.Catelories.OrderBy(m => m.ID).ToList();
 
                     model.ProjectAll = new List<SelectListItem>();
                     var items = new List<SelectListItem>();
