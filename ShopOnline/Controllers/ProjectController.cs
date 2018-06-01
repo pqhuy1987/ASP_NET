@@ -286,7 +286,7 @@ namespace ShopOnline.Controllers
                     Exsiting_Project.Project_Name = collection.SelectedProject.Project_Name;
                     Exsiting_Project.Site_Type = collection.SelectedProject.Site_Type;
                     Exsiting_Project.General_Director = collection.SelectedProject.General_Director;
-                    Exsiting_Project.Site_Manager = collection.SelectedProject.General_Director;
+                    Exsiting_Project.Site_Manager = collection.SelectedProject.Site_Manager;
                     Exsiting_Project.Site_Address = collection.SelectedProject.Site_Address;
                     Exsiting_Project.Value_Cost = collection.SelectedProject.Value_Cost;
                     Exsiting_Project.Start_Date = collection.SelectedProject.Start_Date;
