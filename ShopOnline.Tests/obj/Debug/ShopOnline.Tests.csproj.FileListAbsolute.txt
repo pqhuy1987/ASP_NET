@@ -26,40 +26,6 @@ D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\bin\Debug\System.Web.WebPages.
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.csprojResolveAssemblyReference.cache
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.dll
 D:\Google Drive\3_PRJ\OnlineShop\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.pdb
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.dll.config
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.pdb
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\Microsoft.Web.Mvc.FixedDisplayModes.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\Newtonsoft.Json.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\ShopOnline.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Net.Http.Formatting.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Helpers.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Http.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Http.WebHost.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Mvc.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Razor.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.WebPages.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\Models.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\EntityFramework.dll
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\ShopOnline.pdb
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\Newtonsoft.Json.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Net.Http.Formatting.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Helpers.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Http.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Http.WebHost.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Mvc.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.Razor.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.WebPages.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\Models.pdb
-D:\ASP_PROJECT\ShopOnline.Tests\bin\Debug\EntityFramework.xml
-D:\ASP_PROJECT\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.csprojResolveAssemblyReference.cache
-D:\ASP_PROJECT\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.dll
-D:\ASP_PROJECT\ShopOnline.Tests\obj\Debug\ShopOnline.Tests.pdb
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.dll.config
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.dll
 D:\OnlineShop\ShopOnline.Tests\bin\Debug\ShopOnline.Tests.pdb

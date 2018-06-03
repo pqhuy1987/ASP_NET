@@ -15,6 +15,7 @@ namespace Models
         public List<Project>                    Project                     { get; set; }
         public Project                          SelectedProject             { get; set; }
         public List<CS_tbLLTCTypeSub>           CS_tbLLTCTypeSub            { get; set; }
+        public CS_tbLLTCTypeSub                 CS_tbLLTCTypeSub_Select     { get; set; }
         public List<LLTC>                       LLTC                        { get; set; }
         public LLTC                             LLTC_Select                 { get; set; }
         public List<CS_tbWorkType>              CS_tbWorkType               { get; set; }
@@ -26,6 +27,7 @@ namespace Models
         public List<CS_tbConstructionSiteType>  CS_tbConstructionSiteType   { get; set; }
 
         public List<SelectListItem>             Project_Type_All            { get; set; }
+        public List<SelectListItem>             Project_All                 { get; set; }
         public List<SelectListItem>             LLTC_Name_All               { get; set; }
         public List<SelectListItem>             WorkTypeDetails_All         { get; set; }
         public List<SelectListItem>             WorkTypeCore_All            { get; set; }

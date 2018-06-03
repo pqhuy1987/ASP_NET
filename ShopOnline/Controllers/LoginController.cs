@@ -55,7 +55,7 @@ namespace ShopOnline.Controllers
                     }
 
                 }
-                return RedirectToAction("Index", "LLTC");
+                return RedirectToAction("Index", "Project");
             }
             else
             {
