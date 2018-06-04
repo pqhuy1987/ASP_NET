@@ -8,13 +8,3 @@ D:\Google Drive\3_PRJ\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.xml
 D:\Google Drive\3_PRJ\OnlineShop\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 D:\Google Drive\3_PRJ\OnlineShop\Models\obj\Debug\Models.dll
 D:\Google Drive\3_PRJ\OnlineShop\Models\obj\Debug\Models.pdb
-D:\OnlineShop\Models\bin\Debug\Models.dll.config
-D:\OnlineShop\Models\bin\Debug\Models.dll
-D:\OnlineShop\Models\bin\Debug\Models.pdb
-D:\OnlineShop\Models\bin\Debug\EntityFramework.dll
-D:\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.dll
-D:\OnlineShop\Models\bin\Debug\EntityFramework.xml
-D:\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.xml
-D:\OnlineShop\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
-D:\OnlineShop\Models\obj\Debug\Models.dll
-D:\OnlineShop\Models\obj\Debug\Models.pdb

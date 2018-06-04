@@ -51,7 +51,7 @@ namespace ShopOnline.Controllers
                 //--------Select ID trả kết quả về View-----------//
                 model.SelectedProject   = db.Projects.Find(id);
                 model.LLTC              = db.LLTCs.OrderBy(m => m.ID).ToList();
-                model.CS_tbLLTCTypeSub  = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID}).ToList();
                 model.CS_tbWorkType     = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
                 model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 model.Project           = db.Projects.OrderBy(m => m.ID).ToList();
@@ -129,7 +129,7 @@ namespace ShopOnline.Controllers
                 model.CS_tbLLTCTypeSub_Select = db.CS_tbLLTCTypeSub.Find(LLTC_ID);
                 model.SelectedProject = db.Projects.Find(id);
                 model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
-                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID }).ToList();
                 model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
                 model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 model.Project = db.Projects.OrderBy(m => m.ID).ToList();
@@ -205,7 +205,7 @@ namespace ShopOnline.Controllers
                 //--------Select ID trả kết quả về View-----------//
                 model.SelectedProject = db.Projects.Find(id);
                 model.LLTC_Select = db.LLTCs.Find(collection.CS_tbLLTCTypeSub_Select.CS_tbLLTC_ID);
-                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID }).ToList();
                 model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.LLTC_Select.Main_Name_Job).OrderBy(m => m.ID).ToList();
                 model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
@@ -256,7 +256,7 @@ namespace ShopOnline.Controllers
                 model.CS_tbLLTCTypeSub_Select = db.CS_tbLLTCTypeSub.Find(LLTCSub_ID);
                 model.SelectedProject = db.Projects.Find(id);
                 model.LLTC_Select = db.LLTCs.Find(collection.CS_tbLLTCTypeSub_Select.CS_tbLLTC_ID);
-                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID }).ToList();
                 model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.LLTC_Select.Main_Name_Job).OrderBy(m => m.ID).ToList();
                 model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                 model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
@@ -321,7 +321,7 @@ namespace ShopOnline.Controllers
                     //--------Select ID trả kết quả về View-----------//
                     model.SelectedProject = db.Projects.Find(id);
                     model.LLTC_Select = db.LLTCs.Find(collection.CS_tbLLTCTypeSub_Select.CS_tbLLTC_ID);
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID }).ToList();
                     model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.LLTC_Select.Main_Name_Job).OrderBy(m => m.ID).ToList();
                     model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
@@ -366,7 +366,7 @@ namespace ShopOnline.Controllers
                     //--------Select ID trả kết quả về View-----------//
                     model.SelectedProject = db.Projects.Find(id);
                     model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID }).ToList();
                     model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
                     model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.Project = db.Projects.OrderBy(m => m.ID).ToList();
@@ -460,7 +460,7 @@ namespace ShopOnline.Controllers
                     model.CS_tbLLTCTypeSub_Select = db.CS_tbLLTCTypeSub.Find(LLTCSub_ID);
                     model.SelectedProject = db.Projects.Find(id);
                     model.LLTC_Select = db.LLTCs.Find(collection.CS_tbLLTCTypeSub_Select.CS_tbLLTC_ID);
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID }).ToList();
                     model.CS_tbWorkType = db.CS_tbWorkType.Where(m => m.CoreWorkType == model.LLTC_Select.Main_Name_Job).OrderBy(m => m.ID).ToList();
                     model.Project = db.Projects.OrderBy(m => m.ID).ToList();
                     model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
@@ -505,7 +505,7 @@ namespace ShopOnline.Controllers
                     //--------Select ID trả kết quả về View-----------//
                     model.SelectedProject = db.Projects.Find(id);
                     model.LLTC = db.LLTCs.OrderBy(m => m.ID).ToList();
-                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => m.ID).ToList();
+                    model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID }).ToList();
                     model.CS_tbWorkType = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
                     model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                     model.Project = db.Projects.OrderBy(m => m.ID).ToList();
