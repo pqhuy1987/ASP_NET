@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Data;
+using System.Text;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Models;
 using Models.Framework;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ShopOnline.Controllers
 {
@@ -915,5 +919,90 @@ namespace ShopOnline.Controllers
                 }
             }
         }
+
+        [HttpPost]
+        public ActionResult Interop()
+        {
+            Microsoft.Office.Interop.Excel.Workbook workbook;
+
+            DataTable employeeTable = new DataTable("Employee");
+            employeeTable.Columns.Add("Employee ID");
+            employeeTable.Columns.Add("Employee Name");
+            employeeTable.Rows.Add("1", "ABC");
+            employeeTable.Rows.Add("2", "DEF");
+            employeeTable.Rows.Add("3", "PQR");
+            employeeTable.Rows.Add("4", "XYZ");
+
+            //Create a Department Table
+            DataTable departmentTable = new DataTable("Department");
+            departmentTable.Columns.Add("Department ID");
+            departmentTable.Columns.Add("Department Name");
+            departmentTable.Rows.Add("1", "IT");
+            departmentTable.Rows.Add("2", "HR");
+            departmentTable.Rows.Add("3", "Finance");
+
+            //Create a DataSet with the existing DataTables
+            DataSet dataSet = new DataSet("Organization");
+            dataSet.Tables.Add(employeeTable);
+            dataSet.Tables.Add(departmentTable);
+
+            //Creating Object of Microsoft.Office.Interop.Excel and creating a Workbook
+            var excelApp = new Excel.Application();
+            
+
+            excelApp.Visible = true;
+            excelApp.Workbooks.Add();
+
+            Excel.Worksheet workSheet = (Excel.Worksheet)excelApp.ActiveSheet; //creating excel worksheet
+            workSheet.Name = "Sale"; //name of excel file
+
+            //LINQ to get Column of dataset table
+            var columnName = dataSet.Tables[0].Columns.Cast<DataColumn>()
+                                 .Select(x => x.ColumnName)
+                                 .ToArray();
+            int i = 0;
+            //Adding column name to worksheet
+            foreach (var col in columnName)
+            {
+                i++;
+                workSheet.Cells[1, i] = col;
+            }
+
+            //Adding records to worksheet
+            int j;
+            for (i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+            {
+                for (j = 0; j < dataSet.Tables[0].Columns.Count; j++)
+                {
+                    workSheet.Cells[i + 2, j + 1] = Convert.ToString(dataSet.Tables[0].Rows[i][j]);
+                }
+            }
+
+            //Saving the excel file to “e” directory
+            workSheet.SaveAs("d:\\" + workSheet.Name);
+            excelApp.Quit();
+            
+            try
+            {
+                string XlsPath = Server.MapPath(@"~/Reports/Sale.xlsx");
+                FileInfo fileDet = new System.IO.FileInfo(XlsPath);
+                Response.Clear();
+                Response.Charset = "UTF-8";
+                Response.ContentEncoding = Encoding.UTF8;
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + Server.UrlEncode(fileDet.Name));
+                Response.AddHeader("Content-Length", fileDet.Length.ToString());
+                Response.ContentType = "application/ms-excel";
+                Response.WriteFile(fileDet.FullName);
+                Response.End();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return RedirectToAction("Index");
+
+        }
+
     }
 }

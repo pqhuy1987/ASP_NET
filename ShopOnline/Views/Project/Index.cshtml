@@ -15,6 +15,18 @@
 </div>
 
 <div class="row">
+    <div class="col-lg-3">
+        <!-- /.panel-heading -->
+        <div class="panel-body-2">
+            @using (Html.BeginForm("Interop", "Project"))
+            {
+                <button id="interOpButton" type="submit">Create Microsoft Office Interop Excel</button>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-lg-12">
         <div class="panel panel-primary">
             <div class="panel-heading" style="font-size:16.5px"><b>DANH SÁCH CÔNG TRƯỜNG</b></div>
@@ -37,6 +49,7 @@
                             <th>Đội Thi Công</th>
                             <th>Sửa</th>
                             <th>Xóa</th>
+                            <th>QR Code</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,7 +77,9 @@
                                 <td>
                                     <button type="submit" onclick="window.open('/Project/Delete/'+@item.ID , 'windowName', 'width=400, height=700, left=24, top=24, scrollbars, resizable')" class="btn-sub btn-danger"><b>Xóa</b></button>
                                 </td>
-
+                                <td>
+                                    <img src="@Url.Content("https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=trantrungkiet")" alt="IMAGES" />
+                                </td>
                             </tr>
                             i++;
                         }
