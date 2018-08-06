@@ -493,7 +493,7 @@
     <Content Include="Assets\admin\bootstrap-select\README.md" />
     <Content Include="Assets\admin\bootstrap-select\sass\bootstrap-select.scss" />
     <Content Include="Assets\admin\bootstrap-select\sass\variables.scss" />
-    <Content Include="Reports\Sale.xlsx" />
+    <Content Include="Reports\Danh_sách_LLTC_theo_công_trường_ba_miền.xlsx" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />

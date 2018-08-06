@@ -920,10 +920,22 @@ namespace ShopOnline.Controllers
             }
         }
 
+        public void killExcel()
+        {
+            System.Diagnostics.Process[] PROC = System.Diagnostics.Process.GetProcessesByName("EXCEL");
+            foreach (System.Diagnostics.Process PK in PROC)
+            {
+                if (PK.MainWindowTitle.Length == 0)
+                {
+                    PK.Kill();
+                }
+            }
+        }
+
         [HttpPost]
         public ActionResult Interop()
         {
-            Microsoft.Office.Interop.Excel.Workbook workbook;
+            //Microsoft.Office.Interop.Excel.Workbook workbook;
 
             DataTable employeeTable = new DataTable("Employee");
             employeeTable.Columns.Add("Employee ID");
@@ -948,43 +960,49 @@ namespace ShopOnline.Controllers
 
             //Creating Object of Microsoft.Office.Interop.Excel and creating a Workbook
             var excelApp = new Excel.Application();
+
+            //specify the file name where its actually exist  
+            string filepath     = Server.MapPath(@"~/Reports/Danh_sách_LLTC_theo_công_trường_ba_miền.xlsx");
+            string filepathSave = Server.MapPath(@"~/Reports/");
             
 
-            excelApp.Visible = true;
-            excelApp.Workbooks.Add();
+            //excelApp.Visible = true;
+            Excel.Workbook WB = excelApp.Workbooks.Open(filepath);
 
-            Excel.Worksheet workSheet = (Excel.Worksheet)excelApp.ActiveSheet; //creating excel worksheet
-            workSheet.Name = "Sale"; //name of excel file
+            Excel.Worksheet workSheet = (Excel.Worksheet)excelApp.Worksheets[1]; //creating excel worksheet
+            workSheet.Name = "LLTC_Export"; //name of excel file
 
             //LINQ to get Column of dataset table
             var columnName = dataSet.Tables[0].Columns.Cast<DataColumn>()
                                  .Select(x => x.ColumnName)
                                  .ToArray();
-            int i = 0;
+            int i = 2;
             //Adding column name to worksheet
             foreach (var col in columnName)
             {
                 i++;
-                workSheet.Cells[1, i] = col;
+                workSheet.Cells[4, i] = col;
             }
 
             //Adding records to worksheet
             int j;
-            for (i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+            for (i = 4; i < dataSet.Tables[0].Rows.Count; i++)
             {
-                for (j = 0; j < dataSet.Tables[0].Columns.Count; j++)
+                for (j = 2; j < dataSet.Tables[0].Columns.Count; j++)
                 {
                     workSheet.Cells[i + 2, j + 1] = Convert.ToString(dataSet.Tables[0].Rows[i][j]);
                 }
             }
 
             //Saving the excel file to “e” directory
-            workSheet.SaveAs("d:\\" + workSheet.Name);
+            excelApp.DisplayAlerts = false;
+            workSheet.SaveAs(filepathSave + workSheet.Name);
+            WB.Close(0);
             excelApp.Quit();
             
             try
             {
-                string XlsPath = Server.MapPath(@"~/Reports/Sale.xlsx");
+                string XlsPath = Server.MapPath(@"~/Reports/LLTC_Export.xlsx");
                 FileInfo fileDet = new System.IO.FileInfo(XlsPath);
                 Response.Clear();
                 Response.Charset = "UTF-8";
@@ -999,7 +1017,7 @@ namespace ShopOnline.Controllers
             {
                 throw ex;
             }
-
+            killExcel();
             return RedirectToAction("Index");
 
         }
