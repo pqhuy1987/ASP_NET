@@ -1167,6 +1167,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Assets/admin/vendor/raphael/raphael.min.js">
       <publishTime>08/02/2018 16:57:42</publishTime>
     </File>
+    <File Include="Assets/files/ajax-loader-2.gif">
+      <publishTime>08/07/2018 14:18:20</publishTime>
+    </File>
     <File Include="Assets/files/font-awesome.min.css">
       <publishTime>08/02/2018 16:57:42</publishTime>
     </File>
@@ -2068,10 +2071,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/21/2018 14:39:03</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>08/06/2018 15:24:55</publishTime>
+      <publishTime>08/07/2018 15:39:39</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>08/06/2018 15:24:55</publishTime>
+      <publishTime>08/07/2018 15:39:39</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>08/02/2018 16:57:46</publishTime>
@@ -2086,13 +2089,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2018 16:57:47</publishTime>
     </File>
     <File Include="bin/Models.dll">
-      <publishTime>08/06/2018 13:44:16</publishTime>
+      <publishTime>08/07/2018 15:39:27</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>08/02/2018 16:57:47</publishTime>
     </File>
     <File Include="bin/ShopOnline.dll">
-      <publishTime>08/06/2018 15:24:50</publishTime>
+      <publishTime>08/07/2018 15:39:29</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>08/02/2018 16:57:47</publishTime>
@@ -2128,7 +2131,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2018 16:57:42</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/06/2018 15:24:51</publishTime>
+      <publishTime>08/07/2018 15:39:33</publishTime>
     </File>
     <File Include="Reports/Danh_sách_LLTC_theo_công_trường_ba_miền.xlsx">
       <publishTime>08/06/2018 09:22:14</publishTime>
@@ -2218,7 +2221,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2018 16:57:42</publishTime>
     </File>
     <File Include="Views/LLTC/Delete.cshtml">
-      <publishTime>08/02/2018 16:57:42</publishTime>
+      <publishTime>08/07/2018 09:11:09</publishTime>
     </File>
     <File Include="Views/LLTC/Details.cshtml">
       <publishTime>08/02/2018 16:57:42</publishTime>
@@ -2230,7 +2233,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2018 16:57:42</publishTime>
     </File>
     <File Include="Views/LLTC/Index.cshtml">
-      <publishTime>08/02/2018 16:57:42</publishTime>
+      <publishTime>08/07/2018 08:16:25</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>08/02/2018 16:57:42</publishTime>
@@ -2254,7 +2257,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2018 16:57:42</publishTime>
     </File>
     <File Include="Views/Project/Index.cshtml">
-      <publishTime>08/06/2018 13:27:00</publishTime>
+      <publishTime>08/07/2018 15:00:14</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>08/02/2018 16:57:42</publishTime>
@@ -2263,10 +2266,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/04/2018 13:16:58</publishTime>
     </File>
     <File Include="Views/Shared/_Layout_Temp.cshtml">
-      <publishTime>08/02/2018 16:57:42</publishTime>
+      <publishTime>08/07/2018 12:59:13</publishTime>
     </File>
     <File Include="Views/Shared/_LeftMenu.cshtml">
-      <publishTime>08/06/2018 15:24:28</publishTime>
+      <publishTime>08/07/2018 08:02:29</publishTime>
     </File>
     <File Include="Views/Shared/_LeftMenu_2.cshtml">
       <publishTime>04/10/2018 10:07:31</publishTime>

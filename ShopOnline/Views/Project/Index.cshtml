@@ -4,6 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function example_ajax_request() {
+        $('#example-placeholder').html('<p><img src="Assets/files/ajax-loader-2.gif" width="220" height="19" /></p>');
+    }
+</script>
 
 <div class="row">
     <div class="col-lg-3">
@@ -17,12 +22,20 @@
         <div class="panel-body-2">
             @using (Html.BeginForm("Interop", "Project"))
             {
-                <button id="interOpButton" type="submit" style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary"> <b>+ XUẤT EXCEL REPORT</b></button>
+                <button id="interOpButton" type="submit" onclick="example_ajax_request()" style=" margin-left:0px; margin-bottom:10px" class="btn btn-primary"><b>+ XUẤT EXCEL REPORT</b></button>
             }
+            <div id="example-placeholder">
+            </div>           
+        </div>
+    </div>
+    <div class="col-lg-1">
+        <!-- /.panel-heading -->
+        <div class="panel-body-2">
+            <div id="example-placeholder">
+            </div>
         </div>
     </div>
 </div>
-
 
 <div class="row">
     <div class="col-lg-12">

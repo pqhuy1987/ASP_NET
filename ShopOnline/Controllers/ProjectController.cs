@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Text;
 using System.IO;
 using System.Collections.Generic;
@@ -936,38 +937,38 @@ namespace ShopOnline.Controllers
         public ActionResult Interop()
         {
             //Microsoft.Office.Interop.Excel.Workbook workbook;
+            Microsoft.Office.Interop.Excel._Worksheet oSheet;
 
-            DataTable employeeTable = new DataTable("Employee");
-            employeeTable.Columns.Add("Employee ID");
-            employeeTable.Columns.Add("Employee Name");
-            employeeTable.Rows.Add("1", "ABC");
-            employeeTable.Rows.Add("2", "DEF");
-            employeeTable.Rows.Add("3", "PQR");
-            employeeTable.Rows.Add("4", "XYZ");
-
-            //Create a Department Table
-            DataTable departmentTable = new DataTable("Department");
-            departmentTable.Columns.Add("Department ID");
-            departmentTable.Columns.Add("Department Name");
-            departmentTable.Rows.Add("1", "IT");
-            departmentTable.Rows.Add("2", "HR");
-            departmentTable.Rows.Add("3", "Finance");
+            DataTable employeeTable = Load_LLTC_Excel_Report();
 
             //Create a DataSet with the existing DataTables
             DataSet dataSet = new DataSet("Organization");
             dataSet.Tables.Add(employeeTable);
-            dataSet.Tables.Add(departmentTable);
+
+            //List Area
+            DataTable myResult = dataSet.Tables[0].DefaultView.ToTable(true, "Project_Name");
 
             //Creating Object of Microsoft.Office.Interop.Excel and creating a Workbook
             var excelApp = new Excel.Application();
 
             //specify the file name where its actually exist  
-            string filepath     = Server.MapPath(@"~/Reports/Danh_sách_LLTC_theo_công_trường_ba_miền.xlsx");
+            string filepath = Server.MapPath(@"~/Reports/Danh_sách_LLTC_theo_công_trường_ba_miền.xlsx");
             string filepathSave = Server.MapPath(@"~/Reports/");
-            
 
-            //excelApp.Visible = true;
+            List<int> Section_RowNum = new List<int>();
+
+            int current_rownum = 4;
             Excel.Workbook WB = excelApp.Workbooks.Open(filepath);
+            oSheet = (Microsoft.Office.Interop.Excel._Worksheet)WB.ActiveSheet;
+
+            //A - MIỀN BẮC
+
+            oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(255, 165, 0);
+            oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
+            oSheet.Cells[current_rownum, 1] = " ";
+            oSheet.Cells[current_rownum, 2] = "MIỀN BẮC";
+            Section_RowNum.Add(current_rownum);
+            current_rownum++;
 
             Excel.Worksheet workSheet = (Excel.Worksheet)excelApp.Worksheets[1]; //creating excel worksheet
             workSheet.Name = "LLTC_Export"; //name of excel file
@@ -976,19 +977,19 @@ namespace ShopOnline.Controllers
             var columnName = dataSet.Tables[0].Columns.Cast<DataColumn>()
                                  .Select(x => x.ColumnName)
                                  .ToArray();
-            int i = 2;
+            int i = 0;
             //Adding column name to worksheet
             foreach (var col in columnName)
             {
                 i++;
-                workSheet.Cells[4, i] = col;
+                workSheet.Cells[5, i] = col;
             }
 
             //Adding records to worksheet
             int j;
-            for (i = 4; i < dataSet.Tables[0].Rows.Count; i++)
+            for (i = 5; i < dataSet.Tables[0].Rows.Count; i++)
             {
-                for (j = 2; j < dataSet.Tables[0].Columns.Count; j++)
+                for (j = 0; j < dataSet.Tables[0].Columns.Count; j++)
                 {
                     workSheet.Cells[i + 2, j + 1] = Convert.ToString(dataSet.Tables[0].Rows[i][j]);
                 }
@@ -999,7 +1000,7 @@ namespace ShopOnline.Controllers
             workSheet.SaveAs(filepathSave + workSheet.Name);
             WB.Close(0);
             excelApp.Quit();
-            
+
             try
             {
                 string XlsPath = Server.MapPath(@"~/Reports/LLTC_Export.xlsx");
@@ -1020,6 +1021,33 @@ namespace ShopOnline.Controllers
             killExcel();
             return RedirectToAction("Index");
 
+        }
+
+        System.Data.DataTable Load_LLTC_Excel_Report()
+        {
+            DataTable result = new DataTable();
+            SqlCommand cmd = null;
+            SqlConnection conn = null;
+            conn = new SqlConnection(string.Format("Data Source=SRBDC.FDC.LOCAL; Initial Catalog=CWD; User id=sa; Password=P@ssw0rd"));
+            try
+            {
+                cmd = new SqlCommand("LLTC_Get_List_By_All_Project", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+          
+                conn.Open();
+                SqlDataReader rd = cmd.ExecuteReader();
+                result.Load(rd);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+                cmd.Dispose();
+            }
+            return result;
         }
 
     }
