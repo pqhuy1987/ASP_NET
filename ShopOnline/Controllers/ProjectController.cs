@@ -945,8 +945,7 @@ namespace ShopOnline.Controllers
             DataSet dataSet = new DataSet("Organization");
             dataSet.Tables.Add(employeeTable);
 
-            //List Area
-            DataTable myResult = dataSet.Tables[0].DefaultView.ToTable(true, "Project_Name");
+            //DataRow[] results = dataSet.Tables[0].Select("CS_WorkTypeMain = 'KẾT CẤU'");
 
             //Creating Object of Microsoft.Office.Interop.Excel and creating a Workbook
             var excelApp = new Excel.Application();
@@ -961,7 +960,17 @@ namespace ShopOnline.Controllers
             Excel.Workbook WB = excelApp.Workbooks.Open(filepath);
             oSheet = (Microsoft.Office.Interop.Excel._Worksheet)WB.ActiveSheet;
 
-            //A - MIỀN BẮC
+
+            DataTable SiteName_Area = dataSet.Tables[0].DefaultView.ToTable(true, "Project_Name", "Site_Area");
+            DataTable JobMain = dataSet.Tables[0].DefaultView.ToTable(true, "CS_WorkTypeMain");
+            DataRow[] Project_MienBac = SiteName_Area.Select("Site_Area = 'Miền Bắc'");
+            DataRow[] Project_MienTrung = SiteName_Area.Select("Site_Area = 'Miền Trung'");
+            DataRow[] Project_MienNam = SiteName_Area.Select("Site_Area = 'Miền Nam'");
+
+            Excel.Worksheet workSheet = (Excel.Worksheet)excelApp.Worksheets[1]; //creating excel worksheet
+            workSheet.Name = "LLTC_Export"; //name of excel file
+
+            //A --------------------------------------------- MIỀN BẮC ------------------------------------------------------------------
 
             oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(255, 165, 0);
             oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
@@ -970,34 +979,35 @@ namespace ShopOnline.Controllers
             Section_RowNum.Add(current_rownum);
             current_rownum++;
 
-            Excel.Worksheet workSheet = (Excel.Worksheet)excelApp.Worksheets[1]; //creating excel worksheet
-            workSheet.Name = "LLTC_Export"; //name of excel file
-
+            ///*------------------pqhuy1987-------------------
             //LINQ to get Column of dataset table
-            var columnName = dataSet.Tables[0].Columns.Cast<DataColumn>()
-                                 .Select(x => x.ColumnName)
-                                 .ToArray();
-            int i = 0;
-            //Adding column name to worksheet
-            foreach (var col in columnName)
+
+            for (int i = 0, j=0; i < Project_MienBac.Length; i++)
             {
-                i++;
-                workSheet.Cells[5, i] = col;
+                oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(255, 255, 0);
+                oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
+                oSheet.Cells[current_rownum, 1] = " ";
+                oSheet.Cells[current_rownum, 2] = Project_MienBac[j][0].ToString();
+                current_rownum++;
+                j++;
+                for (int k = 0, h = 0; k < JobMain.Rows.Count; k++)
+                {
+                    oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(0, 255, 255);
+                    oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
+                    oSheet.Cells[current_rownum, 1] = " ";
+                    oSheet.Cells[current_rownum, 2] = JobMain.Rows[h][0].ToString();
+                    current_rownum++;
+                    h++;
+                }
+
             }
 
-            //Adding records to worksheet
-            int j;
-            for (i = 5; i < dataSet.Tables[0].Rows.Count; i++)
-            {
-                for (j = 0; j < dataSet.Tables[0].Columns.Count; j++)
-                {
-                    workSheet.Cells[i + 2, j + 1] = Convert.ToString(dataSet.Tables[0].Rows[i][j]);
-                }
-            }
+            //---------------------------------------------------*/
 
             //Saving the excel file to “e” directory
             excelApp.DisplayAlerts = false;
             workSheet.SaveAs(filepathSave + workSheet.Name);
+            
             WB.Close(0);
             excelApp.Quit();
 
