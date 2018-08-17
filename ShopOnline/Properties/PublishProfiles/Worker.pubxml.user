@@ -2071,10 +2071,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/21/2018 14:39:03</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>08/08/2018 15:05:15</publishTime>
+      <publishTime>08/14/2018 15:47:33</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>08/08/2018 15:05:15</publishTime>
+      <publishTime>08/14/2018 15:47:33</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>08/02/2018 16:57:46</publishTime>
@@ -2095,7 +2095,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2018 16:57:47</publishTime>
     </File>
     <File Include="bin/ShopOnline.dll">
-      <publishTime>08/08/2018 15:05:06</publishTime>
+      <publishTime>08/14/2018 15:47:25</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>08/02/2018 16:57:47</publishTime>
@@ -2131,7 +2131,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2018 16:57:42</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/08/2018 15:05:08</publishTime>
+      <publishTime>08/14/2018 15:47:27</publishTime>
     </File>
     <File Include="Reports/Danh_sách_LLTC_theo_công_trường_ba_miền.xlsx">
       <publishTime>08/06/2018 09:22:14</publishTime>

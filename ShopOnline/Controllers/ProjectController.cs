@@ -998,7 +998,7 @@ namespace ShopOnline.Controllers
                     oSheet.Cells[current_rownum, 2] = JobMain.Rows[h][0].ToString();
                     current_rownum++;
                     h++;
-                    DataRow[] results_Bac = dataSet.Tables[0].Select("A = 'foo' AND B = 'bar'");
+                    //DataRow[] results_Bac = dataSet.Tables[0].Select("A = 'foo' AND B = 'bar'");
                 }
 
             }
@@ -1008,7 +1008,7 @@ namespace ShopOnline.Controllers
             //Saving the excel file to “e” directory
             excelApp.DisplayAlerts = false;
             workSheet.SaveAs(filepathSave + workSheet.Name);
-            
+            //excelApp.Visible = true;
             WB.Close(0);
             excelApp.Quit();
 
