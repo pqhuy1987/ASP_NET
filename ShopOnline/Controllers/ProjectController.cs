@@ -962,11 +962,10 @@ namespace ShopOnline.Controllers
 
             DataTable SiteName_Area = dataSet.Tables[0].DefaultView.ToTable(true, "Project_Name", "Site_Area");
             DataTable JobMain = dataSet.Tables[0].DefaultView.ToTable(true, "CS_WorkTypeMain");
-            DataTable Main_Name_LLTC = dataSet.Tables[0].DefaultView.ToTable(true, "Main_Name_LLTC", "Project_Name");
+            DataTable Main_Name_LLTC = dataSet.Tables[0].DefaultView.ToTable(true, "Main_Name_LLTC", "Project_Name", "CS_WorkTypeMain", "Main_Status", "SubWorkType", "Main_Name_Ower", "Main_Number", "Main_Total_Number");
             DataRow[] Project_MienBac = SiteName_Area.Select("Site_Area = 'Miền Bắc'");
             DataRow[] Project_MienTrung = SiteName_Area.Select("Site_Area = 'Miền Trung'");
             DataRow[] Project_MienNam = SiteName_Area.Select("Site_Area = 'Miền Nam'");
-            DataRow[] Project_TEST;
 
             Excel.Worksheet workSheet = (Excel.Worksheet)excelApp.Worksheets[1]; //creating excel worksheet
             workSheet.Name = "LLTC_Export"; //name of excel file
@@ -998,29 +997,119 @@ namespace ShopOnline.Controllers
                     oSheet.Cells[current_rownum, 2] = JobMain.Rows[h][0].ToString();
                     current_rownum++;
 
-                    //var HeadingFields = from row in dataSet.Tables[0].AsEnumerable()
-                    //.Where(r => r.Field<string>("Project_Name") == Project_MienBac[j][0].ToString()
-                    //&& r.Field<string>("CS_WorkTypeMain") == JobMain.Rows[h][0].ToString())select row;
-                    String test_1 = Project_MienBac[j][0].ToString();
-                    test_1 = String.Format("Location = '{0}'", test_1.Replace("'", "''"));
-                    Project_TEST = Main_Name_LLTC.Select("Project_Name =" + test_1);
+                    DataRow[] LLTC_Row_Temp = Main_Name_LLTC.Select("Project_Name =" + String.Format("'{0}'", Project_MienBac[j][0].ToString().Replace("'", "''")) + "AND CS_WorkTypeMain =" + String.Format("'{0}'", JobMain.Rows[h][0].ToString().Replace("'", "''")));
 
-                    for (int v = 0, u = 0; u < Project_TEST.Length; u++)
+                    for (int v = 0, u = 0; u < LLTC_Row_Temp.Length; u++)
                     {
-                        oSheet.Cells[current_rownum, 1] = " ";
-                        oSheet.Cells[current_rownum, 2] = Project_TEST[v][0].ToString();
+                        oSheet.Cells[current_rownum, 1] = u+1;
+                        oSheet.Cells[current_rownum, 2] = LLTC_Row_Temp[v][0].ToString();
+                        oSheet.Cells[current_rownum, 3] = LLTC_Row_Temp[v][3].ToString();
+                        oSheet.Cells[current_rownum, 4] = LLTC_Row_Temp[v][4].ToString();
+                        oSheet.Cells[current_rownum, 5] = LLTC_Row_Temp[v][5].ToString();
+                        oSheet.Cells[current_rownum, 6] = LLTC_Row_Temp[v][6].ToString();
+                        oSheet.Cells[current_rownum, 7] = LLTC_Row_Temp[v][7].ToString();
                         current_rownum++;
                         v++;
                     }
-
                     h++;                  
                 }
-
                 j++;
-
             }
+            //A --------------------------------------------- MIỀN BẮC ------------------------------------------------------------------
 
-            //---------------------------------------------------*/
+            //B --------------------------------------------- MIỀN TRUNG ------------------------------------------------------------------
+
+            oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(255, 165, 0);
+            oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
+            oSheet.Cells[current_rownum, 1] = " ";
+            oSheet.Cells[current_rownum, 2] = "MIỀN TRUNG";
+            Section_RowNum.Add(current_rownum);
+            current_rownum++;
+
+            //*------------------pqhuy1987-------------------
+            //LINQ to get Column of dataset table
+
+            for (int i = 0, j = 0; i < Project_MienTrung.Length; i++)
+            {
+                oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(255, 255, 0);
+                oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
+                oSheet.Cells[current_rownum, 1] = " ";
+                oSheet.Cells[current_rownum, 2] = Project_MienTrung[j][0].ToString();
+                current_rownum++;
+                for (int k = 0, h = 0; k < JobMain.Rows.Count; k++)
+                {
+                    oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(0, 255, 255);
+                    oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
+                    oSheet.Cells[current_rownum, 1] = " ";
+                    oSheet.Cells[current_rownum, 2] = JobMain.Rows[h][0].ToString();
+                    current_rownum++;
+
+                    DataRow[] LLTC_Row_Temp = Main_Name_LLTC.Select("Project_Name =" + String.Format("'{0}'", Project_MienTrung[j][0].ToString().Replace("'", "''")) + "AND CS_WorkTypeMain =" + String.Format("'{0}'", JobMain.Rows[h][0].ToString().Replace("'", "''")));
+
+                    for (int v = 0, u = 0; u < LLTC_Row_Temp.Length; u++)
+                    {
+                        oSheet.Cells[current_rownum, 1] = u + 1;
+                        oSheet.Cells[current_rownum, 2] = LLTC_Row_Temp[v][0].ToString();
+                        oSheet.Cells[current_rownum, 3] = LLTC_Row_Temp[v][3].ToString();
+                        oSheet.Cells[current_rownum, 4] = LLTC_Row_Temp[v][4].ToString();
+                        oSheet.Cells[current_rownum, 5] = LLTC_Row_Temp[v][5].ToString();
+                        oSheet.Cells[current_rownum, 6] = LLTC_Row_Temp[v][6].ToString();
+                        oSheet.Cells[current_rownum, 7] = LLTC_Row_Temp[v][7].ToString();
+                        current_rownum++;
+                        v++;
+                    }
+                    h++;
+                }
+                j++;
+            }
+            //B --------------------------------------------- MIỀN TRUNG ------------------------------------------------------------------
+
+            //C --------------------------------------------- MIỀN NAM ------------------------------------------------------------------
+
+            oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(255, 165, 0);
+            oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
+            oSheet.Cells[current_rownum, 1] = " ";
+            oSheet.Cells[current_rownum, 2] = "MIỀN NAM";
+            Section_RowNum.Add(current_rownum);
+            current_rownum++;
+
+            //*------------------pqhuy1987-------------------
+            //LINQ to get Column of dataset table
+
+            for (int i = 0, j = 0; i < Project_MienNam.Length; i++)
+            {
+                oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(255, 255, 0);
+                oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
+                oSheet.Cells[current_rownum, 1] = " ";
+                oSheet.Cells[current_rownum, 2] = Project_MienNam[j][0].ToString();
+                current_rownum++;
+                for (int k = 0, h = 0; k < JobMain.Rows.Count; k++)
+                {
+                    oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(0, 255, 255);
+                    oSheet.Range["A" + current_rownum, "G" + current_rownum].Font.Bold = true;
+                    oSheet.Cells[current_rownum, 1] = " ";
+                    oSheet.Cells[current_rownum, 2] = JobMain.Rows[h][0].ToString();
+                    current_rownum++;
+
+                    DataRow[] LLTC_Row_Temp = Main_Name_LLTC.Select("Project_Name =" + String.Format("'{0}'", Project_MienNam[j][0].ToString().Replace("'", "''")) + "AND CS_WorkTypeMain =" + String.Format("'{0}'", JobMain.Rows[h][0].ToString().Replace("'", "''")));
+
+                    for (int v = 0, u = 0; u < LLTC_Row_Temp.Length; u++)
+                    {
+                        oSheet.Cells[current_rownum, 1] = u + 1;
+                        oSheet.Cells[current_rownum, 2] = LLTC_Row_Temp[v][0].ToString();
+                        oSheet.Cells[current_rownum, 3] = LLTC_Row_Temp[v][3].ToString();
+                        oSheet.Cells[current_rownum, 4] = LLTC_Row_Temp[v][4].ToString();
+                        oSheet.Cells[current_rownum, 5] = LLTC_Row_Temp[v][5].ToString();
+                        oSheet.Cells[current_rownum, 6] = LLTC_Row_Temp[v][6].ToString();
+                        oSheet.Cells[current_rownum, 7] = LLTC_Row_Temp[v][7].ToString();
+                        current_rownum++;
+                        v++;
+                    }
+                    h++;
+                }
+                j++;
+            }
+            //C --------------------------------------------- MIỀN NAM ------------------------------------------------------------------
 
             //Saving the excel file to “e” directory
             excelApp.DisplayAlerts = false;
