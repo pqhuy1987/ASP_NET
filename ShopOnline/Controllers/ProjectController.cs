@@ -27,6 +27,7 @@ namespace ShopOnline.Controllers
                 ProjectViewModel model      = new ProjectViewModel();
                 model.Project                       = db.Projects.OrderBy(m => m.ID).ToList();
                 model.CS_tbConstructionSiteType     = db.CS_tbConstructionSiteType.OrderBy(m => m.ID).ToList();
+                //model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID }).ToList();
                 model.Project_Type_All = new List<SelectListItem>();
                 var items = new List<SelectListItem>();
 
@@ -56,7 +57,7 @@ namespace ShopOnline.Controllers
                 //--------Select ID trả kết quả về View-----------//
                 model.SelectedProject   = db.Projects.Find(id);
                 model.LLTC              = db.LLTCs.OrderBy(m => m.ID).ToList();
-                model.CS_tbLLTCTypeSub = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID}).ToList();
+                model.CS_tbLLTCTypeSub  = db.CS_tbLLTCTypeSub.Where(m => m.CS_tbLLTCNameSiteID == model.SelectedProject.ID).OrderBy(m => new { m.CS_tbLLTCNameJobDetailsSub, m.ID}).ToList();
                 model.CS_tbWorkType     = db.CS_tbWorkType.OrderBy(m => m.ID).ToList();
                 model.CS_tbWorkTypeMain = db.CS_tbWorkTypeMain.OrderBy(m => m.ID).ToList();
                 model.Project           = db.Projects.OrderBy(m => m.ID).ToList();
@@ -945,8 +946,6 @@ namespace ShopOnline.Controllers
             DataSet dataSet = new DataSet("Organization");
             dataSet.Tables.Add(employeeTable);
 
-            //DataRow[] results = dataSet.Tables[0].Select("CS_WorkTypeMain = 'KẾT CẤU'");
-
             //Creating Object of Microsoft.Office.Interop.Excel and creating a Workbook
             var excelApp = new Excel.Application();
 
@@ -963,9 +962,11 @@ namespace ShopOnline.Controllers
 
             DataTable SiteName_Area = dataSet.Tables[0].DefaultView.ToTable(true, "Project_Name", "Site_Area");
             DataTable JobMain = dataSet.Tables[0].DefaultView.ToTable(true, "CS_WorkTypeMain");
+            DataTable Main_Name_LLTC = dataSet.Tables[0].DefaultView.ToTable(true, "Main_Name_LLTC", "Project_Name");
             DataRow[] Project_MienBac = SiteName_Area.Select("Site_Area = 'Miền Bắc'");
             DataRow[] Project_MienTrung = SiteName_Area.Select("Site_Area = 'Miền Trung'");
             DataRow[] Project_MienNam = SiteName_Area.Select("Site_Area = 'Miền Nam'");
+            DataRow[] Project_TEST;
 
             Excel.Worksheet workSheet = (Excel.Worksheet)excelApp.Worksheets[1]; //creating excel worksheet
             workSheet.Name = "LLTC_Export"; //name of excel file
@@ -979,7 +980,7 @@ namespace ShopOnline.Controllers
             Section_RowNum.Add(current_rownum);
             current_rownum++;
 
-            ///*------------------pqhuy1987-------------------
+            //*------------------pqhuy1987-------------------
             //LINQ to get Column of dataset table
 
             for (int i = 0, j=0; i < Project_MienBac.Length; i++)
@@ -989,7 +990,6 @@ namespace ShopOnline.Controllers
                 oSheet.Cells[current_rownum, 1] = " ";
                 oSheet.Cells[current_rownum, 2] = Project_MienBac[j][0].ToString();
                 current_rownum++;
-                j++;
                 for (int k = 0, h = 0; k < JobMain.Rows.Count; k++)
                 {
                     oSheet.Range["A" + current_rownum, "G" + current_rownum].Interior.Color = System.Drawing.Color.FromArgb(0, 255, 255);
@@ -997,9 +997,26 @@ namespace ShopOnline.Controllers
                     oSheet.Cells[current_rownum, 1] = " ";
                     oSheet.Cells[current_rownum, 2] = JobMain.Rows[h][0].ToString();
                     current_rownum++;
-                    h++;
-                    //DataRow[] results_Bac = dataSet.Tables[0].Select("A = 'foo' AND B = 'bar'");
+
+                    //var HeadingFields = from row in dataSet.Tables[0].AsEnumerable()
+                    //.Where(r => r.Field<string>("Project_Name") == Project_MienBac[j][0].ToString()
+                    //&& r.Field<string>("CS_WorkTypeMain") == JobMain.Rows[h][0].ToString())select row;
+                    String test_1 = Project_MienBac[j][0].ToString();
+                    test_1 = String.Format("Location = '{0}'", test_1.Replace("'", "''"));
+                    Project_TEST = Main_Name_LLTC.Select("Project_Name =" + test_1);
+
+                    for (int v = 0, u = 0; u < Project_TEST.Length; u++)
+                    {
+                        oSheet.Cells[current_rownum, 1] = " ";
+                        oSheet.Cells[current_rownum, 2] = Project_TEST[v][0].ToString();
+                        current_rownum++;
+                        v++;
+                    }
+
+                    h++;                  
                 }
+
+                j++;
 
             }
 

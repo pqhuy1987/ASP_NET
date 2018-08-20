@@ -51,6 +51,7 @@
         [StringLength(50, ErrorMessage = "Nội dung nhập vào không quá 50 ký tự")]
         public string Site_Area { get; set; }
 
+        public int Total_Number_LLTC_In_Project;
         public int Number_Person;
         public int Number_Project;
     }
