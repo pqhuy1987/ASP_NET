@@ -872,10 +872,8 @@ namespace ShopOnline.Controllers
                 //--------Add Dropdown for Type-------------------//
             }
         }
-
         //
         // POST: /Admin/Project/Delete/5
-
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

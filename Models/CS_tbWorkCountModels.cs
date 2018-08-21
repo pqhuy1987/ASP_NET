@@ -26,5 +26,7 @@ namespace Models
         public List<SelectListItem>     Project_Name_All              { get; set; }
 
         public string                   ValidStatus                   { get; set; }
+
+        public DateTime                 Excel_Date                     { get; set; }
     }
 }
