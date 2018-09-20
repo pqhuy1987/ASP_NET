@@ -2071,10 +2071,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/21/2018 14:39:03</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>08/21/2018 16:38:35</publishTime>
+      <publishTime>08/23/2018 17:11:58</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>08/21/2018 16:38:34</publishTime>
+      <publishTime>08/23/2018 17:11:57</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>08/21/2018 07:53:24</publishTime>
@@ -2095,7 +2095,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2018 07:53:24</publishTime>
     </File>
     <File Include="bin/ShopOnline.dll">
-      <publishTime>08/21/2018 16:38:08</publishTime>
+      <publishTime>08/23/2018 17:11:48</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>08/21/2018 07:53:24</publishTime>
@@ -2131,7 +2131,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2018 07:53:23</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/21/2018 16:38:21</publishTime>
+      <publishTime>08/23/2018 17:11:51</publishTime>
     </File>
     <File Include="Reports/Danh_sách_LLTC_theo_công_trường_ba_miền.xlsx">
       <publishTime>08/21/2018 07:53:21</publishTime>
@@ -2185,19 +2185,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2018 16:06:06</publishTime>
     </File>
     <File Include="Views/CS_tbWorkType/Create.cshtml">
-      <publishTime>08/21/2018 07:53:22</publishTime>
+      <publishTime>08/23/2018 09:21:34</publishTime>
     </File>
     <File Include="Views/CS_tbWorkType/Delete.cshtml">
-      <publishTime>08/21/2018 07:53:22</publishTime>
+      <publishTime>08/23/2018 09:47:58</publishTime>
     </File>
     <File Include="Views/CS_tbWorkType/Edit.cshtml">
-      <publishTime>08/21/2018 07:53:22</publishTime>
+      <publishTime>08/23/2018 09:36:51</publishTime>
     </File>
     <File Include="Views/CS_tbWorkType/Finish.cshtml">
-      <publishTime>08/21/2018 07:53:22</publishTime>
+      <publishTime>08/23/2018 09:52:14</publishTime>
     </File>
     <File Include="Views/CS_tbWorkType/Index.cshtml">
-      <publishTime>08/21/2018 07:53:22</publishTime>
+      <publishTime>08/23/2018 09:17:57</publishTime>
     </File>
     <File Include="Views/CS_tbWorkTypeMain/Create.cshtml">
       <publishTime>08/21/2018 07:53:22</publishTime>
